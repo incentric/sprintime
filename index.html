@@ -99,12 +99,14 @@
       .feature-card {
         overflow: hidden;
         min-height: 330px;
+        border: 0 !important;
+        box-shadow: 0 20px 52px rgba(25, 28, 30, 0.06);
       }
 
       .feature-visual {
         position: relative;
         min-height: 132px;
-        margin: -8px -8px 24px;
+        margin: -8px -8px 28px;
         border-radius: 16px;
         background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
         overflow: hidden;
@@ -241,6 +243,179 @@
         margin-top: 8px;
         border-radius: 999px;
         background: linear-gradient(135deg, transparent 35%, rgba(0, 85, 255, 0.18) 36% 42%, transparent 43% 52%, rgba(0, 85, 255, 0.34) 53% 60%, transparent 61%);
+      }
+
+      .hero-section {
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(195, 197, 217, 0.55);
+        background:
+          radial-gradient(circle at 0% 18%, rgba(0, 85, 255, 0.12), transparent 28%),
+          radial-gradient(circle at 100% 8%, rgba(0, 85, 255, 0.1), transparent 26%),
+          radial-gradient(circle at 88% 92%, rgba(76, 214, 255, 0.14), transparent 30%),
+          linear-gradient(180deg, #ffffff 0%, #f8fbff 55%, #ffffff 100%);
+      }
+
+      .hero-section::before {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background-image: radial-gradient(circle, rgba(0, 65, 200, 0.14) 1px, transparent 1.5px);
+        background-size: 34px 34px;
+        opacity: 0.34;
+        mask-image: radial-gradient(circle at 50% 30%, black 0%, transparent 68%);
+        pointer-events: none;
+      }
+
+      .hero-section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-preview-shell {
+        min-height: 280px;
+      }
+
+      .hero-dashboard {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        background: #f7faff;
+        color: #191c1e;
+      }
+
+      .dashboard-sidebar {
+        padding: 22px 18px;
+        border-right: 1px solid #dfe5f2;
+        background: linear-gradient(180deg, #ffffff 0%, #f2f6ff 100%);
+        text-align: left;
+      }
+
+      .dashboard-nav {
+        display: grid;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .dashboard-nav > span,
+      .dashboard-pill {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 10px;
+        padding: 9px 10px;
+        font-size: 12px;
+        color: #5e6472;
+      }
+
+      .dashboard-nav > span:first-child {
+        background: #eaf1ff;
+        color: #0055ff;
+        font-weight: 700;
+      }
+
+      .dashboard-main {
+        padding: 22px;
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        gap: 16px;
+        text-align: left;
+      }
+
+      .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .dashboard-header h3 {
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0;
+      }
+
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .dashboard-card {
+        border-radius: 14px;
+        background: #ffffff;
+        padding: 14px;
+        box-shadow: 0 12px 36px rgba(25, 28, 30, 0.07);
+      }
+
+      .dashboard-card small {
+        color: #6d7380;
+        font-size: 11px;
+      }
+
+      .dashboard-card strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 18px;
+      }
+
+      .dashboard-flow {
+        display: grid;
+        grid-template-columns: 0.9fr 1fr 0.9fr;
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .flow-mini {
+        border-radius: 14px;
+        background: #ffffff;
+        padding: 14px;
+        box-shadow: inset 0 0 0 1px rgba(195, 197, 217, 0.7);
+      }
+
+      .flow-mini h4 {
+        margin: 0 0 10px;
+        color: #0055ff;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .mini-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        border-radius: 10px;
+        background: #f6f8fc;
+        padding: 8px 10px;
+        font-size: 12px;
+        margin-top: 8px;
+      }
+
+      .progress-track {
+        height: 7px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: #dfe6f5;
+        margin-top: 12px;
+      }
+
+      .progress-track span {
+        display: block;
+        height: 100%;
+        width: 64%;
+        background: #0055ff;
+      }
+
+      .system-quote {
+        max-width: 760px;
+        margin: -32px auto 44px;
+        border-left: 3px solid #0055ff;
+        padding: 10px 0 10px 18px;
+        color: #434656;
+        font-style: italic;
+        text-align: left;
       }
 
       .micro-raise,
@@ -406,6 +581,47 @@
         .bsc-title {
           font-size: 16px;
         }
+
+        .hero-dashboard {
+          grid-template-columns: 1fr;
+        }
+
+        .dashboard-sidebar {
+          display: none;
+        }
+
+        .dashboard-main {
+          padding: 16px;
+          gap: 12px;
+        }
+
+        .dashboard-header {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .dashboard-grid,
+        .dashboard-flow {
+          grid-template-columns: 1fr;
+        }
+
+        .dashboard-card:nth-child(n+3),
+        .flow-mini:nth-child(n+3) {
+          display: none;
+        }
+
+        .dashboard-header h3 {
+          font-size: 17px;
+        }
+
+        .hero-preview-shell {
+          min-height: 360px;
+        }
+
+        .dashboard-flow {
+          display: none;
+        }
       }
 
       @media (max-width: 1023px) {
@@ -437,7 +653,8 @@
 </nav>
 <main class="pt-24">
 <!-- Hero Section -->
-<section class="px-gutter pt-16 pb-20 flex flex-col items-center text-center max-w-5xl mx-auto">
+<section class="hero-section px-gutter pt-16 pb-20 flex flex-col items-center text-center">
+<div class="w-full max-w-5xl mx-auto flex flex-col items-center">
 <h1 class="font-headline-xl text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight">
             Dari Strategi ke Eksekusi<div class="">dalam Satu Sistem
         </div></h1>
@@ -459,13 +676,50 @@
                 14 hari penuh. Semua fitur. Tanpa kartu kredit.
             </p>
 </div>
-<!-- Dashboard Preview / Video Placeholder -->
-<div class="w-full mt-16 relative rounded-2xl overflow-hidden shadow-2xl border border-outline-variant bg-white aspect-video max-w-4xl mx-auto">
-<img alt="Sprintime Dashboard Preview" class="w-full h-full object-cover" src="assets/stitch-modern-saas-reference.png">
-<div class="absolute inset-0 flex items-center justify-center bg-black/10">
-<button class="w-20 h-20 bg-primary/90 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-</button>
+<!-- Dashboard Preview -->
+<div class="hero-preview-shell w-full mt-16 relative rounded-2xl overflow-hidden shadow-2xl border border-outline-variant bg-white aspect-video max-w-4xl mx-auto">
+<div class="hero-dashboard" aria-label="Sprintime dashboard preview">
+<aside class="dashboard-sidebar">
+<img alt="Sprintime" class="h-8 w-auto" src="assets/logo-sprintime.png">
+<div class="dashboard-nav">
+<span><span class="material-symbols-outlined text-sm">dashboard</span> Overview</span>
+<span><span class="material-symbols-outlined text-sm">track_changes</span> OKR</span>
+<span><span class="material-symbols-outlined text-sm">calendar_month</span> Sprint</span>
+<span><span class="material-symbols-outlined text-sm">checklist</span> Tasks</span>
+</div>
+</aside>
+<div class="dashboard-main">
+<div class="dashboard-header">
+<div>
+<p class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Sprint Productivity System</p>
+<h3>Company Execution Board</h3>
+</div>
+<span class="dashboard-pill bg-green-100 text-green-700 font-bold"><span class="material-symbols-outlined text-sm">sync</span> Live progress</span>
+</div>
+<div class="dashboard-grid">
+<div class="dashboard-card"><small>Quarterly OKR</small><strong>64%</strong><div class="progress-track"><span></span></div></div>
+<div class="dashboard-card"><small>Weekly sprint</small><strong>12 tasks</strong><div class="progress-track"><span style="width: 72%;"></span></div></div>
+<div class="dashboard-card"><small>Team focus</small><strong>4 BSC areas</strong><div class="progress-track"><span style="width: 82%;"></span></div></div>
+</div>
+<div class="dashboard-flow">
+<div class="flow-mini">
+<h4>Strategy</h4>
+<div class="mini-row"><span>Financial</span><strong>MRR</strong></div>
+<div class="mini-row"><span>Customer</span><strong>NPS</strong></div>
+</div>
+<div class="flow-mini">
+<h4>Objective</h4>
+<div class="mini-row"><span>Increase trial conversion</span><strong>20%</strong></div>
+<div class="mini-row"><span>Reduce onboarding drop-off</span><strong>15%</strong></div>
+</div>
+<div class="flow-mini">
+<h4>Daily Tasks</h4>
+<div class="mini-row"><span>Audit funnel</span><strong>Done</strong></div>
+<div class="mini-row"><span>Follow up trial users</span><strong>Today</strong></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -477,58 +731,46 @@
 <div class="max-w-container-max-width mx-auto px-gutter">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 <!-- Strategy Planning -->
-<div class="feature-card bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-card bg-white p-8 rounded-2xl flex flex-col">
 <div class="feature-visual" aria-hidden="true">
 <div class="visual-chat">
 <div class="chat-bubble primary">Set OKR</div>
 <div class="chat-bubble">Financial, customer, process, growth</div>
 </div>
 </div>
-<div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-pink-600">track_changes</span>
-</div>
 <h3 class="font-bold text-xl mb-3 text-on-surface">Strategy Planning</h3>
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Susun strategi bisnis dengan framework BSC yang sudah disederhanakan. Financial, Customer, Internal Process, Learning &amp; Growth — semua dalam satu tampilan.</p>
 </div>
 <!-- OKR Management -->
-<div class="feature-card bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-card bg-white p-8 rounded-2xl flex flex-col">
 <div class="feature-visual" aria-hidden="true">
 <div class="visual-metrics">
 <div class="metric-row"><span>+18%</span><strong>OKR Progress</strong><div class="metric-line"></div></div>
 <div class="metric-row"><span>72%</span><strong>Key Result</strong></div>
 </div>
 </div>
-<div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-green-600">ads_click</span>
-</div>
 <h3 class="font-bold text-xl mb-3 text-on-surface">OKR Management</h3>
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Set Objectives &amp; Key Results yang terhubung langsung ke strategi. Tidak ada lagi OKR yang hidup sendiri di spreadsheet.</p>
 </div>
 <!-- Sprint Execution -->
-<div class="feature-card bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-card bg-white p-8 rounded-2xl flex flex-col">
 <div class="feature-visual" aria-hidden="true">
 <div class="visual-calendar">
 <strong class="text-sm">Sprint minggu ini</strong>
 <div class="calendar-pill"><span class="material-symbols-outlined text-sm">event</span> Senin, 09.00 - Sprint Planning</div>
 </div>
 </div>
-<div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-yellow-600">bolt</span>
-</div>
 <h3 class="font-bold text-xl mb-3 text-on-surface">Sprint Execution</h3>
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Jalankan sprint mingguan atau dua-mingguan dengan prioritas yang jelas. Setiap sprint terhubung ke OKR — bukan sekadar to-do list biasa.</p>
 </div>
 <!-- Task Tracking -->
-<div class="feature-card bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-card bg-white p-8 rounded-2xl flex flex-col">
 <div class="feature-visual" aria-hidden="true">
 <div class="visual-board">
 <div class="board-col"></div>
 <div class="board-col"></div>
 <div class="board-col"></div>
 </div>
-</div>
-<div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-blue-600">check_circle</span>
 </div>
 <h3 class="font-bold text-xl mb-3 text-on-surface">Task &amp; Progress Tracking</h3>
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Setiap anggota tim punya task yang jelas, terlacak, dan bermakna. Anda sebagai Leader bisa lihat progress real-time tanpa harus nanya satu per satu.</p>
@@ -546,6 +788,7 @@
                     Kami tidak hanya membangun tool. Kami membangun <strong>Sprint Productivity System</strong> — metodologi yang telah terbukti membantu perusahaan Indonesia menghubungkan visi mereka ke eksekusi harian.
                 </p>
 </div>
+<p class="system-quote">"Untuk pertama kalinya, semua orang di tim Anda bekerja ke arah yang sama dan Anda bisa melihatnya secara real-time."</p>
 <!-- Simplified Horizontal Flow Visual -->
 <div class="max-w-6xl mx-auto mb-16 relative p-6 md:p-8 bg-surface-container-low rounded-2xl border border-outline-variant overflow-visible" id="okr-flow">
 <div class="flow-content">
@@ -601,9 +844,6 @@
 </ul>
 </article>
 </div>
-</div>
-<div class="p-8 bg-surface-container rounded-2xl text-center">
-<p class="text-on-surface font-semibold italic">"Untuk pertama kalinya, semua orang di tim Anda bekerja ke arah yang sama dan Anda bisa melihatnya secara real-time."</p>
 </div>
 </div>
 </section>
