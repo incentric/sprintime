@@ -248,12 +248,17 @@
       .hero-section {
         position: relative;
         overflow: hidden;
-        border-bottom: 1px solid rgba(195, 197, 217, 0.55);
         background:
           radial-gradient(circle at 0% 18%, rgba(0, 85, 255, 0.12), transparent 28%),
           radial-gradient(circle at 100% 8%, rgba(0, 85, 255, 0.1), transparent 26%),
           radial-gradient(circle at 88% 92%, rgba(76, 214, 255, 0.14), transparent 30%),
           linear-gradient(180deg, #ffffff 0%, #f8fbff 55%, #ffffff 100%);
+      }
+
+      .site-nav {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(247, 251, 255, 0.58) 100%);
+        backdrop-filter: blur(18px);
       }
 
       .hero-section::before {
@@ -264,6 +269,17 @@
         background-size: 34px 34px;
         opacity: 0.34;
         mask-image: radial-gradient(circle at 50% 30%, black 0%, transparent 68%);
+        pointer-events: none;
+      }
+
+      .hero-section::after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: 150px;
+        content: "";
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f7faff 58%, #f4f7fb 100%);
         pointer-events: none;
       }
 
@@ -522,7 +538,22 @@
       }
 
       .tab-pane.active {
-        animation: tabPaneIn 260ms ease both;
+        animation: tabSlideIn 340ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      #tab-content[data-direction="prev"] .tab-pane.active {
+        animation-name: tabSlideInReverse;
+      }
+
+      .tab-nav {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: end;
+      }
+
+      .tab-btn {
+        min-width: 0;
+        white-space: nowrap;
       }
 
       .problem-card {
@@ -604,6 +635,38 @@
         z-index: 1;
       }
 
+      .features-soft,
+      .tools-soft {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .features-soft {
+        background:
+          linear-gradient(180deg, #f4f7fb 0%, #f6f8fc 22%, #f7f9fc 100%);
+      }
+
+      .tools-soft {
+        background:
+          linear-gradient(180deg, #f6f8fc 0%, #f8fbff 62%, #ffffff 100%);
+      }
+
+      .tools-soft::after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: 140px;
+        content: "";
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 74%);
+        pointer-events: none;
+      }
+
+      .tools-soft > * {
+        position: relative;
+        z-index: 1;
+      }
+
       @keyframes shakePulse {
         0%, 82%, 100% { transform: translateX(0) scale(1); }
         86% { transform: translateX(-3px) scale(1.02); }
@@ -622,9 +685,14 @@
         100% { opacity: 1; transform: translateY(0); }
       }
 
-      @keyframes tabPaneIn {
-        0% { opacity: 0; transform: translateY(10px); }
-        100% { opacity: 1; transform: translateY(0); }
+      @keyframes tabSlideIn {
+        0% { opacity: 0; transform: translateX(34px); }
+        100% { opacity: 1; transform: translateX(0); }
+      }
+
+      @keyframes tabSlideInReverse {
+        0% { opacity: 0; transform: translateX(-34px); }
+        100% { opacity: 1; transform: translateX(0); }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -716,7 +784,7 @@
 
       }
     </style></head><body class="bg-white text-on-surface font-body-md selection:bg-primary/20">
-<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-white/90 backdrop-blur-md border-b border-outline-variant">
+<nav class="site-nav fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4">
 <div class="flex items-center gap-2">
 <img alt="Sprintime Logo" class="h-10 w-auto" src="assets/logo-sprintime.png">
 </div>
@@ -730,9 +798,9 @@
 <button class="bg-primary text-white font-semibold text-[14px] px-6 py-2 rounded-lg hover:brightness-110 active:scale-95 transition-all">Start for free</button>
 </div>
 </nav>
-<main class="pt-24">
+<main>
 <!-- Hero Section -->
-<section class="hero-section px-gutter pt-16 pb-20 flex flex-col items-center text-center">
+<section class="hero-section px-gutter pt-40 pb-20 flex flex-col items-center text-center">
 <div class="w-full max-w-5xl mx-auto flex flex-col items-center">
 <h1 class="font-headline-xl text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight">
             Dari Strategi ke Eksekusi<div class="">dalam Satu Sistem
@@ -803,7 +871,7 @@
 </div>
 </section>
 <!-- Satu Platform. Empat Kekuatan. (Features) -->
-<section class="py-24 bg-surface" id="features">
+<section class="features-soft py-24" id="features">
 <div class="max-w-container-max-width mx-auto px-gutter text-center mb-16">
 <h2 class="font-headline-md text-3xl md:text-4xl text-on-surface mb-4">Satu Platform. Empat Kekuatan.</h2>
 </div>
@@ -930,11 +998,11 @@
 <section class="py-24 bg-surface-bright" id="how-it-works">
 <div class="max-w-4xl mx-auto px-gutter">
 <h2 class="font-headline-md text-3xl md:text-4xl text-center mb-12">Cara Kerja Sprintime</h2>
-<div class="flex flex-wrap justify-center mb-12">
-<button class="px-6 py-4 font-bold text-sm border-b-2 border-primary text-primary transition-all tab-btn active" data-tab="quarterly">Quarterly</button>
-<button class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="monthly">Monthly</button>
-<button class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="weekly">Weekly</button>
-<button class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="daily">Daily</button>
+<div class="tab-nav mb-12">
+<button class="px-3 sm:px-6 py-4 font-bold text-xs sm:text-sm border-b-2 border-primary text-primary transition-all tab-btn active" data-tab="quarterly">Quarterly</button>
+<button class="px-3 sm:px-6 py-4 font-bold text-xs sm:text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="monthly">Monthly</button>
+<button class="px-3 sm:px-6 py-4 font-bold text-xs sm:text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="weekly">Weekly</button>
+<button class="px-3 sm:px-6 py-4 font-bold text-xs sm:text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="daily">Daily</button>
 </div>
 <div class="bg-white p-10 rounded-2xl shadow-[0_18px_48px_rgba(25,28,30,0.07)] min-h-[240px]" id="tab-content">
 <!-- Default Content: Quarterly -->
@@ -1098,7 +1166,7 @@
 </div>
 </section>
 <!-- Tools to Empower -->
-<section class="py-24 bg-surface-container-low" id="features-detailed">
+<section class="tools-soft py-24" id="features-detailed">
 <div class="max-w-container-max-width mx-auto px-gutter">
 <div class="text-center mb-16">
 <h2 class="font-headline-md text-primary uppercase text-sm tracking-widest font-bold mb-4">TOOLS TO EMPOWER</h2>
@@ -1178,9 +1246,16 @@
 </footer>
 </div>
 <script>
+    const tabOrder = ['quarterly', 'monthly', 'weekly', 'daily'];
+    let activeTabId = 'quarterly';
+
     document.querySelectorAll('.tab-btn').forEach(button => {
         button.addEventListener('click', () => {
             const tabId = button.getAttribute('data-tab');
+            if (tabId === activeTabId) return;
+            const tabContent = document.querySelector('#tab-content');
+            const direction = tabOrder.indexOf(tabId) > tabOrder.indexOf(activeTabId) ? 'next' : 'prev';
+            tabContent.dataset.direction = direction;
 
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active', 'border-primary', 'text-primary');
@@ -1194,6 +1269,8 @@
                 pane.classList.toggle('hidden', pane.id !== tabId);
                 pane.classList.toggle('active', pane.id === tabId);
             });
+
+            activeTabId = tabId;
         });
     });
 
