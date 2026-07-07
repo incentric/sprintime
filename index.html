@@ -96,7 +96,155 @@
         animation: badgePop 2.2s ease-in-out infinite;
       }
 
+      .feature-card {
+        overflow: hidden;
+        min-height: 330px;
+      }
+
+      .feature-visual {
+        position: relative;
+        min-height: 132px;
+        margin: -8px -8px 24px;
+        border-radius: 16px;
+        background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+        overflow: hidden;
+      }
+
+      .feature-visual::before,
+      .feature-visual::after {
+        position: absolute;
+        content: "";
+        border: 1px solid rgba(195, 197, 217, 0.45);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.68);
+      }
+
+      .feature-visual::before {
+        inset: 18px 28px 34px;
+        transform: translateY(-8px);
+      }
+
+      .feature-visual::after {
+        inset: 28px 18px 22px;
+        box-shadow: 0 20px 48px rgba(0, 85, 255, 0.08);
+      }
+
+      .visual-chat,
+      .visual-calendar,
+      .visual-board,
+      .visual-metrics {
+        position: absolute;
+        z-index: 1;
+      }
+
+      .visual-chat {
+        inset: 36px 26px auto;
+        display: grid;
+        gap: 10px;
+      }
+
+      .chat-bubble {
+        width: max-content;
+        max-width: 76%;
+        border-radius: 12px;
+        padding: 9px 12px;
+        background: #ffffff;
+        box-shadow: 0 10px 28px rgba(25, 28, 30, 0.08);
+        color: #191c1e;
+        font-size: 12px;
+        line-height: 1.25;
+      }
+
+      .chat-bubble.primary {
+        justify-self: end;
+        color: #ffffff;
+        background: #0055ff;
+      }
+
+      .visual-calendar {
+        left: 24px;
+        right: 24px;
+        top: 42px;
+        border-radius: 14px;
+        padding: 14px;
+        color: #009c38;
+        background: #d9f8df;
+        box-shadow: 0 18px 44px rgba(0, 156, 56, 0.12);
+      }
+
+      .calendar-pill {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        border-radius: 999px;
+        padding: 9px 12px;
+        color: #191c1e;
+        background: #ffffff;
+        font-size: 12px;
+      }
+
+      .visual-board {
+        inset: 38px 34px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .board-col {
+        min-height: 58px;
+        border: 1px solid rgba(195, 197, 217, 0.5);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.82);
+      }
+
+      .board-col::before {
+        display: block;
+        width: 56%;
+        height: 8px;
+        margin: 10px;
+        border-radius: 999px;
+        content: "";
+        background: #0055ff;
+        opacity: 0.18;
+      }
+
+      .visual-metrics {
+        inset: 22px 24px auto;
+        display: grid;
+        gap: 8px;
+      }
+
+      .metric-row {
+        min-width: 220px;
+        border: 1px solid rgba(195, 197, 217, 0.5);
+        border-radius: 12px;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.86);
+      }
+
+      .metric-row strong {
+        display: block;
+        margin-top: 3px;
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .metric-row span {
+        color: #00a642;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .metric-line {
+        height: 22px;
+        margin-top: 8px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, transparent 35%, rgba(0, 85, 255, 0.18) 36% 42%, transparent 43% 52%, rgba(0, 85, 255, 0.34) 53% 60%, transparent 61%);
+      }
+
       .micro-raise,
+      .feature-card,
       .problem-card,
       .bsc-option,
       .flow-card {
@@ -104,6 +252,7 @@
       }
 
       .micro-raise:hover,
+      .feature-card:hover,
       .problem-card:hover,
       .flow-card:hover {
         transform: translateY(-4px);
@@ -189,6 +338,14 @@
         animation: flowPulse 520ms ease;
       }
 
+      #tab-content {
+        transition: min-height 220ms ease, box-shadow 180ms ease;
+      }
+
+      .tab-pane.active {
+        animation: tabPaneIn 260ms ease both;
+      }
+
       .problem-card {
         min-height: 360px;
       }
@@ -211,6 +368,11 @@
         100% { opacity: 1; transform: translateY(0); }
       }
 
+      @keyframes tabPaneIn {
+        0% { opacity: 0; transform: translateY(10px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .attention-shake,
         .attention-badge,
@@ -223,12 +385,32 @@
         .problem-card {
           min-height: auto;
         }
+
+        .bsc-map {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .bsc-option {
+          min-height: 132px;
+          flex-direction: column;
+          gap: 10px;
+          padding: 14px;
+        }
+
+        .bsc-option .w-10 {
+          width: 36px;
+          height: 36px;
+        }
+
+        .bsc-title {
+          font-size: 16px;
+        }
       }
 
       @media (max-width: 1023px) {
         .flow-content,
-        .execution-chain,
-        .bsc-map {
+        .execution-chain {
           grid-template-columns: 1fr;
         }
 
@@ -295,7 +477,13 @@
 <div class="max-w-container-max-width mx-auto px-gutter">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 <!-- Strategy Planning -->
-<div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-card bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-visual" aria-hidden="true">
+<div class="visual-chat">
+<div class="chat-bubble primary">Set OKR</div>
+<div class="chat-bubble">Financial, customer, process, growth</div>
+</div>
+</div>
 <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-pink-600">track_changes</span>
 </div>
@@ -303,7 +491,13 @@
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Susun strategi bisnis dengan framework BSC yang sudah disederhanakan. Financial, Customer, Internal Process, Learning &amp; Growth — semua dalam satu tampilan.</p>
 </div>
 <!-- OKR Management -->
-<div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-card bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-visual" aria-hidden="true">
+<div class="visual-metrics">
+<div class="metric-row"><span>+18%</span><strong>OKR Progress</strong><div class="metric-line"></div></div>
+<div class="metric-row"><span>72%</span><strong>Key Result</strong></div>
+</div>
+</div>
 <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-green-600">ads_click</span>
 </div>
@@ -311,7 +505,13 @@
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Set Objectives &amp; Key Results yang terhubung langsung ke strategi. Tidak ada lagi OKR yang hidup sendiri di spreadsheet.</p>
 </div>
 <!-- Sprint Execution -->
-<div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-card bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-visual" aria-hidden="true">
+<div class="visual-calendar">
+<strong class="text-sm">Sprint minggu ini</strong>
+<div class="calendar-pill"><span class="material-symbols-outlined text-sm">event</span> Senin, 09.00 - Sprint Planning</div>
+</div>
+</div>
 <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-yellow-600">bolt</span>
 </div>
@@ -319,7 +519,14 @@
 <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Jalankan sprint mingguan atau dua-mingguan dengan prioritas yang jelas. Setiap sprint terhubung ke OKR — bukan sekadar to-do list biasa.</p>
 </div>
 <!-- Task Tracking -->
-<div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-card bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="feature-visual" aria-hidden="true">
+<div class="visual-board">
+<div class="board-col"></div>
+<div class="board-col"></div>
+<div class="board-col"></div>
+</div>
+</div>
 <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-blue-600">check_circle</span>
 </div>
