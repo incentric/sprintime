@@ -132,29 +132,58 @@
         transition: opacity 180ms ease, transform 180ms ease;
       }
 
-      .flow-card {
-        min-height: 250px;
-      }
-
-      .flow-arrow {
+      .flow-diagram {
         position: relative;
       }
 
-      .flow-arrow::before {
-        content: "";
+      .flow-lines {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
         width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, rgba(0, 85, 255, 0.2), #0055ff);
+        height: 100%;
+        pointer-events: none;
       }
 
-      .flow-arrow::after {
-        content: "";
-        width: 10px;
-        height: 10px;
-        border-right: 2px solid #0055ff;
-        border-top: 2px solid #0055ff;
-        transform: rotate(45deg);
-        margin-left: -10px;
+      .flow-lines path {
+        fill: none;
+        stroke: #0055ff;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 8 8;
+        opacity: 0.8;
+        transition: d 220ms ease, opacity 180ms ease;
+      }
+
+      .flow-content {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+        gap: 32px;
+        align-items: start;
+      }
+
+      .bsc-map {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .execution-chain {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr) minmax(0, 1.04fr);
+        gap: 20px;
+        align-items: start;
+      }
+
+      .flow-card {
+        min-height: 220px;
+      }
+
+      #flow-task-card {
+        min-width: 0;
       }
 
       .flow-pulse {
@@ -194,6 +223,23 @@
       @media (max-width: 767px) {
         .problem-card {
           min-height: auto;
+        }
+      }
+
+      @media (max-width: 1023px) {
+        .flow-content,
+        .execution-chain,
+        .bsc-map {
+          grid-template-columns: 1fr;
+        }
+
+        .flow-content,
+        .execution-chain {
+          gap: 16px;
+        }
+
+        .flow-lines {
+          display: none;
         }
       }
     </style></head><body class="bg-white text-on-surface font-body-md selection:bg-primary/20">
@@ -298,40 +344,46 @@
                 </p>
 </div>
 <!-- Simplified Horizontal Flow Visual -->
-<div class="max-w-6xl mx-auto mb-16 relative p-6 md:p-8 bg-surface-container-low rounded-2xl border border-outline-variant overflow-hidden" id="okr-flow">
-<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+<div class="max-w-6xl mx-auto mb-16 relative p-6 md:p-8 bg-surface-container-low rounded-2xl border border-outline-variant overflow-visible" id="okr-flow">
+<div class="flow-diagram">
+<svg class="flow-lines" aria-hidden="true">
+<defs>
+<marker id="flow-arrow-head" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#0055ff"></path>
+</marker>
+</defs>
+<path id="line-bsc-okr" marker-end="url(#flow-arrow-head)"></path>
+<path id="line-okr-sprint" marker-end="url(#flow-arrow-head)"></path>
+<path id="line-sprint-task" marker-end="url(#flow-arrow-head)"></path>
+</svg>
+<div class="flow-content">
 <div>
-<span class="bg-blue-100 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">Interactive OKR Flow</span>
-<h3 class="text-2xl md:text-3xl font-bold text-on-surface mt-4">Klik perspektif BSC untuk melihat strategi turun menjadi OKR, sprint, dan task.</h3>
-</div>
-<p class="text-sm text-on-surface-variant md:max-w-xs">Sprintime menjaga setiap pekerjaan harian tetap punya konteks bisnis yang jelas.</p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-[1.05fr_70px_1fr_70px_1fr_70px_1fr] gap-5 items-stretch">
-<div class="space-y-3">
 <p class="text-xs font-bold text-primary uppercase tracking-widest mb-3">Strategy (BSC)</p>
-<button class="bsc-option w-full bg-white p-4 rounded-xl border-2 border-primary shadow-md flex items-start gap-4" type="button" data-flow-key="financial" aria-pressed="true">
+<div class="bsc-map">
+<button class="bsc-option bg-white p-4 rounded-xl border-2 border-primary shadow-md flex items-start gap-3" type="button" data-flow-key="financial" aria-pressed="true">
 <span class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-green-600">payments</span></span>
-<span class="flex-1"><strong class="block text-on-surface">Financial</strong><small class="text-on-surface-variant">Revenue, margin, cashflow</small></span>
+<span class="flex-1"><strong class="block text-on-surface">Financial</strong><small class="text-on-surface-variant">Revenue &amp; margin</small></span>
 <span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
 </button>
-<button class="bsc-option w-full bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-4" type="button" data-flow-key="customer" aria-pressed="false">
+<button class="bsc-option bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-3" type="button" data-flow-key="customer" aria-pressed="false">
 <span class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary">group</span></span>
-<span class="flex-1"><strong class="block text-on-surface">Customer</strong><small class="text-on-surface-variant">Retention, satisfaction, trust</small></span>
+<span class="flex-1"><strong class="block text-on-surface">Customer</strong><small class="text-on-surface-variant">Retention &amp; NPS</small></span>
 <span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
 </button>
-<button class="bsc-option w-full bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-4" type="button" data-flow-key="process" aria-pressed="false">
+<button class="bsc-option bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-3" type="button" data-flow-key="process" aria-pressed="false">
 <span class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-yellow-600">settings_suggest</span></span>
-<span class="flex-1"><strong class="block text-on-surface">Internal Process</strong><small class="text-on-surface-variant">Speed, quality, handoff</small></span>
+<span class="flex-1"><strong class="block text-on-surface">Internal Process</strong><small class="text-on-surface-variant">Speed &amp; quality</small></span>
 <span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
 </button>
-<button class="bsc-option w-full bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-4" type="button" data-flow-key="growth" aria-pressed="false">
+<button class="bsc-option bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-3" type="button" data-flow-key="growth" aria-pressed="false">
 <span class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-pink-600">school</span></span>
-<span class="flex-1"><strong class="block text-on-surface">Learning &amp; Growth</strong><small class="text-on-surface-variant">People, skill, capability</small></span>
+<span class="flex-1"><strong class="block text-on-surface">Learning &amp; Growth</strong><small class="text-on-surface-variant">Skill &amp; capability</small></span>
 <span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
 </button>
 </div>
-<div class="flow-arrow hidden lg:flex items-center"></div>
-<article class="flow-card bg-white p-6 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-objective-card">
+</div>
+<div class="execution-chain">
+<article class="flow-card bg-white p-5 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-objective-card" data-flow-node="okr">
 <div class="flex justify-between items-start gap-4 mb-5">
 <div>
 <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Objective (OKR)</p>
@@ -345,8 +397,7 @@
 <div class="h-2 w-full bg-surface-container rounded-full overflow-hidden"><div class="bg-primary h-full transition-all duration-500" id="flow-progress-bar" style="width: 64%"></div></div>
 </div>
 </article>
-<div class="flow-arrow hidden lg:flex items-center"></div>
-<article class="flow-card bg-white p-6 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-sprint-card">
+<article class="flow-card bg-white p-5 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-sprint-card" data-flow-node="sprint">
 <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Weekly Sprint</p>
 <h4 class="text-xl font-bold text-on-surface" id="flow-sprint">Optimasi funnel trial ke paid</h4>
 <p class="text-sm text-on-surface-variant mt-3" id="flow-sprint-detail">Sprint minggu ini fokus pada eksperimen onboarding dan follow-up trial user.</p>
@@ -355,8 +406,7 @@
 <span class="text-[10px] font-bold bg-green-100 text-green-600 px-2 py-1 rounded uppercase">In Progress</span>
 </div>
 </article>
-<div class="flow-arrow hidden lg:flex items-center"></div>
-<article class="flow-card bg-white p-6 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-task-card">
+<article class="flow-card bg-white p-5 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-task-card" data-flow-node="task">
 <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Daily Tasks</p>
 <ul class="space-y-3 mt-4" id="flow-tasks">
 <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary text-sm">check_box</span> Audit drop-off halaman aktivasi trial</li>
@@ -364,6 +414,8 @@
 <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-outline text-sm">check_box_outline_blank</span> Review conversion dashboard harian</li>
 </ul>
 </article>
+</div>
+</div>
 </div>
 </div>
 <div class="p-8 bg-surface-container rounded-2xl text-center">
@@ -733,6 +785,38 @@
     const sprintDetailEl = document.querySelector('#flow-sprint-detail');
     const tasksEl = document.querySelector('#flow-tasks');
     const flowCards = Array.from(document.querySelectorAll('#flow-objective-card, #flow-sprint-card, #flow-task-card'));
+    const flowDiagram = document.querySelector('.flow-diagram');
+    const flowSvg = document.querySelector('.flow-lines');
+    const lineBscOkr = document.querySelector('#line-bsc-okr');
+    const lineOkrSprint = document.querySelector('#line-okr-sprint');
+    const lineSprintTask = document.querySelector('#line-sprint-task');
+
+    const setConnector = (path, fromEl, toEl) => {
+        if (!path || !fromEl || !toEl || !flowDiagram || !flowSvg) return;
+
+        const rootRect = flowDiagram.getBoundingClientRect();
+        const fromRect = fromEl.getBoundingClientRect();
+        const toRect = toEl.getBoundingClientRect();
+        const x1 = fromRect.right - rootRect.left;
+        const y1 = fromRect.top + fromRect.height / 2 - rootRect.top;
+        const x2 = toRect.left - rootRect.left;
+        const y2 = toRect.top + toRect.height / 2 - rootRect.top;
+        const bend = Math.max(28, Math.min(72, (x2 - x1) / 2));
+
+        path.setAttribute('d', `M ${x1} ${y1} C ${x1 + bend} ${y1}, ${x2 - bend} ${y2}, ${x2} ${y2}`);
+    };
+
+    const updateFlowLines = () => {
+        if (!flowDiagram || !flowSvg) return;
+        const width = flowDiagram.clientWidth;
+        const height = flowDiagram.clientHeight;
+        flowSvg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+        const activeBsc = document.querySelector('.bsc-option[aria-pressed="true"]');
+        setConnector(lineBscOkr, activeBsc, document.querySelector('#flow-objective-card'));
+        setConnector(lineOkrSprint, document.querySelector('#flow-objective-card'), document.querySelector('#flow-sprint-card'));
+        setConnector(lineSprintTask, document.querySelector('#flow-sprint-card'), document.querySelector('#flow-task-card'));
+    };
 
     const renderFlow = (key) => {
         const data = flowData[key];
@@ -766,6 +850,8 @@
             void card.offsetWidth;
             card.classList.add('flow-pulse');
         });
+
+        requestAnimationFrame(updateFlowLines);
     };
 
     flowButtons.forEach((button) => {
@@ -774,6 +860,8 @@
 
     if (flowRoot) {
         renderFlow('financial');
+        window.addEventListener('resize', updateFlowLines);
+        window.addEventListener('load', updateFlowLines);
     }
 </script>
 
