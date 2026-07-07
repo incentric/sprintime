@@ -86,7 +86,117 @@
                 },
             }
         } catch (_e) {}
-    }catch(_e){}</script></head><body class="bg-white text-on-surface font-body-md selection:bg-primary/20">
+    }catch(_e){}</script><style>
+      .attention-shake {
+        animation: shakePulse 3.2s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      .attention-badge {
+        animation: badgePop 2.2s ease-in-out infinite;
+      }
+
+      .micro-raise,
+      .problem-card,
+      .bsc-option,
+      .flow-card {
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+      }
+
+      .micro-raise:hover,
+      .problem-card:hover,
+      .flow-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 48px rgba(0, 85, 255, 0.12);
+      }
+
+      .bsc-option {
+        text-align: left;
+      }
+
+      .bsc-option[aria-pressed="true"] {
+        border-color: #0055ff;
+        background: #ffffff;
+        box-shadow: 0 18px 40px rgba(0, 85, 255, 0.14);
+        transform: translateX(4px);
+      }
+
+      .bsc-option[aria-pressed="true"] .bsc-check {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .bsc-check {
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .flow-card {
+        min-height: 250px;
+      }
+
+      .flow-arrow {
+        position: relative;
+      }
+
+      .flow-arrow::before {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(0, 85, 255, 0.2), #0055ff);
+      }
+
+      .flow-arrow::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid #0055ff;
+        border-top: 2px solid #0055ff;
+        transform: rotate(45deg);
+        margin-left: -10px;
+      }
+
+      .flow-pulse {
+        animation: flowPulse 520ms ease;
+      }
+
+      .problem-card {
+        min-height: 360px;
+      }
+
+      @keyframes shakePulse {
+        0%, 82%, 100% { transform: translateX(0) scale(1); }
+        86% { transform: translateX(-3px) scale(1.02); }
+        89% { transform: translateX(3px) scale(1.02); }
+        92% { transform: translateX(-2px) scale(1.02); }
+        95% { transform: translateX(2px) scale(1.02); }
+      }
+
+      @keyframes badgePop {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-2px) scale(1.08); }
+      }
+
+      @keyframes flowPulse {
+        0% { opacity: 0.55; transform: translateY(4px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .attention-shake,
+        .attention-badge,
+        .flow-pulse {
+          animation: none;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .problem-card {
+          min-height: auto;
+        }
+      }
+    </style></head><body class="bg-white text-on-surface font-body-md selection:bg-primary/20">
 <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-white/90 backdrop-blur-md border-b border-outline-variant">
 <div class="flex items-center gap-2">
 <img alt="Sprintime Logo" class="h-10 w-auto" src="assets/logo-sprintime.png">
@@ -113,10 +223,10 @@
 <div class="flex flex-col items-center gap-4 mb-4">
 <div class="flex flex-col items-center gap-2">
 <div class="relative">
-<button class="bg-primary-container text-white font-bold text-lg px-12 py-4 rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">
+<button class="attention-shake bg-primary-container text-white font-bold text-lg px-12 py-4 rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20 focus:outline-none focus:ring-4 focus:ring-primary/20">
       Try Now
     </button>
-<span class="absolute -top-3 -right-3 bg-green-100 text-green-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-600 uppercase tracking-wider shadow-sm">
+<span class="attention-badge absolute -top-3 -right-3 bg-green-100 text-green-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-600 uppercase tracking-wider shadow-sm">
       Free
     </span>
 </div>
@@ -188,116 +298,74 @@
                 </p>
 </div>
 <!-- Simplified Horizontal Flow Visual -->
-<div class="max-w-5xl mx-auto mb-16 relative p-8 bg-surface-container-low rounded-2xl border border-outline-variant overflow-hidden"><!-- High-Fidelity Workflow Visualization -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start relative z-10">
-<!-- Left Side: Strategy (BSC) -->
-<div class="space-y-6">
-<div class="text-center md:text-left mb-8">
-<span class="bg-blue-100 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">STRATEGY (BSC)</span>
-<p class="text-on-surface-variant text-xs mt-2 font-medium">Quarterly</p>
-</div>
-<div class="space-y-4">
-<!-- Financial Card -->
-<div class="bg-white p-6 rounded-xl border shadow-sm flex items-start gap-4 hover:border-primary transition-colors group border-2 border-primary shadow-md scale-105">
-<div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-green-600">payments</span>
-</div>
+<div class="max-w-6xl mx-auto mb-16 relative p-6 md:p-8 bg-surface-container-low rounded-2xl border border-outline-variant overflow-hidden" id="okr-flow">
+<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
 <div>
-<h4 class="font-bold text-on-surface">Financial</h4>
-
+<span class="bg-blue-100 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">Interactive OKR Flow</span>
+<h3 class="text-2xl md:text-3xl font-bold text-on-surface mt-4">Klik perspektif BSC untuk melihat strategi turun menjadi OKR, sprint, dan task.</h3>
 </div>
+<p class="text-sm text-on-surface-variant md:max-w-xs">Sprintime menjaga setiap pekerjaan harian tetap punya konteks bisnis yang jelas.</p>
 </div>
-<!-- Customer Card -->
-<div class="bg-white p-6 rounded-xl flex items-start gap-4 transition-transform border-outline-variant">
-<div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-primary">group</span>
+<div class="grid grid-cols-1 lg:grid-cols-[1.05fr_70px_1fr_70px_1fr_70px_1fr] gap-5 items-stretch">
+<div class="space-y-3">
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-3">Strategy (BSC)</p>
+<button class="bsc-option w-full bg-white p-4 rounded-xl border-2 border-primary shadow-md flex items-start gap-4" type="button" data-flow-key="financial" aria-pressed="true">
+<span class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-green-600">payments</span></span>
+<span class="flex-1"><strong class="block text-on-surface">Financial</strong><small class="text-on-surface-variant">Revenue, margin, cashflow</small></span>
+<span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
+</button>
+<button class="bsc-option w-full bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-4" type="button" data-flow-key="customer" aria-pressed="false">
+<span class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary">group</span></span>
+<span class="flex-1"><strong class="block text-on-surface">Customer</strong><small class="text-on-surface-variant">Retention, satisfaction, trust</small></span>
+<span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
+</button>
+<button class="bsc-option w-full bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-4" type="button" data-flow-key="process" aria-pressed="false">
+<span class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-yellow-600">settings_suggest</span></span>
+<span class="flex-1"><strong class="block text-on-surface">Internal Process</strong><small class="text-on-surface-variant">Speed, quality, handoff</small></span>
+<span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
+</button>
+<button class="bsc-option w-full bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-4" type="button" data-flow-key="growth" aria-pressed="false">
+<span class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-pink-600">school</span></span>
+<span class="flex-1"><strong class="block text-on-surface">Learning &amp; Growth</strong><small class="text-on-surface-variant">People, skill, capability</small></span>
+<span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
+</button>
 </div>
+<div class="flow-arrow hidden lg:flex items-center"></div>
+<article class="flow-card bg-white p-6 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-objective-card">
+<div class="flex justify-between items-start gap-4 mb-5">
 <div>
-<h4 class="font-bold text-on-surface">Customer</h4>
-
+<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Objective (OKR)</p>
+<h4 class="text-xl font-bold text-on-surface" id="flow-objective">Meningkatkan MRR sebesar 20%</h4>
+</div>
+<span class="text-[10px] font-bold bg-blue-100 text-primary px-2 py-1 rounded">Quarterly</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-5" id="flow-kr">Key Result: mencapai revenue recurring Rp250 juta per bulan.</p>
+<div class="mt-auto space-y-2">
+<div class="flex justify-between text-xs font-bold"><span class="text-on-surface-variant">Progress OKR</span><span class="text-primary" id="flow-progress-text">64%</span></div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden"><div class="bg-primary h-full transition-all duration-500" id="flow-progress-bar" style="width: 64%"></div></div>
+</div>
+</article>
+<div class="flow-arrow hidden lg:flex items-center"></div>
+<article class="flow-card bg-white p-6 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-sprint-card">
+<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Weekly Sprint</p>
+<h4 class="text-xl font-bold text-on-surface" id="flow-sprint">Optimasi funnel trial ke paid</h4>
+<p class="text-sm text-on-surface-variant mt-3" id="flow-sprint-detail">Sprint minggu ini fokus pada eksperimen onboarding dan follow-up trial user.</p>
+<div class="mt-auto flex items-center gap-3 pt-6">
+<span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-sm">bolt</span></span>
+<span class="text-[10px] font-bold bg-green-100 text-green-600 px-2 py-1 rounded uppercase">In Progress</span>
+</div>
+</article>
+<div class="flow-arrow hidden lg:flex items-center"></div>
+<article class="flow-card bg-white p-6 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-task-card">
+<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Daily Tasks</p>
+<ul class="space-y-3 mt-4" id="flow-tasks">
+<li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary text-sm">check_box</span> Audit drop-off halaman aktivasi trial</li>
+<li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary text-sm">check_box</span> Kirim follow-up ke 30 akun trial</li>
+<li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-outline text-sm">check_box_outline_blank</span> Review conversion dashboard harian</li>
+</ul>
+</article>
 </div>
 </div>
-<!-- Internal Process Card -->
-<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm flex items-start gap-4 hover:border-primary transition-colors group">
-<div class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-yellow-600">settings_suggest</span>
-</div>
-<div>
-<h4 class="font-bold text-on-surface">Internal Process</h4>
-
-</div>
-</div>
-<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm flex items-start gap-4 hover:border-primary transition-colors group"><div class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-pink-600">school</span></div><div><h4 class="font-bold text-on-surface">Learning &amp; Growth</h4></div></div></div>
-</div>
-<!-- Right Side: Objectives & Execution -->
-<div class="space-y-6">
-<div class="text-center mb-8">
-<span class="bg-blue-100 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">OBJECTIVES (OKR)</span>
-<p class="text-on-surface-variant text-xs mt-2 font-medium">Quarterly</p>
-</div>
-<!-- OKR Card -->
-<div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-lg relative overflow-hidden">
-<div class="flex justify-between items-start mb-6">
-<div>
-<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Objective</p>
-<h4 class="text-xl font-bold text-on-surface">Increase MRR by 20%</h4>
-</div>
-<span class="text-[10px] font-bold bg-surface-container px-2 py-1 rounded text-on-surface-variant">Quarterly Focus</span>
-</div>
-<div class="space-y-2">
-<div class="flex justify-between text-xs font-bold">
-<span class="text-on-surface-variant">Progress</span>
-<span class="text-primary">75%</span>
-</div>
-<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
-<div class="bg-primary h-full w-3/4 transition-all duration-1000"></div>
-</div>
-</div>
-</div>
-<!-- Sprint & Task Integration -->
-<div class="grid grid-cols-1 gap-4">
-<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-sm">bolt</span>
-</div>
-<span class="text-sm font-bold">Optimize Checkout Flow</span>
-</div>
-<span class="text-[10px] font-bold text-primary uppercase">Weekly Focus</span>
-</div>
-<div class="space-y-2 pl-4 border-l-2 border-primary/20">
-<div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant shadow-sm">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
-<span class="text-xs font-medium">Fix payment gateway latency</span>
-</div>
-<div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant shadow-sm">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
-<span class="text-xs font-medium">A/B test button color</span>
-</div>
-<div class="flex items-center gap-3 p-3 bg-white/50 rounded-lg border border-dashed border-outline-variant">
-<span class="material-symbols-outlined text-outline text-sm">radio_button_unchecked</span>
-<span class="text-xs font-medium text-on-surface-variant">Update API documentation</span>
-</div>
-</div>
-</div>
-</div>
-<div class="space-y-6"><div class="text-center mb-8"><span class="bg-blue-100 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">SPRINTS (Weekly)</span><p class="text-on-surface-variant text-xs mt-2 font-medium">Weekly Cycle</p></div><div class="bg-white p-6 rounded-xl border border-outline-variant shadow-md relative overflow-hidden"><div class="flex justify-between items-start mb-4"><span class="text-[10px] font-bold text-primary uppercase">Sprint #42</span><span class="text-[10px] font-bold bg-green-100 text-green-600 px-2 py-0.5 rounded">In Progress</span></div><h4 class="font-bold text-on-surface text-sm mb-4">Sales Outreach Campaign</h4><div class="flex -space-x-2"><div class="w-6 h-6 rounded-full bg-primary-container border-2 border-white"></div><div class="w-6 h-6 rounded-full bg-secondary-container border-2 border-white"></div></div></div></div><div class="space-y-6"><div class="text-center mb-8"><span class="bg-blue-100 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">TASKS (Daily)</span><p class="text-on-surface-variant text-xs mt-2 font-medium">Daily Execution</p></div><div class="space-y-3"><div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant shadow-sm"><span class="material-symbols-outlined text-primary text-sm">check_box</span><span class="text-xs font-medium">Follow up 10 leads</span></div><div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant shadow-sm"><span class="material-symbols-outlined text-primary text-sm">check_box</span><span class="text-xs font-medium">Draft sales email v2</span></div><div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant shadow-sm"><span class="material-symbols-outlined text-outline text-sm">check_box_outline_blank</span><span class="text-xs font-medium">Finalize login screen</span></div></div></div></div>
-<!-- Decorative Connection Lines (SVG) -->
-<svg class="absolute inset-0 w-full h-full pointer-events-none hidden lg:block" viewBox="0 0 1000 400" preserveAspectRatio="none">
-  <defs>
-    <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0055ff" stop-opacity="0.2"></stop>
-      <stop offset="50%" stop-color="#0055ff" stop-opacity="0.6"></stop>
-      <stop offset="100%" stop-color="#0055ff" stop-opacity="0.2"></stop>
-    </linearGradient>
-  </defs>
-  <!-- Path 1: Financial to MRR Objective -->
-  <path d="M 240 160 L 270 160" stroke="url(#line-grad)" stroke-width="2" fill="none" stroke-dasharray="4 4"></path>
-  <!-- Path 2: MRR Objective to Sales Outreach -->
-  <path d="M 490 160 L 520 160" stroke="url(#line-grad)" stroke-width="2" fill="none" stroke-dasharray="4 4"></path>
-  <!-- Path 3: Sales Outreach to Daily Tasks -->
-  <path d="M 740 160 L 770 160" stroke="url(#line-grad)" stroke-width="2" fill="none" stroke-dasharray="4 4"></path>
-</svg></div>
 <div class="p-8 bg-surface-container rounded-2xl text-center">
 <p class="text-on-surface font-semibold italic">"Untuk pertama kalinya, semua orang di tim Anda bekerja ke arah yang sama dan Anda bisa melihatnya secara real-time."</p>
 </div>
@@ -370,9 +438,9 @@
 <h2 class="font-headline-md text-sm tracking-[0.2em] text-primary font-bold uppercase mb-4">Tackle Your Problems</h2>
 <h3 class="text-3xl md:text-4xl font-bold text-on-surface">Ubah Hambatan Menjadi Keunggulan Kompetitif</h3>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
 <!-- Card 1 -->
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300">
+<div class="problem-card group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
 <div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-error">error</span>
@@ -382,7 +450,7 @@
             "Setiap kuartal bikin OKR, tapi pertengahan jalan sudah lupa. Tim jalan sendiri-sendiri."
           </p>
 </div>
-<div class="p-8 bg-white">
+<div class="p-8 bg-white flex-1">
 <div class="flex items-start gap-4">
 <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
 <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
@@ -397,7 +465,7 @@
 </div>
 </div>
 <!-- Card 2 -->
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 md:mt-8">
+<div class="problem-card group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
 <div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-error">visibility_off</span>
@@ -407,7 +475,7 @@
             "Saya harus chat satu per satu untuk tahu progress. Tidak ada visibility sama sekali."
           </p>
 </div>
-<div class="p-8 bg-white">
+<div class="p-8 bg-white flex-1">
 <div class="flex items-start gap-4">
 <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
 <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
@@ -422,7 +490,7 @@
 </div>
 </div>
 <!-- Card 3 -->
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300">
+<div class="problem-card group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
 <div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-error">layers_clear</span>
@@ -432,7 +500,7 @@
             "Kami pakai Notion untuk docs, Trello untuk tasks, spreadsheet untuk OKR. Tidak ada yang nyambung."
           </p>
 </div>
-<div class="p-8 bg-white">
+<div class="p-8 bg-white flex-1">
 <div class="flex items-start gap-4">
 <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
 <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
@@ -447,7 +515,7 @@
 </div>
 </div>
 <!-- Card 4 -->
-<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 md:mt-8">
+<div class="problem-card group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
 <div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-error">help_center</span>
@@ -457,7 +525,7 @@
             "Karyawan hanya tahu task mereka, tapi tidak tahu hubungannya ke tujuan perusahaan."
           </p>
 </div>
-<div class="p-8 bg-white">
+<div class="p-8 bg-white flex-1">
 <div class="flex items-start gap-4">
 <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
 <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
@@ -535,7 +603,7 @@
 <h2 class="text-3xl md:text-5xl font-bold mb-6">Mulai Gratis. Bayar Hanya Kalau Kamu Merasakan Manfaatnya.</h2>
 <p class="text-xl text-inverse-on-surface/70 mb-10">Free 14 hari. Semua fitur. Tidak perlu kartu kredit.</p>
 <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-<button class="bg-primary text-white font-bold text-lg px-12 py-4 rounded-lg hover:brightness-110 transition-all shadow-lg shadow-primary/20">Mulai Gratis</button>
+<button class="attention-shake bg-primary text-white font-bold text-lg px-12 py-4 rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">Mulai Gratis</button>
 <div class="flex flex-col items-center gap-2">
 <span class="font-bold text-lg">Pro Plan</span>
 <span class="text-sm opacity-60">Customized Enterprise</span>
@@ -603,6 +671,110 @@
             });
         });
     });
+
+    const flowData = {
+        financial: {
+            objective: "Meningkatkan MRR sebesar 20%",
+            kr: "Key Result: mencapai revenue recurring Rp250 juta per bulan.",
+            progress: 64,
+            sprint: "Optimasi funnel trial ke paid",
+            sprintDetail: "Sprint minggu ini fokus pada eksperimen onboarding dan follow-up trial user.",
+            tasks: [
+                ["check_box", "Audit drop-off halaman aktivasi trial"],
+                ["check_box", "Kirim follow-up ke 30 akun trial"],
+                ["check_box_outline_blank", "Review conversion dashboard harian"]
+            ]
+        },
+        customer: {
+            objective: "Meningkatkan NPS pelanggan menjadi 62",
+            kr: "Key Result: menurunkan complaint response time dari 18 jam menjadi 4 jam.",
+            progress: 48,
+            sprint: "Perbaiki pengalaman pelanggan prioritas",
+            sprintDetail: "Sprint diarahkan ke touchpoint onboarding, support, dan feedback loop pelanggan.",
+            tasks: [
+                ["check_box", "Segmentasikan 20 feedback pelanggan terbaru"],
+                ["check_box", "Buat template respon untuk 5 kasus utama"],
+                ["check_box_outline_blank", "Hubungi 10 pelanggan churn-risk"]
+            ]
+        },
+        process: {
+            objective: "Mempercepat cycle time operasional 35%",
+            kr: "Key Result: memangkas rata-rata handoff antar tim dari 3 hari menjadi 1 hari.",
+            progress: 72,
+            sprint: "Rapikan handoff lintas fungsi",
+            sprintDetail: "Sprint menghilangkan bottleneck proses yang membuat pekerjaan tertahan.",
+            tasks: [
+                ["check_box", "Mapping bottleneck approval campaign"],
+                ["check_box", "Buat SOP handoff sales ke delivery"],
+                ["check_box_outline_blank", "Uji checklist QA sebelum release"]
+            ]
+        },
+        growth: {
+            objective: "Meningkatkan kapabilitas tim eksekusi",
+            kr: "Key Result: 90% anggota tim menyelesaikan skill sprint dan review mingguan.",
+            progress: 56,
+            sprint: "Bangun ritme coaching mingguan",
+            sprintDetail: "Sprint difokuskan pada skill, ownership, dan kebiasaan review yang konsisten.",
+            tasks: [
+                ["check_box", "Jadwalkan 4 sesi coaching OKR owner"],
+                ["check_box", "Review kualitas update sprint tiap tim"],
+                ["check_box_outline_blank", "Buat learning note dari sprint review"]
+            ]
+        }
+    };
+
+    const flowRoot = document.querySelector('#okr-flow');
+    const flowButtons = Array.from(document.querySelectorAll('.bsc-option'));
+    const objectiveEl = document.querySelector('#flow-objective');
+    const krEl = document.querySelector('#flow-kr');
+    const progressTextEl = document.querySelector('#flow-progress-text');
+    const progressBarEl = document.querySelector('#flow-progress-bar');
+    const sprintEl = document.querySelector('#flow-sprint');
+    const sprintDetailEl = document.querySelector('#flow-sprint-detail');
+    const tasksEl = document.querySelector('#flow-tasks');
+    const flowCards = Array.from(document.querySelectorAll('#flow-objective-card, #flow-sprint-card, #flow-task-card'));
+
+    const renderFlow = (key) => {
+        const data = flowData[key];
+        if (!data) return;
+
+        flowButtons.forEach((button) => {
+            const isActive = button.dataset.flowKey === key;
+            button.setAttribute('aria-pressed', String(isActive));
+            button.classList.toggle('border-2', isActive);
+            button.classList.toggle('border-primary', isActive);
+            button.classList.toggle('shadow-md', isActive);
+            button.classList.toggle('border-outline-variant', !isActive);
+            button.classList.toggle('shadow-sm', !isActive);
+        });
+
+        objectiveEl.textContent = data.objective;
+        krEl.textContent = data.kr;
+        progressTextEl.textContent = `${data.progress}%`;
+        progressBarEl.style.width = `${data.progress}%`;
+        sprintEl.textContent = data.sprint;
+        sprintDetailEl.textContent = data.sprintDetail;
+        tasksEl.innerHTML = data.tasks.map(([icon, text]) => `
+            <li class="flex items-start gap-3 text-sm">
+                <span class="material-symbols-outlined ${icon === 'check_box' ? 'text-primary' : 'text-outline'} text-sm">${icon}</span>
+                ${text}
+            </li>
+        `).join('');
+
+        flowCards.forEach((card) => {
+            card.classList.remove('flow-pulse');
+            void card.offsetWidth;
+            card.classList.add('flow-pulse');
+        });
+    };
+
+    flowButtons.forEach((button) => {
+        button.addEventListener('click', () => renderFlow(button.dataset.flowKey));
+    });
+
+    if (flowRoot) {
+        renderFlow('financial');
+    }
 </script>
 
 
