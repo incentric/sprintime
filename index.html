@@ -423,7 +423,7 @@
       .problem-card,
       .bsc-option,
       .flow-card {
-        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+        transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
       }
 
       .micro-raise:hover,
@@ -436,12 +436,13 @@
 
       .bsc-option {
         text-align: left;
+        border: 0 !important;
+        box-shadow: 0 14px 34px rgba(25, 28, 30, 0.06);
       }
 
       .bsc-option[aria-pressed="true"] {
-        border-color: #0055ff;
-        background: #ffffff;
-        box-shadow: 0 18px 40px rgba(0, 85, 255, 0.14);
+        background: linear-gradient(180deg, #f4f8ff 0%, #ffffff 100%);
+        box-shadow: 0 18px 42px rgba(0, 85, 255, 0.16);
         transform: translateX(4px);
       }
 
@@ -479,6 +480,8 @@
 
       .flow-card {
         min-height: 220px;
+        border: 0 !important;
+        box-shadow: 0 18px 42px rgba(25, 28, 30, 0.07);
       }
 
       .flow-card-label {
@@ -677,7 +680,7 @@
             </p>
 </div>
 <!-- Dashboard Preview -->
-<div class="hero-preview-shell w-full mt-16 relative rounded-2xl overflow-hidden shadow-2xl border border-outline-variant bg-white aspect-video max-w-4xl mx-auto">
+<div class="hero-preview-shell w-full mt-16 relative rounded-2xl overflow-hidden shadow-2xl bg-white aspect-video max-w-4xl mx-auto">
 <div class="hero-dashboard" aria-label="Sprintime dashboard preview">
 <aside class="dashboard-sidebar">
 <img alt="Sprintime" class="h-8 w-auto" src="assets/logo-sprintime.png">
@@ -790,31 +793,31 @@
 </div>
 <p class="system-quote">"Untuk pertama kalinya, semua orang di tim Anda bekerja ke arah yang sama dan Anda bisa melihatnya secara real-time."</p>
 <!-- Simplified Horizontal Flow Visual -->
-<div class="max-w-6xl mx-auto mb-16 relative p-6 md:p-8 bg-surface-container-low rounded-2xl border border-outline-variant overflow-visible" id="okr-flow">
+<div class="max-w-6xl mx-auto mb-16 relative p-6 md:p-8 bg-surface-container-low rounded-2xl overflow-visible shadow-[0_24px_70px_rgba(25,28,30,0.07)]" id="okr-flow">
 <div class="flow-content">
 <div>
 <p class="text-xs font-bold text-primary uppercase tracking-widest mb-3">Strategy (BSC)</p>
 <div class="bsc-map">
-<button class="bsc-option bg-white p-4 rounded-xl border-2 border-primary shadow-md flex items-start gap-3" type="button" data-flow-key="financial" aria-pressed="true">
+<button class="bsc-option bg-white p-4 rounded-xl flex items-start gap-3" type="button" data-flow-key="financial" aria-pressed="true">
 <span class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-green-600">payments</span></span>
 <span class="flex-1"><strong class="bsc-title">Financial</strong><small class="text-on-surface-variant">Revenue &amp; margin</small></span>
 </button>
-<button class="bsc-option bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-3" type="button" data-flow-key="customer" aria-pressed="false">
+<button class="bsc-option bg-white p-4 rounded-xl flex items-start gap-3" type="button" data-flow-key="customer" aria-pressed="false">
 <span class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary">group</span></span>
 <span class="flex-1"><strong class="bsc-title">Customer</strong><small class="text-on-surface-variant">Retention &amp; NPS</small></span>
 </button>
-<button class="bsc-option bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-3" type="button" data-flow-key="process" aria-pressed="false">
+<button class="bsc-option bg-white p-4 rounded-xl flex items-start gap-3" type="button" data-flow-key="process" aria-pressed="false">
 <span class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-yellow-600">settings_suggest</span></span>
 <span class="flex-1"><strong class="bsc-title">Internal Process</strong><small class="text-on-surface-variant">Speed &amp; quality</small></span>
 </button>
-<button class="bsc-option bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-3" type="button" data-flow-key="growth" aria-pressed="false">
+<button class="bsc-option bg-white p-4 rounded-xl flex items-start gap-3" type="button" data-flow-key="growth" aria-pressed="false">
 <span class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-pink-600">school</span></span>
 <span class="flex-1"><strong class="bsc-title"><span>Learning &amp;</span><span>Growth</span></strong><small class="text-on-surface-variant">Skill &amp; capability</small></span>
 </button>
 </div>
 </div>
 <div class="execution-chain">
-<article class="flow-card bg-white p-5 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-objective-card" data-flow-node="okr">
+<article class="flow-card bg-white p-5 rounded-2xl flex flex-col" id="flow-objective-card" data-flow-node="okr">
 <div class="flow-card-label">
 <p class="text-xs font-bold text-primary uppercase tracking-wider">OKR Objective</p>
 <span class="flow-period">Quarterly</span>
@@ -826,7 +829,7 @@
 <div class="h-2 w-full bg-surface-container rounded-full overflow-hidden"><div class="bg-primary h-full transition-all duration-500" id="flow-progress-bar" style="width: 64%"></div></div>
 </div>
 </article>
-<article class="flow-card bg-white p-5 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-sprint-card" data-flow-node="sprint">
+<article class="flow-card bg-white p-5 rounded-2xl flex flex-col" id="flow-sprint-card" data-flow-node="sprint">
 <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Weekly Sprint</p>
 <h4 class="text-xl font-bold text-on-surface" id="flow-sprint">Optimasi funnel trial ke paid</h4>
 <p class="text-sm text-on-surface-variant mt-3" id="flow-sprint-detail">Sprint minggu ini fokus pada eksperimen onboarding dan follow-up trial user.</p>
@@ -835,7 +838,7 @@
 <span class="text-[10px] font-bold bg-green-100 text-green-600 px-2 py-1 rounded uppercase">In Progress</span>
 </div>
 </article>
-<article class="flow-card bg-white p-5 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-task-card" data-flow-node="task">
+<article class="flow-card bg-white p-5 rounded-2xl flex flex-col" id="flow-task-card" data-flow-node="task">
 <p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Daily Tasks</p>
 <ul class="space-y-3 mt-4" id="flow-tasks">
 <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary text-sm">check_box</span> Audit drop-off halaman aktivasi trial</li>
@@ -851,13 +854,13 @@
 <section class="py-24 bg-surface-bright" id="how-it-works">
 <div class="max-w-4xl mx-auto px-gutter">
 <h2 class="font-headline-md text-3xl md:text-4xl text-center mb-12">Cara Kerja Sprintime</h2>
-<div class="flex flex-wrap justify-center border-b border-outline-variant mb-12">
+<div class="flex flex-wrap justify-center mb-12">
 <button class="px-6 py-4 font-bold text-sm border-b-2 border-primary text-primary transition-all tab-btn active" data-tab="quarterly">Quarterly</button>
 <button class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="monthly">Monthly</button>
 <button class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="weekly">Weekly</button>
 <button class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="daily">Daily</button>
 </div>
-<div class="bg-white p-10 rounded-2xl border border-outline-variant shadow-sm min-h-[240px]" id="tab-content">
+<div class="bg-white p-10 rounded-2xl shadow-[0_18px_48px_rgba(25,28,30,0.07)] min-h-[240px]" id="tab-content">
 <!-- Default Content: Quarterly -->
 <div class="tab-pane active" id="quarterly">
 <div class="space-y-10">
@@ -916,8 +919,8 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
 <!-- Card 1 -->
-<div class="problem-card group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-<div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
+<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="p-8 bg-surface-container-lowest">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-error">error</span>
 <h4 class="font-bold text-lg text-on-surface">Strategi tidak pernah benar-benar jalan</h4>
@@ -941,8 +944,8 @@
 </div>
 </div>
 <!-- Card 2 -->
-<div class="problem-card group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-<div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
+<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="p-8 bg-surface-container-lowest">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-error">visibility_off</span>
 <h4 class="font-bold text-lg text-on-surface">Tidak tahu tim sedang ngerjain apa</h4>
@@ -966,8 +969,8 @@
 </div>
 </div>
 <!-- Card 3 -->
-<div class="problem-card group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-<div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
+<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="p-8 bg-surface-container-lowest">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-error">layers_clear</span>
 <h4 class="font-bold text-lg text-on-surface">Sudah pakai banyak tools tapi masih berantakan</h4>
@@ -991,8 +994,8 @@
 </div>
 </div>
 <!-- Card 4 -->
-<div class="problem-card group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-<div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
+<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="p-8 bg-surface-container-lowest">
 <div class="flex items-center gap-3 mb-4">
 <span class="material-symbols-outlined text-error">help_center</span>
 <h4 class="font-bold text-lg text-on-surface">Tim tidak paham kenapa mereka mengerjakan sesuatu</h4>
@@ -1217,11 +1220,6 @@
         flowButtons.forEach((button) => {
             const isActive = button.dataset.flowKey === key;
             button.setAttribute('aria-pressed', String(isActive));
-            button.classList.toggle('border-2', isActive);
-            button.classList.toggle('border-primary', isActive);
-            button.classList.toggle('shadow-md', isActive);
-            button.classList.toggle('border-outline-variant', !isActive);
-            button.classList.toggle('shadow-sm', !isActive);
         });
 
         objectiveEl.textContent = data.objective;
