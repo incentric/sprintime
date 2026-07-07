@@ -1,527 +1,609 @@
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sprintime - Sprint Productivity System</title>
-    <meta
-      name="description"
-      content="Sprintime menghubungkan BSC, OKR, sprint, dan task harian agar strategi perusahaan menjadi eksekusi yang terlihat."
-    />
-    <link rel="preload" as="image" href="assets/logo-sprintime.png" />
-    <link rel="icon" href="assets/logogram-sprintime.png" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+<!DOCTYPE html><html class="light" lang="id" style=""><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Sprintime - Sprint Productivity System</title><link rel="icon" href="assets/logogram-sprintime.png"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        try {
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "inverse-surface": "#2d3133",
+                            "primary-container": "#0055ff",
+                            "error-container": "#ffdad6",
+                            "inverse-on-surface": "#eff1f3",
+                            "primary-fixed-dim": "#b6c4ff",
+                            "on-surface-variant": "#434656",
+                            "on-primary-container": "#e3e6ff",
+                            "on-surface": "#191c1e",
+                            "on-error": "#ffffff",
+                            "error": "#ba1a1a",
+                            "primary-fixed": "#dce1ff",
+                            "on-secondary-fixed": "#001f28",
+                            "secondary-container": "#00ccf9",
+                            "outline-variant": "#c3c5d9",
+                            "outline": "#737688",
+                            "surface-variant": "#e0e3e5",
+                            "on-primary": "#ffffff",
+                            "surface": "#f7f9fb",
+                            "on-tertiary-fixed-variant": "#872100",
+                            "inverse-primary": "#b6c4ff",
+                            "surface-container-low": "#f2f4f6",
+                            "on-tertiary-fixed": "#3b0900",
+                            "surface-container-lowest": "#ffffff",
+                            "secondary-fixed-dim": "#4cd6ff",
+                            "secondary": "#00677f",
+                            "on-tertiary": "#ffffff",
+                            "surface-dim": "#d8dadc",
+                            "surface-container-high": "#e6e8ea",
+                            "surface-bright": "#f7f9fb",
+                            "background": "#f7f9fb",
+                            "on-secondary-container": "#005266",
+                            "tertiary-fixed": "#ffdbd1",
+                            "surface-container-highest": "#e0e3e5",
+                            "on-error-container": "#93000a",
+                            "primary": "#0041c8",
+                            "on-primary-fixed": "#001551",
+                            "on-tertiary-container": "#ffe1d9",
+                            "on-primary-fixed-variant": "#0039b3",
+                            "tertiary-container": "#c13301",
+                            "tertiary": "#972500",
+                            "surface-container": "#eceef0",
+                            "secondary-fixed": "#b7eaff",
+                            "on-secondary": "#ffffff",
+                            "tertiary-fixed-dim": "#ffb5a0",
+                            "surface-tint": "#004dea",
+                            "on-background": "#191c1e",
+                            "on-secondary-fixed-variant": "#004e60"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "margin-desktop": "32px",
+                            "gutter": "24px",
+                            "container-max-width": "1280px",
+                            "base-unit": "4px",
+                            "margin-mobile": "16px"
+                        },
+                        "fontFamily": {
+                            "body-md": ["Inter"],
+                            "display-lg": ["Hanken Grotesk"],
+                            "body-lg": ["Inter"],
+                            "label-sm": ["Geist"],
+                            "display-lg-mobile": ["Hanken Grotesk"],
+                            "headline-md": ["Hanken Grotesk"]
+                        },
+                        "fontSize": {
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                            "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                        }
+                    },
+                },
+            }
+        } catch (_e) {}
+    }catch(_e){}</script></head><body class="bg-white text-on-surface font-body-md selection:bg-primary/20">
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-white/90 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<img alt="Sprintime Logo" class="h-10 w-auto" src="assets/logo-sprintime.png">
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-[14px] font-semibold text-on-surface-variant hover:text-primary transition-colors" href="#features">Features</a>
+<a class="font-label-md text-[14px] font-semibold text-on-surface-variant hover:text-primary transition-colors" href="#how-it-works">How it Works</a>
+<a class="font-label-md text-[14px] font-semibold text-on-surface-variant hover:text-primary transition-colors" href="#pricing">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden sm:block text-on-surface font-semibold text-[14px] px-4 py-2 hover:text-primary transition-colors" href="#">Login</a>
+<button class="bg-primary text-white font-semibold text-[14px] px-6 py-2 rounded-lg hover:brightness-110 active:scale-95 transition-all">Start for free</button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="px-gutter pt-16 pb-20 flex flex-col items-center text-center max-w-5xl mx-auto">
+<h1 class="font-headline-xl text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight">
+            Dari Strategi ke Eksekusi<div class="">dalam Satu Sistem
+        </div></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mb-10">
+            BSC + OKR + Sprint, terhubung langsung ke task harian setiap anggota tim. Sprintime bukan hanya tool — ini adalah <strong>framework kerja</strong> yang mengubah rencana besar menjadi hasil nyata.
+        </p>
+<div class="flex flex-col items-center gap-4 mb-4">
+<div class="flex flex-col items-center gap-2">
+<div class="relative">
+<button class="bg-primary-container text-white font-bold text-lg px-12 py-4 rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">
+      Try Now
+    </button>
+<span class="absolute -top-3 -right-3 bg-green-100 text-green-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-600 uppercase tracking-wider shadow-sm">
+      Free
+    </span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant">
+                14 hari penuh. Semua fitur. Tanpa kartu kredit.
+            </p>
+</div>
+<!-- Dashboard Preview / Video Placeholder -->
+<div class="w-full mt-16 relative rounded-2xl overflow-hidden shadow-2xl border border-outline-variant bg-white aspect-video max-w-4xl mx-auto">
+<img alt="Sprintime Dashboard Preview" class="w-full h-full object-cover" src="assets/stitch-modern-saas-reference.png">
+<div class="absolute inset-0 flex items-center justify-center bg-black/10">
+<button class="w-20 h-20 bg-primary/90 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Satu Platform. Empat Kekuatan. (Features) -->
+<section class="py-24 bg-surface" id="features">
+<div class="max-w-container-max-width mx-auto px-gutter text-center mb-16">
+<h2 class="font-headline-md text-3xl md:text-4xl text-on-surface mb-4">Satu Platform. Empat Kekuatan.</h2>
+</div>
+<div class="max-w-container-max-width mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Strategy Planning -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-pink-600">track_changes</span>
+</div>
+<h3 class="font-bold text-xl mb-3 text-on-surface">Strategy Planning</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Susun strategi bisnis dengan framework BSC yang sudah disederhanakan. Financial, Customer, Internal Process, Learning &amp; Growth — semua dalam satu tampilan.</p>
+</div>
+<!-- OKR Management -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-green-600">ads_click</span>
+</div>
+<h3 class="font-bold text-xl mb-3 text-on-surface">OKR Management</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Set Objectives &amp; Key Results yang terhubung langsung ke strategi. Tidak ada lagi OKR yang hidup sendiri di spreadsheet.</p>
+</div>
+<!-- Sprint Execution -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-yellow-600">bolt</span>
+</div>
+<h3 class="font-bold text-xl mb-3 text-on-surface">Sprint Execution</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Jalankan sprint mingguan atau dua-mingguan dengan prioritas yang jelas. Setiap sprint terhubung ke OKR — bukan sekadar to-do list biasa.</p>
+</div>
+<!-- Task Tracking -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-sm flex flex-col">
+<div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-blue-600">check_circle</span>
+</div>
+<h3 class="font-bold text-xl mb-3 text-on-surface">Task &amp; Progress Tracking</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Setiap anggota tim punya task yang jelas, terlacak, dan bermakna. Anda sebagai Leader bisa lihat progress real-time tanpa harus nanya satu per satu.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Tool Tanpa Framework (Productivity System) -->
+<section class="py-24 bg-white">
+<div class="max-w-container-max-width mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-3xl md:text-4xl text-on-surface mb-6">Tool Tanpa Framework Hanya Menciptakan Chaos yang Lebih Rapi.</h2>
+<p class="text-body-lg text-primary font-bold mb-4">Inilah kenapa Sprintime berbeda.</p>
+<p class="text-on-surface-variant max-w-3xl mx-auto">
+                    Kami tidak hanya membangun tool. Kami membangun <strong>Sprint Productivity System</strong> — metodologi yang telah terbukti membantu perusahaan Indonesia menghubungkan visi mereka ke eksekusi harian.
+                </p>
+</div>
+<!-- Simplified Horizontal Flow Visual -->
+<div class="max-w-5xl mx-auto mb-16 relative p-8 bg-surface-container-low rounded-2xl border border-outline-variant overflow-hidden"><!-- High-Fidelity Workflow Visualization -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start relative z-10">
+<!-- Left Side: Strategy (BSC) -->
+<div class="space-y-6">
+<div class="text-center md:text-left mb-8">
+<span class="bg-blue-100 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">STRATEGY (BSC)</span>
+<p class="text-on-surface-variant text-xs mt-2 font-medium">Quarterly</p>
+</div>
+<div class="space-y-4">
+<!-- Financial Card -->
+<div class="bg-white p-6 rounded-xl border shadow-sm flex items-start gap-4 hover:border-primary transition-colors group border-2 border-primary shadow-md scale-105">
+<div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-green-600">payments</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Financial</h4>
 
-    <header class="site-header" aria-label="Navigasi utama">
-      <a class="brand" href="#top" aria-label="Sprintime home">
-        <img src="assets/logo-sprintime.png" alt="Sprintime by Incentric" />
-      </a>
-      <nav class="nav-links" aria-label="Bagian halaman">
-        <a href="#platform">Platform</a>
-        <a href="#system">System</a>
-        <a href="#workflow">Cara Kerja</a>
-        <a href="#problems">Problems</a>
-        <a href="#tools">Tools</a>
-        <a href="#pricing">Pricing</a>
-      </nav>
-      <a class="nav-cta" href="#pricing">Try Now, Free</a>
-    </header>
+</div>
+</div>
+<!-- Customer Card -->
+<div class="bg-white p-6 rounded-xl flex items-start gap-4 transition-transform border-outline-variant">
+<div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">group</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Customer</h4>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">Sprint Productivity System</p>
-          <h1 id="hero-title">
-            <span>Dari strategi ke</span>
-            <span>eksekusi dalam</span>
-            <span>satu sistem.</span>
-          </h1>
-          <p class="hero-lede">
-            BSC + OKR + Sprint, terhubung langsung ke task harian setiap anggota tim.
+</div>
+</div>
+<!-- Internal Process Card -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm flex items-start gap-4 hover:border-primary transition-colors group">
+<div class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-yellow-600">settings_suggest</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Internal Process</h4>
+
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm flex items-start gap-4 hover:border-primary transition-colors group"><div class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-pink-600">school</span></div><div><h4 class="font-bold text-on-surface">Learning &amp; Growth</h4></div></div></div>
+</div>
+<!-- Right Side: Objectives & Execution -->
+<div class="space-y-6">
+<div class="text-center mb-8">
+<span class="bg-blue-100 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">OBJECTIVES (OKR)</span>
+<p class="text-on-surface-variant text-xs mt-2 font-medium">Quarterly</p>
+</div>
+<!-- OKR Card -->
+<div class="bg-white p-8 rounded-2xl border border-outline-variant shadow-lg relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Objective</p>
+<h4 class="text-xl font-bold text-on-surface">Increase MRR by 20%</h4>
+</div>
+<span class="text-[10px] font-bold bg-surface-container px-2 py-1 rounded text-on-surface-variant">Quarterly Focus</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-on-surface-variant">Progress</span>
+<span class="text-primary">75%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-3/4 transition-all duration-1000"></div>
+</div>
+</div>
+</div>
+<!-- Sprint & Task Integration -->
+<div class="grid grid-cols-1 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">bolt</span>
+</div>
+<span class="text-sm font-bold">Optimize Checkout Flow</span>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase">Weekly Focus</span>
+</div>
+<div class="space-y-2 pl-4 border-l-2 border-primary/20">
+<div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="text-xs font-medium">Fix payment gateway latency</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="text-xs font-medium">A/B test button color</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white/50 rounded-lg border border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-outline text-sm">radio_button_unchecked</span>
+<span class="text-xs font-medium text-on-surface-variant">Update API documentation</span>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6"><div class="text-center mb-8"><span class="bg-blue-100 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">SPRINTS (Weekly)</span><p class="text-on-surface-variant text-xs mt-2 font-medium">Weekly Cycle</p></div><div class="bg-white p-6 rounded-xl border border-outline-variant shadow-md relative overflow-hidden"><div class="flex justify-between items-start mb-4"><span class="text-[10px] font-bold text-primary uppercase">Sprint #42</span><span class="text-[10px] font-bold bg-green-100 text-green-600 px-2 py-0.5 rounded">In Progress</span></div><h4 class="font-bold text-on-surface text-sm mb-4">Sales Outreach Campaign</h4><div class="flex -space-x-2"><div class="w-6 h-6 rounded-full bg-primary-container border-2 border-white"></div><div class="w-6 h-6 rounded-full bg-secondary-container border-2 border-white"></div></div></div></div><div class="space-y-6"><div class="text-center mb-8"><span class="bg-blue-100 text-primary text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">TASKS (Daily)</span><p class="text-on-surface-variant text-xs mt-2 font-medium">Daily Execution</p></div><div class="space-y-3"><div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant shadow-sm"><span class="material-symbols-outlined text-primary text-sm">check_box</span><span class="text-xs font-medium">Follow up 10 leads</span></div><div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant shadow-sm"><span class="material-symbols-outlined text-primary text-sm">check_box</span><span class="text-xs font-medium">Draft sales email v2</span></div><div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant shadow-sm"><span class="material-symbols-outlined text-outline text-sm">check_box_outline_blank</span><span class="text-xs font-medium">Finalize login screen</span></div></div></div></div>
+<!-- Decorative Connection Lines (SVG) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none hidden lg:block" viewBox="0 0 1000 400" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0055ff" stop-opacity="0.2"></stop>
+      <stop offset="50%" stop-color="#0055ff" stop-opacity="0.6"></stop>
+      <stop offset="100%" stop-color="#0055ff" stop-opacity="0.2"></stop>
+    </linearGradient>
+  </defs>
+  <!-- Path 1: Financial to MRR Objective -->
+  <path d="M 240 160 L 270 160" stroke="url(#line-grad)" stroke-width="2" fill="none" stroke-dasharray="4 4"></path>
+  <!-- Path 2: MRR Objective to Sales Outreach -->
+  <path d="M 490 160 L 520 160" stroke="url(#line-grad)" stroke-width="2" fill="none" stroke-dasharray="4 4"></path>
+  <!-- Path 3: Sales Outreach to Daily Tasks -->
+  <path d="M 740 160 L 770 160" stroke="url(#line-grad)" stroke-width="2" fill="none" stroke-dasharray="4 4"></path>
+</svg></div>
+<div class="p-8 bg-surface-container rounded-2xl text-center">
+<p class="text-on-surface font-semibold italic">"Untuk pertama kalinya, semua orang di tim Anda bekerja ke arah yang sama dan Anda bisa melihatnya secara real-time."</p>
+</div>
+</div>
+</section>
+<!-- Cara Kerja Sprintime (Tabs) -->
+<section class="py-24 bg-surface-bright" id="how-it-works">
+<div class="max-w-4xl mx-auto px-gutter">
+<h2 class="font-headline-md text-3xl md:text-4xl text-center mb-12">Cara Kerja Sprintime</h2>
+<div class="flex flex-wrap justify-center border-b border-outline-variant mb-12">
+<button class="px-6 py-4 font-bold text-sm border-b-2 border-primary text-primary transition-all tab-btn active" data-tab="quarterly">Quarterly</button>
+<button class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="monthly">Monthly</button>
+<button class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="weekly">Weekly</button>
+<button class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all tab-btn" data-tab="daily">Daily</button>
+</div>
+<div class="bg-white p-10 rounded-2xl border border-outline-variant shadow-sm min-h-[240px]" id="tab-content">
+<!-- Default Content: Quarterly -->
+<div class="tab-pane active" id="quarterly">
+<div class="space-y-10">
+<div class="flex gap-6">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex-shrink-0 flex items-center justify-center font-bold">1</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Tentukan Strategi (BSC)</h3>
+<p class="text-on-surface-variant leading-relaxed">Masukkan perspektif bisnis anda — Financial, Customer, Internal Process, Learning &amp; Growth. Sprintime memandu setiap langkah.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex-shrink-0 flex items-center justify-center font-bold">2</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Set OKR</h3>
+<p class="text-on-surface-variant leading-relaxed">Terjemahkan strategi menjadi Objectives &amp; Key Results yang terukur. Sprintime memastikan setiap OKR terhubung ke perspektif BSC yang tepat.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane hidden" id="monthly">
+<div class="flex gap-6">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex-shrink-0 flex items-center justify-center font-bold">3</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Buat Tactical Plan</h3>
+<p class="text-on-surface-variant leading-relaxed">Pecah Key Results menjadi rencana taktis bulanan. Siapa yang bertanggung jawab, apa target minimalnya, kapan deadline-nya.</p>
+</div>
+</div>
+</div>
+<div class="tab-pane hidden" id="weekly">
+<div class="flex gap-6">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex-shrink-0 flex items-center justify-center font-bold">4</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Jalankan Sprint</h3>
+<p class="text-on-surface-variant leading-relaxed">Setiap minggu, tim tahu persis apa yang harus dikerjakan. Sprint planning, sprint review, dan progress update — semua dalam satu tempat.</p>
+</div>
+</div>
+</div>
+<div class="tab-pane hidden" id="daily">
+<div class="flex gap-6">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex-shrink-0 flex items-center justify-center font-bold">5</div>
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Eksekusi di Level Task</h3>
+<p class="text-on-surface-variant leading-relaxed">Setiap anggota tim punya task list yang terhubung ke sprint, ke OKR, ke strategi bisnis. Tidak ada kerja tanpa makna.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tackle Your Problems -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-container-max-width mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-sm tracking-[0.2em] text-primary font-bold uppercase mb-4">Tackle Your Problems</h2>
+<h3 class="text-3xl md:text-4xl font-bold text-on-surface">Ubah Hambatan Menjadi Keunggulan Kompetitif</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+<!-- Card 1 -->
+<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300">
+<div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">error</span>
+<h4 class="font-bold text-lg text-on-surface">Strategi tidak pernah benar-benar jalan</h4>
+</div>
+<p class="text-on-surface-variant italic font-body-md leading-relaxed">
+            "Setiap kuartal bikin OKR, tapi pertengahan jalan sudah lupa. Tim jalan sendiri-sendiri."
           </p>
-          <p class="hero-text">
-            Sprintime bukan hanya tool. Ini adalah framework kerja yang mengubah
-            rencana besar menjadi hasil nyata.
+</div>
+<div class="p-8 bg-white">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Sprintime menghubungkan OKR langsung ke sprint mingguan. Tim tidak bisa lupa — karena setiap minggu mereka bekerja dalam konteks tujuan besar perusahaan.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 md:mt-8">
+<div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">visibility_off</span>
+<h4 class="font-bold text-lg text-on-surface">Tidak tahu tim sedang ngerjain apa</h4>
+</div>
+<p class="text-on-surface-variant italic font-body-md leading-relaxed">
+            "Saya harus chat satu per satu untuk tahu progress. Tidak ada visibility sama sekali."
           </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#pricing">Try Now, Free</a>
-            <a class="button button-secondary" href="#platform">Lihat Sistem</a>
-          </div>
-          <p class="trial-note">14 hari penuh. Semua fitur. Tanpa kartu kredit.</p>
-          <div class="hero-metrics" aria-label="Ringkasan manfaat Sprintime">
-            <span><strong>4</strong> layer kerja</span>
-            <span><strong>1</strong> source of truth</span>
-            <span><strong>Real-time</strong> visibility</span>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-label="Demo produk Sprintime">
-          <div class="product-demo hero-window" aria-label="Remake tampilan Strategy Sprintime">
-            <aside class="demo-sidebar" aria-hidden="true">
-              <img src="assets/logogram-sprintime.png" alt="" />
-              <span class="active">Strategy</span>
-              <span>Tree</span>
-              <span>Sprint Board</span>
-              <span>My Tasks</span>
-            </aside>
-            <div class="demo-main">
-              <div class="demo-topbar">
-                <div>
-                  <span>Kopi Nusantara Online</span>
-                  <strong>Strategy / Q3 2026</strong>
-                </div>
-                <button type="button">+ Objective</button>
-              </div>
-              <div class="demo-alert">Nomor WhatsApp belum diverifikasi</div>
-              <div class="demo-progress-line">
-                <span>Progress</span>
-                <i><b></b></i>
-                <strong>18%</strong>
-              </div>
-              <div class="demo-grid">
-                <article class="demo-panel financial">
-                  <header>
-                    <span>Financial</span>
-                    <strong>18%</strong>
-                  </header>
-                  <div class="demo-bar"><b></b></div>
-                  <div class="demo-objective">
-                    <strong>Melipatgandakan omzet</strong>
-                    <small>1 Key Result</small>
-                  </div>
-                  <div class="demo-key-result">
-                    <span>KEY RESULT</span>
-                    <p>Mendapatkan omzet 1M per bulan</p>
-                    <div><b></b></div>
-                  </div>
-                </article>
-                <article class="demo-panel customer">
-                  <header>
-                    <span>Customer</span>
-                    <strong>0%</strong>
-                  </header>
-                  <div class="demo-bar"><b></b></div>
-                  <div class="demo-objective">
-                    <strong>Meningkatkan kepuasan pelanggan</strong>
-                    <small>1 Key Result</small>
-                  </div>
-                </article>
-                <article class="demo-task">
-                  <span>Sprint minggu ini</span>
-                  <strong>Susun SOP penyajian</strong>
-                  <small>Review - Agus Pratama</small>
-                </article>
-                <article class="demo-task task-delay">
-                  <span>Task harian</span>
-                  <strong>Jadwalkan sesi praktik tim</strong>
-                  <small>To Do - Budi Santoso</small>
-                </article>
-              </div>
-            </div>
-          </div>
-          <div class="floating-card card-one">
-            <strong>OKR</strong>
-            <span>Terhubung ke strategi</span>
-          </div>
-          <div class="floating-card card-two">
-            <strong>18%</strong>
-            <span>Progress objective Financial</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="proof-strip" aria-label="Ringkasan sistem">
-        <div>
-          <i data-lucide="target" aria-hidden="true"></i>
-          <strong>BSC</strong>
-          <span>Strategi bisnis</span>
-        </div>
-        <div>
-          <i data-lucide="list-checks" aria-hidden="true"></i>
-          <strong>OKR</strong>
-          <span>Tujuan terukur</span>
-        </div>
-        <div>
-          <i data-lucide="zap" aria-hidden="true"></i>
-          <strong>Sprint</strong>
-          <span>Eksekusi mingguan</span>
-        </div>
-        <div>
-          <i data-lucide="check-circle-2" aria-hidden="true"></i>
-          <strong>Task</strong>
-          <span>Aksi harian</span>
-        </div>
-      </section>
-
-      <section class="motion-band" aria-labelledby="motion-title">
-        <div class="motion-copy">
-          <p class="eyebrow">Video</p>
-          <h2 id="motion-title">Lihat strategi bergerak menjadi pekerjaan mingguan.</h2>
-          <p>
-            Sprintime memandu tim dari perspektif BSC, turun ke OKR, dipecah
-            menjadi sprint, lalu muncul sebagai task harian yang bisa dilacak.
+</div>
+<div class="p-8 bg-white">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Dashboard Sprintime memberi kamu visibility real-time — siapa mengerjakan apa, progress sprint berapa persen, OKR mana yang on-track dan mana yang butuh perhatian.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300">
+<div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">layers_clear</span>
+<h4 class="font-bold text-lg text-on-surface">Sudah pakai banyak tools tapi masih berantakan</h4>
+</div>
+<p class="text-on-surface-variant italic font-body-md leading-relaxed">
+            "Kami pakai Notion untuk docs, Trello untuk tasks, spreadsheet untuk OKR. Tidak ada yang nyambung."
           </p>
-        </div>
-        <div class="motion-stage" aria-label="Animasi alur Sprintime">
-          <img src="assets/app-tree.png" alt="Dekorasi tampilan Tree Sprintime" />
-          <div class="motion-path" aria-hidden="true">
-            <span>BSC</span>
-            <span>OKR</span>
-            <span>Sprint</span>
-            <span>Task</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="platform-section" id="platform" aria-labelledby="platform-title">
-        <div class="section-heading">
-          <p class="eyebrow">Satu platform. Empat kekuatan.</p>
-          <h2 id="platform-title">Framework eksekusi strategi yang sudah built-in.</h2>
-        </div>
-        <div class="platform-layout">
-          <div class="power-grid">
-            <article>
-              <span class="icon-tile green"><i data-lucide="radar" aria-hidden="true"></i></span>
-              <h3>Strategy Planning</h3>
-              <p>
-                Susun strategi bisnis dengan framework BSC yang disederhanakan:
-                Financial, Customer, Internal Process, Learning & Growth dalam
-                satu tampilan.
+</div>
+<div class="p-8 bg-white">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Sprintime menggantikan semuanya dengan satu sistem yang kohesif. Framework-nya sudah built-in — tidak perlu setup manual berbulan-bulan.
               </p>
-            </article>
-            <article>
-              <span class="icon-tile blue"><i data-lucide="goal" aria-hidden="true"></i></span>
-              <h3>OKR Management</h3>
-              <p>
-                Set Objectives & Key Results yang terhubung langsung ke strategi.
-                Tidak ada lagi OKR yang hidup sendiri di spreadsheet.
-              </p>
-            </article>
-            <article>
-              <span class="icon-tile orange"><i data-lucide="timer-reset" aria-hidden="true"></i></span>
-              <h3>Sprint Execution</h3>
-              <p>
-                Jalankan sprint mingguan atau dua-mingguan dengan prioritas yang
-                jelas. Setiap sprint terhubung ke OKR, bukan sekadar to-do list.
-              </p>
-            </article>
-            <article>
-              <span class="icon-tile violet"><i data-lucide="badge-check" aria-hidden="true"></i></span>
-              <h3>Task & Progress Tracking</h3>
-              <p>
-                Setiap anggota tim punya task yang jelas, terlacak, dan bermakna.
-                Leader bisa melihat progress real-time tanpa menanyakan satu per satu.
-              </p>
-            </article>
-          </div>
-          <div class="decor-shot">
-            <img src="assets/app-sprint-board.png" alt="Dekorasi Sprint Board Sprintime" />
-          </div>
-        </div>
-      </section>
-
-      <section class="system-section" id="system" aria-labelledby="system-title">
-        <div class="system-copy">
-          <p class="eyebrow">Inilah kenapa Sprintime berbeda</p>
-          <h2 id="system-title">Tool tanpa framework hanya menciptakan chaos yang lebih rapi.</h2>
-          <p>
-            Kami tidak hanya membangun tool. Kami membangun Sprint Productivity
-            System, metodologi yang membantu perusahaan Indonesia menghubungkan
-            visi mereka ke eksekusi harian.
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-white rounded-2xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 md:mt-8">
+<div class="p-8 border-b border-outline-variant bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">help_center</span>
+<h4 class="font-bold text-lg text-on-surface">Tim tidak paham kenapa mereka mengerjakan sesuatu</h4>
+</div>
+<p class="text-on-surface-variant italic font-body-md leading-relaxed">
+            "Karyawan hanya tahu task mereka, tapi tidak tahu hubungannya ke tujuan perusahaan."
           </p>
-        </div>
-        <div class="flow-board" aria-label="Alur BSC ke task">
-          <div>
-            <i data-lucide="compass" aria-hidden="true"></i>
-            <strong>BSC</strong>
-            <span>Strategi</span>
-            <small>Quarterly</small>
-          </div>
-          <div>
-            <i data-lucide="crosshair" aria-hidden="true"></i>
-            <strong>OKR</strong>
-            <span>Tujuan</span>
-            <small>Quarterly</small>
-          </div>
-          <div>
-            <i data-lucide="kanban" aria-hidden="true"></i>
-            <strong>Sprint</strong>
-            <span>Eksekusi</span>
-            <small>Weekly</small>
-          </div>
-          <div>
-            <i data-lucide="clipboard-check" aria-hidden="true"></i>
-            <strong>Task</strong>
-            <span>Aksi Nyata</span>
-            <small>Daily</small>
-          </div>
-        </div>
-      </section>
-
-      <section class="workflow-section" id="workflow" aria-labelledby="workflow-title">
-        <div class="section-heading">
-          <p class="eyebrow">Cara Kerja Sprintime</p>
-          <h2 id="workflow-title">Quarterly, monthly, weekly, daily. Satu ritme yang saling terhubung.</h2>
-        </div>
-        <div class="tabs" data-tabs>
-          <div class="tab-list" role="tablist" aria-label="Periode kerja">
-            <button class="tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="quarterly" id="tab-quarterly" data-tab="quarterly">Quarterly</button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="monthly" id="tab-monthly" data-tab="monthly">Monthly</button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="weekly" id="tab-weekly" data-tab="weekly">Weekly</button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="daily" id="tab-daily" data-tab="daily">Daily</button>
-          </div>
-          <article class="tab-panel is-active" id="quarterly" role="tabpanel" aria-labelledby="tab-quarterly" data-panel="quarterly">
-            <div>
-              <span class="panel-number">01 - 02</span>
-              <h3>Tentukan Strategi (BSC) dan set OKR.</h3>
-              <p>
-                Masukkan perspektif bisnis Anda, lalu terjemahkan strategi
-                menjadi Objectives & Key Results yang terukur. Sprintime
-                memastikan setiap OKR terhubung ke perspektif BSC yang tepat.
+</div>
+<div class="p-8 bg-white">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Di Sprintime, setiap task punya konteks — terhubung ke sprint, ke OKR, ke strategi bisnis. Tim yang paham kenapa bekerja jauh lebih produktif dari yang hanya tahu apa.
               </p>
-            </div>
-            <div class="workflow-card" aria-hidden="true">
-              <span class="workflow-label">Quarterly</span>
-              <strong>BSC Perspective</strong>
-              <div class="mini-bars"><span></span><span></span><span></span><span></span></div>
-              <small>Financial - Customer - Process - Growth</small>
-            </div>
-          </article>
-          <article class="tab-panel" id="monthly" role="tabpanel" aria-labelledby="tab-monthly" data-panel="monthly" hidden>
-            <div>
-              <span class="panel-number">03</span>
-              <h3>Buat Tactical Plan.</h3>
-              <p>
-                Pecah Key Results menjadi rencana taktis bulanan: siapa yang
-                bertanggung jawab, apa target minimalnya, dan kapan deadline-nya.
-              </p>
-            </div>
-            <div class="workflow-card" aria-hidden="true">
-              <span class="workflow-label">Monthly</span>
-              <strong>Tactical Plan</strong>
-              <ol class="mini-list">
-                <li>Owner assigned</li>
-                <li>Minimum target</li>
-                <li>Deadline locked</li>
-              </ol>
-            </div>
-          </article>
-          <article class="tab-panel" id="weekly" role="tabpanel" aria-labelledby="tab-weekly" data-panel="weekly" hidden>
-            <div>
-              <span class="panel-number">04</span>
-              <h3>Jalankan Sprint.</h3>
-              <p>
-                Setiap minggu, tim tahu persis apa yang harus dikerjakan.
-                Sprint planning, sprint review, dan progress update berada
-                dalam satu tempat.
-              </p>
-            </div>
-            <div class="workflow-card board-card" aria-hidden="true">
-              <span class="workflow-label">Weekly</span>
-              <strong>Sprint Board</strong>
-              <div class="mini-board">
-                <span>To Do</span><span>Doing</span><span>Review</span><span>Done</span>
-              </div>
-            </div>
-          </article>
-          <article class="tab-panel" id="daily" role="tabpanel" aria-labelledby="tab-daily" data-panel="daily" hidden>
-            <div>
-              <span class="panel-number">05</span>
-              <h3>Eksekusi di level task.</h3>
-              <p>
-                Setiap anggota tim punya task list yang terhubung ke sprint,
-                OKR, dan strategi bisnis. Tidak ada kerja tanpa makna.
-              </p>
-            </div>
-            <div class="workflow-card" aria-hidden="true">
-              <span class="workflow-label">Daily</span>
-              <strong>Meaningful Tasks</strong>
-              <ol class="mini-list">
-                <li>Task connected to sprint</li>
-                <li>Sprint connected to OKR</li>
-                <li>OKR connected to strategy</li>
-              </ol>
-            </div>
-          </article>
-        </div>
-      </section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tools to Empower -->
+<section class="py-24 bg-surface-container-low" id="features-detailed">
+<div class="max-w-container-max-width mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-primary uppercase text-sm tracking-widest font-bold mb-4">TOOLS TO EMPOWER</h2>
+<h3 class="font-headline-md text-3xl text-on-surface">Semua yang Kamu Butuhkan untuk Eksekusi Strategi</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+<div>
+<h4 class="font-bold text-lg mb-6 text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">map</span> Strategy &amp; Planning
+                    </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> BSC Framework bawaan</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> OKR Hierarchy Visual</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Cascading Goals</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Metrics Tracking</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6 text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span> Sprint &amp; Execution
+                    </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Sprint Planning Board</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Weekly Sprint Cycles</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Task Assignment</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Progress Update Real-time</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6 text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span> Reporting &amp; Visibility
+                    </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Dashboard CEO/Leadership</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> OKR Progress Report</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Sprint Completion Rate</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Team Performance</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6 text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">groups</span> Collaboration &amp; Alignment
+                    </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Check-in Mingguan</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Feedback &amp; Recognition</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Sprint Review Agenda</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Discussion &amp; Comments</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 bg-inverse-surface text-white text-center" id="pricing">
+<div class="max-w-4xl mx-auto px-gutter">
+<h2 class="text-3xl md:text-5xl font-bold mb-6">Mulai Gratis. Bayar Hanya Kalau Kamu Merasakan Manfaatnya.</h2>
+<p class="text-xl text-inverse-on-surface/70 mb-10">Free 14 hari. Semua fitur. Tidak perlu kartu kredit.</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+<button class="bg-primary text-white font-bold text-lg px-12 py-4 rounded-lg hover:brightness-110 transition-all shadow-lg shadow-primary/20">Mulai Gratis</button>
+<div class="flex flex-col items-center gap-2">
+<span class="font-bold text-lg">Pro Plan</span>
+<span class="text-sm opacity-60">Customized Enterprise</span>
+</div>
+</div>
+<p class="mt-12 text-sm opacity-40">Join thousands of companies worldwide.</p>
+</div>
+</section>
+</main>
+<footer class="bg-white py-20 border-t border-outline-variant">
+<div class="max-w-container-max-width mx-auto px-gutter grid grid-cols-2 md:grid-cols-5 gap-12">
+<div class="col-span-2">
+<img alt="Sprintime Logo" class="h-10 w-auto mb-6" src="assets/logo-sprintime.png">
+<p class="text-on-surface-variant text-sm max-w-xs mb-6">© 2024 Sprintime Productivity Systems. Built for Velocity.</p>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">groups</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-on-surface uppercase text-xs tracking-widest">Sprintime</h4>
+<ul class="space-y-4 text-sm text-on-surface-variant">
+<li class=""><a class="hover:text-primary transition-colors" href="#">About</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Mobile apps</a></li>
+</ul>
+</div>
+<div class="">
+<h4 class="font-bold mb-6 text-on-surface uppercase text-xs tracking-widest">Information</h4>
+<ul class="space-y-4 text-sm text-on-surface-variant">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Security</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-on-surface uppercase text-xs tracking-widest">Find Us</h4>
+<ul class="space-y-4 text-sm text-on-surface-variant">
+<li class=""><a class="hover:text-primary transition-colors" href="#">LinkedIn</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Twitter</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Facebook</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Youtube</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script>
+    document.querySelectorAll('.tab-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const tabId = button.getAttribute('data-tab');
 
-      <section class="problems-section" id="problems" aria-labelledby="problems-title">
-        <div class="section-heading">
-          <p class="eyebrow">Tackle your problems</p>
-          <h2 id="problems-title">Masalah eksekusi yang Sprintime selesaikan.</h2>
-        </div>
-        <div class="problem-list">
-          <article>
-            <span class="problem-icon"><i data-lucide="route-off" aria-hidden="true"></i></span>
-            <h3>Strategi tidak pernah benar-benar jalan</h3>
-            <p class="quote">"Setiap kuartal bikin OKR, tapi pertengahan jalan sudah lupa. Tim jalan sendiri-sendiri."</p>
-            <p>Sprintime menghubungkan OKR langsung ke sprint mingguan, sehingga tim bekerja dalam konteks tujuan besar perusahaan.</p>
-          </article>
-          <article>
-            <span class="problem-icon"><i data-lucide="eye-off" aria-hidden="true"></i></span>
-            <h3>Tidak tahu tim sedang ngerjain apa</h3>
-            <p class="quote">"Saya harus chat satu per satu untuk tahu progress. Tidak ada visibility sama sekali."</p>
-            <p>Dashboard Sprintime memberi visibility real-time: siapa mengerjakan apa, progress sprint, dan OKR yang butuh perhatian.</p>
-          </article>
-          <article>
-            <span class="problem-icon"><i data-lucide="blocks" aria-hidden="true"></i></span>
-            <h3>Banyak tools tapi masih berantakan</h3>
-            <p class="quote">"Notion untuk docs, Trello untuk tasks, spreadsheet untuk OKR. Tidak ada yang nyambung."</p>
-            <p>Sprintime menggantikan setup manual dengan satu sistem kohesif yang framework-nya sudah built-in.</p>
-          </article>
-          <article>
-            <span class="problem-icon"><i data-lucide="circle-help" aria-hidden="true"></i></span>
-            <h3>Tim tidak paham kenapa mereka mengerjakan sesuatu</h3>
-            <p class="quote">"Karyawan hanya tahu task mereka, tapi tidak tahu hubungannya ke tujuan perusahaan."</p>
-            <p>Setiap task punya konteks: sprint, OKR, dan strategi bisnis. Tim paham kenapa mereka bekerja.</p>
-          </article>
-        </div>
-      </section>
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-primary', 'text-primary');
+                btn.classList.add('border-transparent', 'text-on-surface-variant');
+            });
 
-      <section class="tools-section" id="tools" aria-labelledby="tools-title">
-        <div class="section-heading">
-          <p class="eyebrow">Tools to empower</p>
-          <h2 id="tools-title">Semua yang kamu butuhkan untuk eksekusi strategi.</h2>
-        </div>
-        <div class="tools-grid">
-          <article>
-            <span class="icon-tile green"><i data-lucide="map" aria-hidden="true"></i></span>
-            <h3>Strategy & Planning</h3>
-            <ul>
-              <li>BSC Framework bawaan</li>
-              <li>OKR Hierarchy Visual</li>
-              <li>Cascading Goals: Company, Tim, Individual</li>
-              <li>Key Indicator & Metrics Tracking</li>
-            </ul>
-          </article>
-          <article>
-            <span class="icon-tile orange"><i data-lucide="rocket" aria-hidden="true"></i></span>
-            <h3>Sprint & Execution</h3>
-            <ul>
-              <li>Sprint Planning Board</li>
-              <li>Weekly Sprint Cycles</li>
-              <li>Task Assignment per Orang</li>
-              <li>Progress Update Real-time</li>
-            </ul>
-          </article>
-          <article>
-            <span class="icon-tile blue"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i></span>
-            <h3>Reporting & Visibility</h3>
-            <ul>
-              <li>Dashboard CEO/Leadership</li>
-              <li>OKR Progress Report Otomatis</li>
-              <li>Sprint Completion Rate</li>
-              <li>Team Performance Overview</li>
-            </ul>
-          </article>
-          <article>
-            <span class="icon-tile violet"><i data-lucide="users-round" aria-hidden="true"></i></span>
-            <h3>Collaboration & Alignment</h3>
-            <ul>
-              <li>Check-in Mingguan</li>
-              <li>Feedback & Recognition</li>
-              <li>Meeting Agenda Sprint Review</li>
-              <li>Discussion/comment with notification</li>
-            </ul>
-          </article>
-        </div>
-      </section>
+            button.classList.add('active', 'border-primary', 'text-primary');
+            button.classList.remove('border-transparent', 'text-on-surface-variant');
 
-      <section class="pricing-section" id="pricing" aria-labelledby="pricing-title">
-        <div class="pricing-header">
-          <img src="assets/logogram-sprintime.png" alt="" aria-hidden="true" />
-          <p class="eyebrow">Mulai gratis</p>
-          <h2 id="pricing-title">Bayar hanya kalau kamu merasakan manfaatnya.</h2>
-          <p>Free 14 hari. Semua fitur. Tidak perlu kartu kredit.</p>
-        </div>
-        <div class="pricing-grid">
-          <article class="price-card trial-card">
-            <div class="plan-row">
-              <p class="plan">Free Trial</p>
-              <span>Tanpa kartu kredit</span>
-            </div>
-            <h3>14 hari</h3>
-            <p>Validasi alur BSC, OKR, sprint, dan task bersama tim sebelum berlangganan.</p>
-            <ul class="plan-features">
-              <li><i data-lucide="check" aria-hidden="true"></i> Semua fitur utama aktif</li>
-              <li><i data-lucide="check" aria-hidden="true"></i> Coba dengan data tim nyata</li>
-              <li><i data-lucide="check" aria-hidden="true"></i> Onboarding ringan</li>
-            </ul>
-            <a class="button button-primary" href="mailto:hello@sprintime.app?subject=Mulai%20Gratis%20Sprintime">Mulai Gratis</a>
-          </article>
-          <article class="price-card featured">
-            <div class="plan-row">
-              <p class="plan">Pro</p>
-              <span>Paling relevan untuk tim</span>
-            </div>
-            <h3>For teams</h3>
-            <p>Untuk tim yang ingin menjalankan strategi sampai eksekusi mingguan dalam satu operating system.</p>
-            <ul class="plan-features">
-              <li><i data-lucide="check" aria-hidden="true"></i> BSC, OKR, sprint, dan task</li>
-              <li><i data-lucide="check" aria-hidden="true"></i> Dashboard leadership real-time</li>
-              <li><i data-lucide="check" aria-hidden="true"></i> Report dan check-in mingguan</li>
-              <li><i data-lucide="check" aria-hidden="true"></i> Kolaborasi dengan notifikasi</li>
-            </ul>
-            <a class="button button-light" href="mailto:hello@sprintime.app?subject=Tanya%20Paket%20Pro%20Sprintime">Tanya Pro</a>
-          </article>
-          <article class="price-card custom-card">
-            <div class="plan-row">
-              <p class="plan">Customized</p>
-              <span>Untuk organisasi</span>
-            </div>
-            <h3>For companies</h3>
-            <p>Untuk perusahaan yang butuh struktur goal, ritme kerja, dan implementasi sesuai konteks organisasi.</p>
-            <ul class="plan-features">
-              <li><i data-lucide="check" aria-hidden="true"></i> Setup framework dan workflow</li>
-              <li><i data-lucide="check" aria-hidden="true"></i> Struktur company, team, individual</li>
-              <li><i data-lucide="check" aria-hidden="true"></i> Pendampingan implementasi</li>
-            </ul>
-            <a class="button button-light" href="mailto:hello@sprintime.app?subject=Konsultasi%20Sprintime%20Customized">Konsultasi</a>
-          </article>
-        </div>
-        <div class="pricing-note">
-          <span><i data-lucide="shield-check" aria-hidden="true"></i> Trial penuh</span>
-          <span><i data-lucide="clock-3" aria-hidden="true"></i> Setup cepat</span>
-          <span><i data-lucide="bar-chart-3" aria-hidden="true"></i> Visibility sejak minggu pertama</span>
-        </div>
-      </section>
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.toggle('hidden', pane.id !== tabId);
+                pane.classList.toggle('active', pane.id === tabId);
+            });
+        });
+    });
+</script>
 
-      <section class="faq-section" aria-labelledby="faq-title">
-        <div class="section-heading">
-          <p class="eyebrow">FAQ</p>
-          <h2 id="faq-title">Pertanyaan umum.</h2>
-        </div>
-        <div class="faq-list">
-          <details>
-            <summary>Apakah Sprintime hanya task management?</summary>
-            <p>Tidak. Sprintime menggabungkan framework strategi, OKR, sprint, dan task dalam satu alur kerja.</p>
-          </details>
-          <details>
-            <summary>Apakah kami harus sudah punya OKR?</summary>
-            <p>Tidak. Sprintime membantu tim mulai dari BSC, lalu menerjemahkannya menjadi OKR dan sprint.</p>
-          </details>
-          <details>
-            <summary>Apakah cocok untuk sprint mingguan dan dua-mingguan?</summary>
-            <p>Ya. Tim bisa menjalankan sprint mingguan atau dua-mingguan sesuai ritme operasional.</p>
-          </details>
-          <details>
-            <summary>Apakah trial membutuhkan kartu kredit?</summary>
-            <p>Tidak. Trial 14 hari dapat digunakan tanpa kartu kredit.</p>
-          </details>
-        </div>
-      </section>
-    </main>
 
-    <footer class="site-footer">
-      <img src="assets/logo-sprintime.png" alt="Sprintime by Incentric" />
-      <p>Strategy becomes sprint. Sprint becomes progress.</p>
-    </footer>
-
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script src="script.js"></script>
-  </body>
-</html>
+</body></html>
