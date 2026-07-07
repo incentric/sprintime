@@ -9,6 +9,7 @@
       content="Sprintime menghubungkan BSC, OKR, sprint, dan task harian agar strategi perusahaan menjadi eksekusi yang terlihat."
     />
     <link rel="preload" as="image" href="assets/logo-sprintime.png" />
+    <link rel="icon" href="assets/logogram-sprintime.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -23,6 +24,7 @@
         <a href="#system">System</a>
         <a href="#workflow">Cara Kerja</a>
         <a href="#problems">Problems</a>
+        <a href="#tools">Tools</a>
         <a href="#pricing">Pricing</a>
       </nav>
       <a class="nav-cta" href="#pricing">Try Now, Free</a>
@@ -49,6 +51,11 @@
             <a class="button button-secondary" href="#platform">Lihat Sistem</a>
           </div>
           <p class="trial-note">14 hari penuh. Semua fitur. Tanpa kartu kredit.</p>
+          <div class="hero-metrics" aria-label="Ringkasan manfaat Sprintime">
+            <span><strong>4</strong> layer kerja</span>
+            <span><strong>1</strong> source of truth</span>
+            <span><strong>Real-time</strong> visibility</span>
+          </div>
         </div>
 
         <div class="hero-visual" aria-label="Demo produk Sprintime">
@@ -128,18 +135,22 @@
 
       <section class="proof-strip" aria-label="Ringkasan sistem">
         <div>
+          <i data-lucide="target" aria-hidden="true"></i>
           <strong>BSC</strong>
           <span>Strategi bisnis</span>
         </div>
         <div>
+          <i data-lucide="list-checks" aria-hidden="true"></i>
           <strong>OKR</strong>
           <span>Tujuan terukur</span>
         </div>
         <div>
+          <i data-lucide="zap" aria-hidden="true"></i>
           <strong>Sprint</strong>
           <span>Eksekusi mingguan</span>
         </div>
         <div>
+          <i data-lucide="check-circle-2" aria-hidden="true"></i>
           <strong>Task</strong>
           <span>Aksi harian</span>
         </div>
@@ -173,7 +184,7 @@
         <div class="platform-layout">
           <div class="power-grid">
             <article>
-              <span class="power-icon strategy-icon" aria-hidden="true"></span>
+              <span class="icon-tile green"><i data-lucide="radar" aria-hidden="true"></i></span>
               <h3>Strategy Planning</h3>
               <p>
                 Susun strategi bisnis dengan framework BSC yang disederhanakan:
@@ -182,7 +193,7 @@
               </p>
             </article>
             <article>
-              <span class="power-icon okr-icon" aria-hidden="true"></span>
+              <span class="icon-tile blue"><i data-lucide="goal" aria-hidden="true"></i></span>
               <h3>OKR Management</h3>
               <p>
                 Set Objectives & Key Results yang terhubung langsung ke strategi.
@@ -190,7 +201,7 @@
               </p>
             </article>
             <article>
-              <span class="power-icon sprint-icon" aria-hidden="true"></span>
+              <span class="icon-tile orange"><i data-lucide="timer-reset" aria-hidden="true"></i></span>
               <h3>Sprint Execution</h3>
               <p>
                 Jalankan sprint mingguan atau dua-mingguan dengan prioritas yang
@@ -198,7 +209,7 @@
               </p>
             </article>
             <article>
-              <span class="power-icon task-icon" aria-hidden="true"></span>
+              <span class="icon-tile violet"><i data-lucide="badge-check" aria-hidden="true"></i></span>
               <h3>Task & Progress Tracking</h3>
               <p>
                 Setiap anggota tim punya task yang jelas, terlacak, dan bermakna.
@@ -224,21 +235,25 @@
         </div>
         <div class="flow-board" aria-label="Alur BSC ke task">
           <div>
+            <i data-lucide="compass" aria-hidden="true"></i>
             <strong>BSC</strong>
             <span>Strategi</span>
             <small>Quarterly</small>
           </div>
           <div>
+            <i data-lucide="crosshair" aria-hidden="true"></i>
             <strong>OKR</strong>
             <span>Tujuan</span>
             <small>Quarterly</small>
           </div>
           <div>
+            <i data-lucide="kanban" aria-hidden="true"></i>
             <strong>Sprint</strong>
             <span>Eksekusi</span>
             <small>Weekly</small>
           </div>
           <div>
+            <i data-lucide="clipboard-check" aria-hidden="true"></i>
             <strong>Task</strong>
             <span>Aksi Nyata</span>
             <small>Daily</small>
@@ -272,7 +287,7 @@
               <span class="workflow-label">Quarterly</span>
               <strong>BSC Perspective</strong>
               <div class="mini-bars"><span></span><span></span><span></span><span></span></div>
-              <small>Financial · Customer · Process · Growth</small>
+              <small>Financial - Customer - Process - Growth</small>
             </div>
           </article>
           <article class="tab-panel" id="monthly" role="tabpanel" aria-labelledby="tab-monthly" data-panel="monthly" hidden>
@@ -341,21 +356,25 @@
         </div>
         <div class="problem-list">
           <article>
+            <span class="problem-icon"><i data-lucide="route-off" aria-hidden="true"></i></span>
             <h3>Strategi tidak pernah benar-benar jalan</h3>
             <p class="quote">"Setiap kuartal bikin OKR, tapi pertengahan jalan sudah lupa. Tim jalan sendiri-sendiri."</p>
             <p>Sprintime menghubungkan OKR langsung ke sprint mingguan, sehingga tim bekerja dalam konteks tujuan besar perusahaan.</p>
           </article>
           <article>
+            <span class="problem-icon"><i data-lucide="eye-off" aria-hidden="true"></i></span>
             <h3>Tidak tahu tim sedang ngerjain apa</h3>
             <p class="quote">"Saya harus chat satu per satu untuk tahu progress. Tidak ada visibility sama sekali."</p>
             <p>Dashboard Sprintime memberi visibility real-time: siapa mengerjakan apa, progress sprint, dan OKR yang butuh perhatian.</p>
           </article>
           <article>
+            <span class="problem-icon"><i data-lucide="blocks" aria-hidden="true"></i></span>
             <h3>Banyak tools tapi masih berantakan</h3>
             <p class="quote">"Notion untuk docs, Trello untuk tasks, spreadsheet untuk OKR. Tidak ada yang nyambung."</p>
             <p>Sprintime menggantikan setup manual dengan satu sistem kohesif yang framework-nya sudah built-in.</p>
           </article>
           <article>
+            <span class="problem-icon"><i data-lucide="circle-help" aria-hidden="true"></i></span>
             <h3>Tim tidak paham kenapa mereka mengerjakan sesuatu</h3>
             <p class="quote">"Karyawan hanya tahu task mereka, tapi tidak tahu hubungannya ke tujuan perusahaan."</p>
             <p>Setiap task punya konteks: sprint, OKR, dan strategi bisnis. Tim paham kenapa mereka bekerja.</p>
@@ -370,6 +389,7 @@
         </div>
         <div class="tools-grid">
           <article>
+            <span class="icon-tile green"><i data-lucide="map" aria-hidden="true"></i></span>
             <h3>Strategy & Planning</h3>
             <ul>
               <li>BSC Framework bawaan</li>
@@ -379,6 +399,7 @@
             </ul>
           </article>
           <article>
+            <span class="icon-tile orange"><i data-lucide="rocket" aria-hidden="true"></i></span>
             <h3>Sprint & Execution</h3>
             <ul>
               <li>Sprint Planning Board</li>
@@ -388,6 +409,7 @@
             </ul>
           </article>
           <article>
+            <span class="icon-tile blue"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i></span>
             <h3>Reporting & Visibility</h3>
             <ul>
               <li>Dashboard CEO/Leadership</li>
@@ -397,6 +419,7 @@
             </ul>
           </article>
           <article>
+            <span class="icon-tile violet"><i data-lucide="users-round" aria-hidden="true"></i></span>
             <h3>Collaboration & Alignment</h3>
             <ul>
               <li>Check-in Mingguan</li>
@@ -416,24 +439,54 @@
           <p>Free 14 hari. Semua fitur. Tidak perlu kartu kredit.</p>
         </div>
         <div class="pricing-grid">
-          <article class="price-card featured">
-            <p class="plan">Free</p>
+          <article class="price-card trial-card">
+            <div class="plan-row">
+              <p class="plan">Free Trial</p>
+              <span>Tanpa kartu kredit</span>
+            </div>
             <h3>14 hari</h3>
-            <p>Semua fitur aktif untuk mencoba Sprint Productivity System bersama tim.</p>
+            <p>Validasi alur BSC, OKR, sprint, dan task bersama tim sebelum berlangganan.</p>
+            <ul class="plan-features">
+              <li><i data-lucide="check" aria-hidden="true"></i> Semua fitur utama aktif</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Coba dengan data tim nyata</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Onboarding ringan</li>
+            </ul>
             <a class="button button-primary" href="mailto:hello@sprintime.app?subject=Mulai%20Gratis%20Sprintime">Mulai Gratis</a>
           </article>
-          <article class="price-card">
-            <p class="plan">Pro</p>
+          <article class="price-card featured">
+            <div class="plan-row">
+              <p class="plan">Pro</p>
+              <span>Paling relevan untuk tim</span>
+            </div>
             <h3>For teams</h3>
-            <p>Untuk tim yang ingin menjalankan BSC, OKR, sprint, task, dan laporan dalam satu sistem.</p>
+            <p>Untuk tim yang ingin menjalankan strategi sampai eksekusi mingguan dalam satu operating system.</p>
+            <ul class="plan-features">
+              <li><i data-lucide="check" aria-hidden="true"></i> BSC, OKR, sprint, dan task</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Dashboard leadership real-time</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Report dan check-in mingguan</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Kolaborasi dengan notifikasi</li>
+            </ul>
             <a class="button button-light" href="mailto:hello@sprintime.app?subject=Tanya%20Paket%20Pro%20Sprintime">Tanya Pro</a>
           </article>
-          <article class="price-card">
-            <p class="plan">Customized</p>
+          <article class="price-card custom-card">
+            <div class="plan-row">
+              <p class="plan">Customized</p>
+              <span>Untuk organisasi</span>
+            </div>
             <h3>For companies</h3>
-            <p>Untuk perusahaan yang butuh workflow, struktur goal, dan implementasi yang disesuaikan.</p>
+            <p>Untuk perusahaan yang butuh struktur goal, ritme kerja, dan implementasi sesuai konteks organisasi.</p>
+            <ul class="plan-features">
+              <li><i data-lucide="check" aria-hidden="true"></i> Setup framework dan workflow</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Struktur company, team, individual</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Pendampingan implementasi</li>
+            </ul>
             <a class="button button-light" href="mailto:hello@sprintime.app?subject=Konsultasi%20Sprintime%20Customized">Konsultasi</a>
           </article>
+        </div>
+        <div class="pricing-note">
+          <span><i data-lucide="shield-check" aria-hidden="true"></i> Trial penuh</span>
+          <span><i data-lucide="clock-3" aria-hidden="true"></i> Setup cepat</span>
+          <span><i data-lucide="bar-chart-3" aria-hidden="true"></i> Visibility sejak minggu pertama</span>
         </div>
       </section>
 
@@ -468,6 +521,7 @@
       <p>Strategy becomes sprint. Sprint becomes progress.</p>
     </footer>
 
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,6 +1,10 @@
 const tabRoot = document.querySelector("[data-tabs]");
 const progressBar = document.querySelector(".scroll-progress span");
 
+if (window.lucide) {
+  window.lucide.createIcons();
+}
+
 if (tabRoot) {
   const buttons = Array.from(tabRoot.querySelectorAll("[data-tab]"));
   const panels = Array.from(tabRoot.querySelectorAll("[data-panel]"));

@@ -140,13 +140,13 @@ a {
 }
 
 .hero {
-  min-height: 92vh;
+  min-height: 84vh;
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: clamp(36px, 5vw, 72px);
   align-items: center;
   overflow: hidden;
-  padding: calc(var(--header-h) + 56px) clamp(20px, 5vw, 72px) 72px;
+  padding: calc(var(--header-h) + 38px) clamp(20px, 5vw, 72px) 54px;
   background:
     radial-gradient(circle at 80% 16%, rgba(255, 200, 33, 0.35), transparent 28%),
     linear-gradient(135deg, #fffdf8 0%, #f7f2ea 48%, #eef4ff 100%);
@@ -214,6 +214,32 @@ h1 span {
   margin-top: 14px;
   color: var(--muted);
   font-size: 0.94rem;
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 620px;
+  margin-top: 22px;
+}
+
+.hero-metrics span {
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(222, 212, 197, 0.82);
+  border-radius: var(--radius);
+  padding: 12px;
+  color: var(--muted);
+  background: rgba(255, 253, 248, 0.72);
+  box-shadow: 0 12px 32px rgba(54, 45, 34, 0.08);
+}
+
+.hero-metrics strong {
+  color: var(--ink);
+  font-size: 1.05rem;
 }
 
 .hero-visual {
@@ -619,8 +645,12 @@ h1 span {
 }
 
 .proof-strip div {
-  min-height: 116px;
-  padding: 26px clamp(20px, 3vw, 38px);
+  min-height: 104px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: center;
+  padding: 22px clamp(20px, 3vw, 38px);
   border-right: 1px solid var(--line);
 }
 
@@ -633,13 +663,20 @@ h1 span {
   display: block;
 }
 
+.proof-strip i {
+  grid-row: span 2;
+  width: 28px;
+  height: 28px;
+  color: var(--blue);
+}
+
 .proof-strip strong {
-  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  font-size: clamp(1.45rem, 2.4vw, 2.25rem);
   line-height: 1;
 }
 
 .proof-strip span {
-  margin-top: 10px;
+  margin-top: 6px;
   color: var(--muted);
 }
 
@@ -651,7 +688,7 @@ h1 span {
 .tools-section,
 .pricing-section,
 .faq-section {
-  padding: clamp(76px, 10vw, 128px) clamp(20px, 5vw, 72px);
+  padding: clamp(58px, 7vw, 96px) clamp(20px, 5vw, 72px);
 }
 
 .section-heading {
@@ -824,80 +861,74 @@ details {
 }
 
 .power-grid article {
-  min-height: 316px;
+  min-height: 292px;
   padding: 24px;
 }
 
-.power-icon {
-  position: relative;
-  display: block;
+.power-grid article,
+.tools-grid article,
+.problem-list article,
+.price-card,
+details {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.power-grid article:hover,
+.tools-grid article:hover,
+.problem-list article:hover,
+details:hover {
+  transform: translateY(-3px);
+  border-color: rgba(13, 98, 216, 0.28);
+  box-shadow: 0 18px 48px rgba(54, 45, 34, 0.11);
+}
+
+.icon-tile,
+.problem-icon {
   width: 46px;
   height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(222, 212, 197, 0.88);
   border-radius: var(--radius);
   background: #edf3ff;
 }
 
-.power-icon::before,
-.power-icon::after {
-  position: absolute;
-  content: "";
+.icon-tile i,
+.problem-icon i,
+.flow-board i,
+.plan-features i,
+.pricing-note i {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.2;
 }
 
-.strategy-icon::before {
-  inset: 12px;
-  border: 3px solid var(--green);
-  border-radius: 999px;
+.icon-tile.green,
+.problem-icon {
+  color: var(--green);
+  background: rgba(10, 147, 98, 0.1);
 }
 
-.strategy-icon::after {
-  left: 21px;
-  top: 8px;
-  width: 3px;
-  height: 30px;
-  background: var(--green);
-  transform: rotate(45deg);
+.icon-tile.blue {
+  color: var(--blue);
+  background: rgba(13, 98, 216, 0.1);
 }
 
-.okr-icon::before {
-  left: 12px;
-  top: 13px;
-  width: 22px;
-  height: 5px;
-  border-radius: 999px;
-  background: var(--blue);
-  box-shadow: 0 10px 0 var(--yellow), 0 20px 0 var(--blue-strong);
+.icon-tile.orange {
+  color: var(--orange);
+  background: rgba(216, 97, 0, 0.1);
 }
 
-.sprint-icon::before {
-  left: 13px;
-  top: 14px;
-  width: 21px;
-  height: 17px;
-  border: 3px solid var(--orange);
-  border-radius: 4px;
-}
-
-.sprint-icon::after {
-  left: 19px;
-  top: 8px;
-  width: 9px;
-  height: 28px;
-  background: var(--orange);
-  transform: rotate(42deg);
-}
-
-.task-icon::before {
-  left: 13px;
-  top: 13px;
-  width: 23px;
-  height: 15px;
-  border-left: 4px solid var(--violet);
-  border-bottom: 4px solid var(--violet);
-  transform: rotate(-45deg);
+.icon-tile.violet {
+  color: var(--violet);
+  background: rgba(122, 60, 255, 0.1);
 }
 
 .power-grid h3 {
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .power-grid p,
@@ -943,11 +974,15 @@ details {
 
 .flow-board div {
   position: relative;
-  min-height: 220px;
+  min-height: 188px;
   padding: 22px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.09);
+}
+
+.flow-board i {
+  color: var(--yellow);
 }
 
 .flow-board div:not(:last-child)::after {
@@ -968,13 +1003,14 @@ details {
 }
 
 .flow-board strong {
+  margin-top: 18px;
   color: var(--yellow);
   font-size: 0.95rem;
   text-transform: uppercase;
 }
 
 .flow-board span {
-  margin-top: 76px;
+  margin-top: 40px;
   font-size: 1.35rem;
   font-weight: 850;
 }
@@ -1024,7 +1060,7 @@ details {
   grid-template-columns: minmax(280px, 0.55fr) minmax(0, 1fr);
   gap: 26px;
   align-items: center;
-  min-height: 420px;
+  min-height: 360px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: clamp(22px, 4vw, 42px);
@@ -1063,7 +1099,7 @@ details {
 }
 
 .workflow-card {
-  min-height: 250px;
+  min-height: 230px;
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -1206,11 +1242,15 @@ details {
 }
 
 .problem-list article {
-  min-height: 272px;
+  min-height: 238px;
   padding: 26px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
+}
+
+.problem-list h3 {
+  margin-top: 22px;
 }
 
 .problem-list .quote {
@@ -1229,6 +1269,10 @@ details {
 
 .tools-grid article {
   padding: 24px;
+}
+
+.tools-grid h3 {
+  margin-top: 22px;
 }
 
 .tools-grid ul {
@@ -1256,15 +1300,29 @@ details {
 }
 
 .pricing-section {
+  position: relative;
+  overflow: hidden;
   color: #fff;
   background:
     radial-gradient(circle at 82% 16%, rgba(255, 200, 33, 0.34), transparent 28%),
+    radial-gradient(circle at 18% 84%, rgba(13, 98, 216, 0.24), transparent 32%),
     #16130f;
 }
 
+.pricing-section::before {
+  position: absolute;
+  inset: 22px;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  content: "";
+}
+
 .pricing-header {
+  position: relative;
+  z-index: 1;
   width: min(860px, 100%);
-  margin-bottom: 42px;
+  margin-bottom: 34px;
 }
 
 .pricing-header img {
@@ -1282,20 +1340,65 @@ details {
 }
 
 .pricing-grid {
+  position: relative;
+  z-index: 1;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .price-card {
-  min-height: 330px;
+  position: relative;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 26px;
+  padding: 28px;
+  overflow: hidden;
+  color: var(--ink);
+  box-shadow: 0 22px 62px rgba(0, 0, 0, 0.22);
 }
 
 .price-card.featured {
+  transform: translateY(-10px);
   border-color: rgba(255, 200, 33, 0.78);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 219, 0.98), rgba(255, 253, 248, 0.98)),
+    var(--surface);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
+}
+
+.price-card.featured::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  content: "";
+  background: linear-gradient(90deg, var(--yellow), var(--green), var(--blue));
+}
+
+.custom-card {
+  background:
+    linear-gradient(180deg, rgba(237, 243, 255, 0.96), rgba(255, 253, 248, 0.98)),
+    var(--surface);
+}
+
+.plan-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.plan-row span {
+  border: 1px solid rgba(13, 98, 216, 0.18);
+  border-radius: 999px;
+  padding: 5px 9px;
+  color: var(--muted);
+  background: rgba(13, 98, 216, 0.07);
+  font-size: 0.72rem;
+  font-weight: 850;
 }
 
 .plan {
@@ -1308,7 +1411,7 @@ details {
 
 .price-card h3 {
   margin-top: 18px;
-  font-size: clamp(1.85rem, 2.7vw, 3rem);
+  font-size: clamp(1.85rem, 2.4vw, 2.8rem);
 }
 
 .price-card p:not(.plan) {
@@ -1317,6 +1420,55 @@ details {
 
 .price-card .button {
   margin-top: auto;
+  width: 100%;
+}
+
+.plan-features {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 26px;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-features li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 10px;
+  color: #4e453b;
+  font-size: 0.94rem;
+  align-items: start;
+}
+
+.plan-features i {
+  color: var(--green);
+}
+
+.pricing-note {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.pricing-note span {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 9px 13px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.9rem;
+  font-weight: 780;
+}
+
+.pricing-note i {
+  color: var(--yellow);
 }
 
 .faq-section {
@@ -1385,6 +1537,10 @@ details p {
   .tools-grid,
   .pricing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .price-card.featured {
+    transform: none;
   }
 
   .flow-board {
@@ -1483,6 +1639,15 @@ details p {
     width: 100%;
   }
 
+  .hero-metrics {
+    grid-template-columns: 1fr;
+    max-width: 330px;
+  }
+
+  .hero-metrics span {
+    min-height: 58px;
+  }
+
   .proof-strip,
   .power-grid,
   .flow-board,
@@ -1497,6 +1662,10 @@ details p {
     min-height: 96px;
     border-right: 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  .pricing-section::before {
+    inset: 10px;
   }
 
   .motion-band,
