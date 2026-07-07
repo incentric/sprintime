@@ -132,33 +132,7 @@
         transition: opacity 180ms ease, transform 180ms ease;
       }
 
-      .flow-diagram {
-        position: relative;
-      }
-
-      .flow-lines {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-      }
-
-      .flow-lines path {
-        fill: none;
-        stroke: #0055ff;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-dasharray: 8 8;
-        opacity: 0.8;
-        transition: d 220ms ease, opacity 180ms ease;
-      }
-
       .flow-content {
-        position: relative;
-        z-index: 1;
         display: grid;
         grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
         gap: 32px;
@@ -180,6 +154,30 @@
 
       .flow-card {
         min-height: 220px;
+      }
+
+      .flow-card-label {
+        min-height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .flow-card-label p {
+        white-space: nowrap;
+      }
+
+      .flow-period {
+        flex-shrink: 0;
+        border-radius: 999px;
+        padding: 4px 8px;
+        color: #0041c8;
+        background: #dce8ff;
+        font-size: 10px;
+        font-weight: 800;
+        line-height: 1;
       }
 
       #flow-task-card {
@@ -238,9 +236,6 @@
           gap: 16px;
         }
 
-        .flow-lines {
-          display: none;
-        }
       }
     </style></head><body class="bg-white text-on-surface font-body-md selection:bg-primary/20">
 <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-white/90 backdrop-blur-md border-b border-outline-variant">
@@ -345,17 +340,6 @@
 </div>
 <!-- Simplified Horizontal Flow Visual -->
 <div class="max-w-6xl mx-auto mb-16 relative p-6 md:p-8 bg-surface-container-low rounded-2xl border border-outline-variant overflow-visible" id="okr-flow">
-<div class="flow-diagram">
-<svg class="flow-lines" aria-hidden="true">
-<defs>
-<marker id="flow-arrow-head" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
-<path d="M 0 0 L 10 5 L 0 10 z" fill="#0055ff"></path>
-</marker>
-</defs>
-<path id="line-bsc-okr" marker-end="url(#flow-arrow-head)"></path>
-<path id="line-okr-sprint" marker-end="url(#flow-arrow-head)"></path>
-<path id="line-sprint-task" marker-end="url(#flow-arrow-head)"></path>
-</svg>
 <div class="flow-content">
 <div>
 <p class="text-xs font-bold text-primary uppercase tracking-widest mb-3">Strategy (BSC)</p>
@@ -384,13 +368,11 @@
 </div>
 <div class="execution-chain">
 <article class="flow-card bg-white p-5 rounded-2xl border border-outline-variant shadow-sm flex flex-col" id="flow-objective-card" data-flow-node="okr">
-<div class="flex justify-between items-start gap-4 mb-5">
-<div>
-<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Objective (OKR)</p>
-<h4 class="text-xl font-bold text-on-surface" id="flow-objective">Meningkatkan MRR sebesar 20%</h4>
+<div class="flow-card-label">
+<p class="text-xs font-bold text-primary uppercase tracking-wider">OKR Objective</p>
+<span class="flow-period">Quarterly</span>
 </div>
-<span class="text-[10px] font-bold bg-blue-100 text-primary px-2 py-1 rounded">Quarterly</span>
-</div>
+<h4 class="text-xl font-bold text-on-surface mb-5" id="flow-objective">Meningkatkan MRR sebesar 20%</h4>
 <p class="text-sm text-on-surface-variant mb-5" id="flow-kr">Key Result: mencapai revenue recurring Rp250 juta per bulan.</p>
 <div class="mt-auto space-y-2">
 <div class="flex justify-between text-xs font-bold"><span class="text-on-surface-variant">Progress OKR</span><span class="text-primary" id="flow-progress-text">64%</span></div>
@@ -414,8 +396,6 @@
 <li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-outline text-sm">check_box_outline_blank</span> Review conversion dashboard harian</li>
 </ul>
 </article>
-</div>
-</div>
 </div>
 </div>
 <div class="p-8 bg-surface-container rounded-2xl text-center">
@@ -785,38 +765,6 @@
     const sprintDetailEl = document.querySelector('#flow-sprint-detail');
     const tasksEl = document.querySelector('#flow-tasks');
     const flowCards = Array.from(document.querySelectorAll('#flow-objective-card, #flow-sprint-card, #flow-task-card'));
-    const flowDiagram = document.querySelector('.flow-diagram');
-    const flowSvg = document.querySelector('.flow-lines');
-    const lineBscOkr = document.querySelector('#line-bsc-okr');
-    const lineOkrSprint = document.querySelector('#line-okr-sprint');
-    const lineSprintTask = document.querySelector('#line-sprint-task');
-
-    const setConnector = (path, fromEl, toEl) => {
-        if (!path || !fromEl || !toEl || !flowDiagram || !flowSvg) return;
-
-        const rootRect = flowDiagram.getBoundingClientRect();
-        const fromRect = fromEl.getBoundingClientRect();
-        const toRect = toEl.getBoundingClientRect();
-        const x1 = fromRect.right - rootRect.left;
-        const y1 = fromRect.top + fromRect.height / 2 - rootRect.top;
-        const x2 = toRect.left - rootRect.left;
-        const y2 = toRect.top + toRect.height / 2 - rootRect.top;
-        const bend = Math.max(28, Math.min(72, (x2 - x1) / 2));
-
-        path.setAttribute('d', `M ${x1} ${y1} C ${x1 + bend} ${y1}, ${x2 - bend} ${y2}, ${x2} ${y2}`);
-    };
-
-    const updateFlowLines = () => {
-        if (!flowDiagram || !flowSvg) return;
-        const width = flowDiagram.clientWidth;
-        const height = flowDiagram.clientHeight;
-        flowSvg.setAttribute('viewBox', `0 0 ${width} ${height}`);
-
-        const activeBsc = document.querySelector('.bsc-option[aria-pressed="true"]');
-        setConnector(lineBscOkr, activeBsc, document.querySelector('#flow-objective-card'));
-        setConnector(lineOkrSprint, document.querySelector('#flow-objective-card'), document.querySelector('#flow-sprint-card'));
-        setConnector(lineSprintTask, document.querySelector('#flow-sprint-card'), document.querySelector('#flow-task-card'));
-    };
 
     const renderFlow = (key) => {
         const data = flowData[key];
@@ -851,7 +799,6 @@
             card.classList.add('flow-pulse');
         });
 
-        requestAnimationFrame(updateFlowLines);
     };
 
     flowButtons.forEach((button) => {
@@ -860,8 +807,6 @@
 
     if (flowRoot) {
         renderFlow('financial');
-        window.addEventListener('resize', updateFlowLines);
-        window.addEventListener('load', updateFlowLines);
     }
 </script>
 
