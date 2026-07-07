@@ -121,15 +121,16 @@
         transform: translateX(4px);
       }
 
-      .bsc-option[aria-pressed="true"] .bsc-check {
-        opacity: 1;
-        transform: scale(1);
+      .bsc-title {
+        display: block;
+        color: #191c1e;
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1.2;
       }
 
-      .bsc-check {
-        opacity: 0;
-        transform: scale(0.8);
-        transition: opacity 180ms ease, transform 180ms ease;
+      .bsc-title span {
+        display: block;
       }
 
       .flow-content {
@@ -346,23 +347,19 @@
 <div class="bsc-map">
 <button class="bsc-option bg-white p-4 rounded-xl border-2 border-primary shadow-md flex items-start gap-3" type="button" data-flow-key="financial" aria-pressed="true">
 <span class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-green-600">payments</span></span>
-<span class="flex-1"><strong class="block text-on-surface">Financial</strong><small class="text-on-surface-variant">Revenue &amp; margin</small></span>
-<span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
+<span class="flex-1"><strong class="bsc-title">Financial</strong><small class="text-on-surface-variant">Revenue &amp; margin</small></span>
 </button>
 <button class="bsc-option bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-3" type="button" data-flow-key="customer" aria-pressed="false">
 <span class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary">group</span></span>
-<span class="flex-1"><strong class="block text-on-surface">Customer</strong><small class="text-on-surface-variant">Retention &amp; NPS</small></span>
-<span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
+<span class="flex-1"><strong class="bsc-title">Customer</strong><small class="text-on-surface-variant">Retention &amp; NPS</small></span>
 </button>
 <button class="bsc-option bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-3" type="button" data-flow-key="process" aria-pressed="false">
 <span class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-yellow-600">settings_suggest</span></span>
-<span class="flex-1"><strong class="block text-on-surface">Internal Process</strong><small class="text-on-surface-variant">Speed &amp; quality</small></span>
-<span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
+<span class="flex-1"><strong class="bsc-title">Internal Process</strong><small class="text-on-surface-variant">Speed &amp; quality</small></span>
 </button>
 <button class="bsc-option bg-white p-4 rounded-xl border border-outline-variant shadow-sm flex items-start gap-3" type="button" data-flow-key="growth" aria-pressed="false">
 <span class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-pink-600">school</span></span>
-<span class="flex-1"><strong class="block text-on-surface">Learning &amp; Growth</strong><small class="text-on-surface-variant">Skill &amp; capability</small></span>
-<span class="bsc-check material-symbols-outlined text-primary">check_circle</span>
+<span class="flex-1"><strong class="bsc-title"><span>Learning &amp;</span><span>Growth</span></strong><small class="text-on-surface-variant">Skill &amp; capability</small></span>
 </button>
 </div>
 </div>
