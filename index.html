@@ -529,6 +529,81 @@
         min-height: 360px;
       }
 
+      .problem-section {
+        background:
+          radial-gradient(circle at 10% 0%, rgba(0, 85, 255, 0.28), transparent 34%),
+          radial-gradient(circle at 88% 18%, rgba(76, 214, 255, 0.14), transparent 32%),
+          linear-gradient(180deg, #08111f 0%, #101827 100%);
+        color: #ffffff;
+      }
+
+      .problem-section h2 {
+        color: #8fb6ff;
+      }
+
+      .problem-section h3,
+      .problem-section h4 {
+        color: #ffffff;
+      }
+
+      .problem-section .problem-card {
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      }
+
+      .problem-section .problem-card > div:first-child {
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .problem-section .problem-card > div:last-child {
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .problem-section .text-on-surface-variant {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .problem-section .text-on-surface {
+        color: #ffffff;
+      }
+
+      .problem-section .text-error {
+        color: #ff8f8f;
+      }
+
+      .problem-section .text-primary {
+        color: #8fb6ff;
+      }
+
+      .problem-section .bg-primary\/10 {
+        background: rgba(143, 182, 255, 0.16);
+      }
+
+      .lower-gradient {
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 0% 20%, rgba(0, 85, 255, 0.1), transparent 30%),
+          radial-gradient(circle at 100% 0%, rgba(76, 214, 255, 0.16), transparent 32%),
+          linear-gradient(180deg, #ffffff 0%, #f7fbff 48%, #eaf4ff 100%);
+      }
+
+      .lower-gradient::before {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background-image: radial-gradient(circle, rgba(0, 65, 200, 0.12) 1px, transparent 1.5px);
+        background-size: 34px 34px;
+        opacity: 0.22;
+        mask-image: linear-gradient(180deg, transparent 0%, black 28%, black 100%);
+        pointer-events: none;
+      }
+
+      .lower-gradient > * {
+        position: relative;
+        z-index: 1;
+      }
+
       @keyframes shakePulse {
         0%, 82%, 100% { transform: translateX(0) scale(1); }
         86% { transform: translateX(-3px) scale(1.02); }
@@ -912,7 +987,7 @@
 </div>
 </section>
 <!-- Tackle Your Problems -->
-<section class="py-24 bg-surface-container-low">
+<section class="problem-section py-24">
 <div class="max-w-container-max-width mx-auto px-gutter">
 <div class="text-center mb-16">
 <h2 class="font-headline-md text-sm tracking-[0.2em] text-primary font-bold uppercase mb-4">Tackle Your Problems</h2>
@@ -1077,61 +1152,31 @@
 </div>
 </div>
 </section>
+</main>
 <!-- Final CTA -->
-<section class="py-24 bg-inverse-surface text-white text-center" id="pricing">
+<div class="lower-gradient">
+<section class="py-24 text-center" id="pricing">
 <div class="max-w-4xl mx-auto px-gutter">
-<h2 class="text-3xl md:text-5xl font-bold mb-6">Mulai Gratis. Bayar Hanya Kalau Kamu Merasakan Manfaatnya.</h2>
-<p class="text-xl text-inverse-on-surface/70 mb-10">Free 14 hari. Semua fitur. Tidak perlu kartu kredit.</p>
+<h2 class="text-3xl md:text-5xl font-bold mb-6 text-on-surface">Mulai Gratis. Bayar Hanya Kalau Kamu Merasakan Manfaatnya.</h2>
+<p class="text-xl text-on-surface-variant mb-10">Free 14 hari. Semua fitur. Tidak perlu kartu kredit.</p>
 <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
 <button class="attention-shake bg-primary text-white font-bold text-lg px-12 py-4 rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">Mulai Gratis</button>
 <div class="flex flex-col items-center gap-2">
-<span class="font-bold text-lg">Pro Plan</span>
-<span class="text-sm opacity-60">Customized Enterprise</span>
+<span class="font-bold text-lg text-on-surface">Pro Plan</span>
+<span class="text-sm text-on-surface-variant">Customized Enterprise</span>
 </div>
 </div>
-<p class="mt-12 text-sm opacity-40">Join thousands of companies worldwide.</p>
+<p class="mt-12 text-sm text-on-surface-variant">Bangun ritme eksekusi yang lebih jelas sejak hari pertama.</p>
 </div>
 </section>
-</main>
-<footer class="bg-white py-20 border-t border-outline-variant">
-<div class="max-w-container-max-width mx-auto px-gutter grid grid-cols-2 md:grid-cols-5 gap-12">
-<div class="col-span-2">
-<img alt="Sprintime Logo" class="h-10 w-auto mb-6" src="assets/logo-sprintime.png">
-<p class="text-on-surface-variant text-sm max-w-xs mb-6">© 2024 Sprintime Productivity Systems. Built for Velocity.</p>
-<div class="flex gap-4">
-<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">share</span></a>
-<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">groups</span></a>
-</div>
-</div>
-<div>
-<h4 class="font-bold mb-6 text-on-surface uppercase text-xs tracking-widest">Sprintime</h4>
-<ul class="space-y-4 text-sm text-on-surface-variant">
-<li class=""><a class="hover:text-primary transition-colors" href="#">About</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Mobile apps</a></li>
-</ul>
-</div>
-<div class="">
-<h4 class="font-bold mb-6 text-on-surface uppercase text-xs tracking-widest">Information</h4>
-<ul class="space-y-4 text-sm text-on-surface-variant">
-<li class=""><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Security</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold mb-6 text-on-surface uppercase text-xs tracking-widest">Find Us</h4>
-<ul class="space-y-4 text-sm text-on-surface-variant">
-<li class=""><a class="hover:text-primary transition-colors" href="#">LinkedIn</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Twitter</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Facebook</a></li>
-<li class=""><a class="hover:text-primary transition-colors" href="#">Youtube</a></li>
-</ul>
-</div>
+<footer class="py-10">
+<div class="max-w-container-max-width mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+<img alt="Sprintime Logo" class="h-10 w-auto" src="assets/logo-sprintime.png">
+<p class="text-on-surface-variant text-sm">© 2026 Sprintime. All rights reserved.</p>
+<a class="text-sm font-semibold text-primary hover:brightness-75 transition-all" href="https://www.instagram.com/sprintime.id/" target="_blank" rel="noopener noreferrer">Instagram</a>
 </div>
 </footer>
+</div>
 <script>
     document.querySelectorAll('.tab-btn').forEach(button => {
         button.addEventListener('click', () => {
