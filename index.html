@@ -413,7 +413,7 @@
       .profit-panel {
         border-radius: 14px;
         background: #ffffff;
-        padding: 16px;
+        padding: 14px;
         box-shadow: 0 12px 36px rgba(25, 28, 30, 0.07);
       }
 
@@ -422,7 +422,7 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 12px;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
 
       .profit-header small {
@@ -447,12 +447,12 @@
 
       .profit-chart {
         position: relative;
-        height: 126px;
+        height: 142px;
         border-radius: 12px;
         overflow: hidden;
         background:
-          linear-gradient(180deg, rgba(0, 85, 255, 0.08) 0%, rgba(0, 85, 255, 0) 68%),
-          repeating-linear-gradient(0deg, transparent 0 30px, rgba(195, 197, 217, 0.32) 31px 32px);
+          radial-gradient(circle at 78% 18%, rgba(140, 245, 124, 0.16), transparent 28%),
+          linear-gradient(135deg, #262b31 0%, #1f2328 100%);
       }
 
       .profit-chart svg {
@@ -462,31 +462,64 @@
         height: 100%;
       }
 
-      .profit-bars {
+      .profit-gridlines {
         position: absolute;
-        right: 14px;
-        bottom: 14px;
-        left: 14px;
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 10px;
-        align-items: end;
-        height: 72px;
+        inset: 16px 18px 30px 46px;
+        background:
+          repeating-linear-gradient(0deg, transparent 0 24px, rgba(255, 255, 255, 0.24) 25px 26px);
+        opacity: 0.75;
       }
 
-      .profit-bars span {
-        border-radius: 999px 999px 4px 4px;
-        background: linear-gradient(180deg, #61d88a 0%, #009c38 100%);
-        opacity: 0.72;
+      .profit-axis {
+        position: absolute;
+        left: 12px;
+        top: 20px;
+        display: grid;
+        gap: 9px;
+        color: rgba(255, 255, 255, 0.36);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .profit-tooltip {
+        position: absolute;
+        top: 34px;
+        left: 56%;
+        transform: translateX(-50%);
+        border-radius: 8px;
+        padding: 7px 10px;
+        color: #6d7380;
+        background: #ffffff;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .profit-tooltip::after {
+        position: absolute;
+        left: 50%;
+        bottom: -8px;
+        width: 0;
+        height: 0;
+        content: "";
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #ffffff;
+        transform: translateX(-50%);
       }
 
       .profit-caption {
+        position: absolute;
+        right: 18px;
+        bottom: 8px;
+        left: 46px;
         display: flex;
         justify-content: space-between;
         gap: 12px;
-        margin-top: 10px;
-        color: #6d7380;
+        color: rgba(255, 255, 255, 0.42);
         font-size: 11px;
+        font-weight: 800;
       }
 
       .flow-mini {
@@ -849,6 +882,20 @@
         }
 
         .dashboard-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .dashboard-card {
+          padding: 12px;
+        }
+
+        .dashboard-card strong {
+          font-size: 16px;
+        }
+
+        .dashboard-card:nth-child(n+3) {
           display: none;
         }
 
@@ -857,7 +904,7 @@
         }
 
         .hero-preview-shell {
-          min-height: 430px;
+          min-height: 500px;
         }
 
         .profit-panel {
@@ -865,7 +912,12 @@
         }
 
         .profit-chart {
-          height: 154px;
+          height: 150px;
+        }
+
+        .profit-tooltip {
+          top: 38px;
+          font-size: 16px;
         }
 
         .tools-grid {
@@ -976,7 +1028,7 @@
 <div class="dashboard-grid">
 <div class="dashboard-card"><small>Quarterly OKR</small><strong>64%</strong><div class="progress-track"><span></span></div></div>
 <div class="dashboard-card"><small>Weekly sprint</small><strong>12 tasks</strong><div class="progress-track"><span style="width: 72%;"></span></div></div>
-<div class="dashboard-card"><small>Team focus</small><strong>4 BSC areas</strong><div class="progress-track"><span style="width: 82%;"></span></div></div>
+<div class="dashboard-card"><small>Key Results</small><strong>8 tracked</strong><div class="progress-track"><span style="width: 78%;"></span></div></div>
 </div>
 <div class="profit-panel">
 <div class="profit-header">
@@ -987,26 +1039,26 @@
 <span class="profit-badge">+32.4%</span>
 </div>
 <div class="profit-chart" aria-label="Grafik pertumbuhan laba perusahaan">
-<div class="profit-bars">
-<span style="height: 34%;"></span>
-<span style="height: 42%;"></span>
-<span style="height: 48%;"></span>
-<span style="height: 57%;"></span>
-<span style="height: 68%;"></span>
-<span style="height: 84%;"></span>
-</div>
-<svg viewBox="0 0 360 126" preserveAspectRatio="none" aria-hidden="true">
-<path d="M18 96 C62 88, 82 82, 118 76 C156 69, 176 56, 214 50 C252 44, 272 30, 342 22" fill="none" stroke="#0055ff" stroke-width="5" stroke-linecap="round"></path>
-<path d="M18 96 C62 88, 82 82, 118 76 C156 69, 176 56, 214 50 C252 44, 272 30, 342 22 L342 126 L18 126 Z" fill="url(#profitGradient)"></path>
+<div class="profit-gridlines"></div>
+<div class="profit-axis"><span>100%</span><span>80%</span><span>60%</span><span>40%</span><span>20%</span></div>
+<div class="profit-tooltip">67%</div>
+<svg viewBox="0 0 360 142" preserveAspectRatio="none" aria-hidden="true">
+<path d="M46 118 L336 118" fill="none" stroke="rgba(255,255,255,0.78)" stroke-width="3" stroke-linecap="round"></path>
+<path d="M46 118 C76 92, 84 78, 104 84 C128 92, 132 104, 152 104 C176 104, 172 38, 212 38 C246 38, 250 78, 274 78 C302 78, 316 30, 336 18" fill="none" stroke="url(#profitLineGradient)" stroke-width="6" stroke-linecap="round"></path>
+<circle cx="46" cy="118" r="7" fill="#ff5d6d"></circle>
+<circle cx="212" cy="38" r="8" fill="#20d4c5"></circle>
+<circle cx="336" cy="18" r="8" fill="#93e17e"></circle>
 <defs>
-<linearGradient id="profitGradient" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="#0055ff" stop-opacity="0.2"></stop>
-<stop offset="100%" stop-color="#0055ff" stop-opacity="0"></stop>
+<linearGradient id="profitLineGradient" x1="46" x2="336" y1="118" y2="18" gradientUnits="userSpaceOnUse">
+<stop offset="0%" stop-color="#ff5d6d"></stop>
+<stop offset="28%" stop-color="#ffd36e"></stop>
+<stop offset="58%" stop-color="#20d4c5"></stop>
+<stop offset="100%" stop-color="#93e17e"></stop>
 </linearGradient>
 </defs>
 </svg>
+<div class="profit-caption"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
 </div>
-<div class="profit-caption"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span></div>
 </div>
 </div>
 </div>
