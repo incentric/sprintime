@@ -153,6 +153,7 @@
         font-size: 11px;
         font-weight: 700;
         line-height: 1.25;
+        white-space: nowrap;
       }
 
       .strategy-node.main {
@@ -183,12 +184,18 @@
 
       .strategy-lines {
         position: absolute;
-        inset: 26px 34px 28px;
-        background:
-          linear-gradient(90deg, transparent 0 49%, rgba(0, 85, 255, 0.22) 49% 51%, transparent 51% 100%),
-          linear-gradient(135deg, transparent 0 47%, rgba(0, 85, 255, 0.2) 47% 49%, transparent 49% 100%),
-          linear-gradient(45deg, transparent 0 47%, rgba(0, 85, 255, 0.2) 47% 49%, transparent 49% 100%);
-        opacity: 0.95;
+        inset: 18px 24px 20px;
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      .strategy-lines path {
+        fill: none;
+        stroke: rgba(0, 85, 255, 0.26);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+        vector-effect: non-scaling-stroke;
       }
 
       .visual-calendar {
@@ -1073,7 +1080,13 @@
 <div class="feature-card bg-white p-8 rounded-2xl flex flex-col">
 <div class="feature-visual" aria-hidden="true">
 <div class="visual-strategy">
-<div class="strategy-lines"></div>
+<svg class="strategy-lines" viewBox="0 0 320 120" preserveAspectRatio="none">
+<path d="M160 26 V68"></path>
+<path d="M72 68 H248"></path>
+<path d="M72 68 V88"></path>
+<path d="M248 68 V88"></path>
+<path d="M160 68 V98"></path>
+</svg>
 <div class="strategy-node main">Business Strategy</div>
 <div class="strategy-node financial">Financial</div>
 <div class="strategy-node customer">Customer</div>
