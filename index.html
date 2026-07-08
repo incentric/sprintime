@@ -450,9 +450,8 @@
         height: 142px;
         border-radius: 12px;
         overflow: hidden;
-        background:
-          radial-gradient(circle at 78% 18%, rgba(140, 245, 124, 0.16), transparent 28%),
-          linear-gradient(135deg, #262b31 0%, #1f2328 100%);
+        background: #ffffff;
+        box-shadow: inset 0 0 0 1px rgba(195, 197, 217, 0.55);
       }
 
       .profit-chart svg {
@@ -464,34 +463,33 @@
 
       .profit-gridlines {
         position: absolute;
-        inset: 16px 18px 30px 46px;
+        inset: 16px 18px 30px 48px;
         background:
-          repeating-linear-gradient(0deg, transparent 0 24px, rgba(255, 255, 255, 0.24) 25px 26px);
-        opacity: 0.75;
+          repeating-linear-gradient(0deg, transparent 0 23px, rgba(25, 28, 30, 0.16) 24px 25px);
       }
 
       .profit-axis {
         position: absolute;
-        left: 12px;
+        left: 10px;
         top: 20px;
         display: grid;
         gap: 9px;
-        color: rgba(255, 255, 255, 0.36);
-        font-size: 11px;
-        font-weight: 800;
+        color: rgba(25, 28, 30, 0.56);
+        font-size: 10px;
+        font-weight: 700;
       }
 
       .profit-tooltip {
         position: absolute;
-        top: 34px;
-        left: 56%;
+        top: 26px;
+        left: 57%;
         transform: translateX(-50%);
         border-radius: 8px;
-        padding: 7px 10px;
-        color: #6d7380;
+        padding: 6px 9px;
+        color: #d71616;
         background: #ffffff;
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
-        font-size: 18px;
+        box-shadow: 0 12px 28px rgba(25, 28, 30, 0.14);
+        font-size: 15px;
         font-weight: 800;
         line-height: 1;
       }
@@ -513,13 +511,13 @@
         position: absolute;
         right: 18px;
         bottom: 8px;
-        left: 46px;
+        left: 48px;
         display: flex;
         justify-content: space-between;
         gap: 12px;
-        color: rgba(255, 255, 255, 0.42);
-        font-size: 11px;
-        font-weight: 800;
+        color: rgba(25, 28, 30, 0.62);
+        font-size: 10px;
+        font-weight: 700;
       }
 
       .flow-mini {
@@ -1040,24 +1038,19 @@
 </div>
 <div class="profit-chart" aria-label="Grafik pertumbuhan laba perusahaan">
 <div class="profit-gridlines"></div>
-<div class="profit-axis"><span>100%</span><span>80%</span><span>60%</span><span>40%</span><span>20%</span></div>
-<div class="profit-tooltip">67%</div>
+<div class="profit-axis"><span>1320</span><span>1260</span><span>1200</span><span>1140</span><span>1080</span></div>
+<div class="profit-tooltip">+32%</div>
 <svg viewBox="0 0 360 142" preserveAspectRatio="none" aria-hidden="true">
-<path d="M46 118 L336 118" fill="none" stroke="rgba(255,255,255,0.78)" stroke-width="3" stroke-linecap="round"></path>
-<path d="M46 118 C76 92, 84 78, 104 84 C128 92, 132 104, 152 104 C176 104, 172 38, 212 38 C246 38, 250 78, 274 78 C302 78, 316 30, 336 18" fill="none" stroke="url(#profitLineGradient)" stroke-width="6" stroke-linecap="round"></path>
-<circle cx="46" cy="118" r="7" fill="#ff5d6d"></circle>
-<circle cx="212" cy="38" r="8" fill="#20d4c5"></circle>
-<circle cx="336" cy="18" r="8" fill="#93e17e"></circle>
-<defs>
-<linearGradient id="profitLineGradient" x1="46" x2="336" y1="118" y2="18" gradientUnits="userSpaceOnUse">
-<stop offset="0%" stop-color="#ff5d6d"></stop>
-<stop offset="28%" stop-color="#ffd36e"></stop>
-<stop offset="58%" stop-color="#20d4c5"></stop>
-<stop offset="100%" stop-color="#93e17e"></stop>
-</linearGradient>
-</defs>
+<path d="M48 126 L340 126" fill="none" stroke="rgba(25,28,30,0.48)" stroke-width="2" stroke-linecap="round"></path>
+<path d="M48 126 C70 76, 92 70, 112 72 C142 74, 144 100, 168 96 C194 92, 194 34, 224 26 C252 18, 268 36, 288 40 C312 45, 324 40, 340 28" fill="none" stroke="#d71616" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+<circle cx="48" cy="126" r="2.6" fill="#d71616"></circle>
+<circle cx="112" cy="72" r="2.6" fill="#d71616"></circle>
+<circle cx="168" cy="96" r="2.6" fill="#d71616"></circle>
+<circle cx="224" cy="26" r="2.6" fill="#d71616"></circle>
+<circle cx="288" cy="40" r="2.6" fill="#d71616"></circle>
+<circle cx="340" cy="28" r="2.6" fill="#d71616"></circle>
 </svg>
-<div class="profit-caption"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+<div class="profit-caption"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
 </div>
 </div>
 </div>
