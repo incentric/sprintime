@@ -410,6 +410,85 @@
         align-items: stretch;
       }
 
+      .profit-panel {
+        border-radius: 14px;
+        background: #ffffff;
+        padding: 16px;
+        box-shadow: 0 12px 36px rgba(25, 28, 30, 0.07);
+      }
+
+      .profit-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .profit-header small {
+        color: #6d7380;
+        font-size: 11px;
+      }
+
+      .profit-header strong {
+        display: block;
+        margin-top: 4px;
+        font-size: 20px;
+      }
+
+      .profit-badge {
+        border-radius: 999px;
+        padding: 6px 9px;
+        color: #009c38;
+        background: #d9f8df;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .profit-chart {
+        position: relative;
+        height: 126px;
+        border-radius: 12px;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(0, 85, 255, 0.08) 0%, rgba(0, 85, 255, 0) 68%),
+          repeating-linear-gradient(0deg, transparent 0 30px, rgba(195, 197, 217, 0.32) 31px 32px);
+      }
+
+      .profit-chart svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .profit-bars {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        left: 14px;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        align-items: end;
+        height: 72px;
+      }
+
+      .profit-bars span {
+        border-radius: 999px 999px 4px 4px;
+        background: linear-gradient(180deg, #61d88a 0%, #009c38 100%);
+        opacity: 0.72;
+      }
+
+      .profit-caption {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 10px;
+        color: #6d7380;
+        font-size: 11px;
+      }
+
       .flow-mini {
         border-radius: 14px;
         background: #ffffff;
@@ -769,8 +848,7 @@
           grid-template-columns: 1fr;
         }
 
-        .dashboard-card:nth-child(n+3),
-        .flow-mini:nth-child(n+3) {
+        .dashboard-grid {
           display: none;
         }
 
@@ -779,11 +857,15 @@
         }
 
         .hero-preview-shell {
-          min-height: 360px;
+          min-height: 430px;
         }
 
-        .dashboard-flow {
-          display: none;
+        .profit-panel {
+          padding: 14px;
+        }
+
+        .profit-chart {
+          height: 154px;
         }
 
         .tools-grid {
@@ -896,22 +978,35 @@
 <div class="dashboard-card"><small>Weekly sprint</small><strong>12 tasks</strong><div class="progress-track"><span style="width: 72%;"></span></div></div>
 <div class="dashboard-card"><small>Team focus</small><strong>4 BSC areas</strong><div class="progress-track"><span style="width: 82%;"></span></div></div>
 </div>
-<div class="dashboard-flow">
-<div class="flow-mini">
-<h4>Strategy</h4>
-<div class="mini-row"><span>Financial</span><strong>MRR</strong></div>
-<div class="mini-row"><span>Customer</span><strong>NPS</strong></div>
+<div class="profit-panel">
+<div class="profit-header">
+<div>
+<small>Company profit growth</small>
+<strong>Rp 1.84B</strong>
 </div>
-<div class="flow-mini">
-<h4>Objective</h4>
-<div class="mini-row"><span>Increase trial conversion</span><strong>20%</strong></div>
-<div class="mini-row"><span>Reduce onboarding drop-off</span><strong>15%</strong></div>
+<span class="profit-badge">+32.4%</span>
 </div>
-<div class="flow-mini">
-<h4>Daily Tasks</h4>
-<div class="mini-row"><span>Audit funnel</span><strong>Done</strong></div>
-<div class="mini-row"><span>Follow up trial users</span><strong>Today</strong></div>
+<div class="profit-chart" aria-label="Grafik pertumbuhan laba perusahaan">
+<div class="profit-bars">
+<span style="height: 34%;"></span>
+<span style="height: 42%;"></span>
+<span style="height: 48%;"></span>
+<span style="height: 57%;"></span>
+<span style="height: 68%;"></span>
+<span style="height: 84%;"></span>
 </div>
+<svg viewBox="0 0 360 126" preserveAspectRatio="none" aria-hidden="true">
+<path d="M18 96 C62 88, 82 82, 118 76 C156 69, 176 56, 214 50 C252 44, 272 30, 342 22" fill="none" stroke="#0055ff" stroke-width="5" stroke-linecap="round"></path>
+<path d="M18 96 C62 88, 82 82, 118 76 C156 69, 176 56, 214 50 C252 44, 272 30, 342 22 L342 126 L18 126 Z" fill="url(#profitGradient)"></path>
+<defs>
+<linearGradient id="profitGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#0055ff" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#0055ff" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+</svg>
+</div>
+<div class="profit-caption"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span></div>
 </div>
 </div>
 </div>
@@ -1280,9 +1375,10 @@
 <p class="text-xl text-on-surface-variant mb-10">Free 14 hari. Semua fitur. Tidak perlu kartu kredit.</p>
 <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
 <button class="attention-shake bg-primary text-white font-bold text-lg px-12 py-4 rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">Mulai Gratis</button>
-<div class="flex flex-col items-center gap-2">
+<div class="flex flex-col items-center gap-3">
 <span class="font-bold text-lg text-on-surface">Pro Plan</span>
 <span class="text-sm text-on-surface-variant">Customized Enterprise</span>
+<button class="border border-outline-variant text-on-surface font-bold text-sm px-8 py-3 rounded-lg bg-white/40 hover:bg-white active:scale-95 transition-all">Hubungi Tim Sales</button>
 </div>
 </div>
 <p class="mt-12 text-sm text-on-surface-variant">Bangun ritme eksekusi yang lebih jelas sejak hari pertama.</p>
