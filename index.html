@@ -486,7 +486,7 @@
         transform: translateX(-50%);
         border-radius: 8px;
         padding: 6px 9px;
-        color: #d71616;
+        color: #0a9f4a;
         background: #ffffff;
         box-shadow: 0 12px 28px rgba(25, 28, 30, 0.14);
         font-size: 15px;
@@ -505,6 +505,17 @@
         border-right: 8px solid transparent;
         border-top: 8px solid #ffffff;
         transform: translateX(-50%);
+      }
+
+      .profit-dot {
+        position: absolute;
+        z-index: 2;
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--dot-color, #0a9f4a);
+        box-shadow: 0 0 0 2px #ffffff;
+        transform: translate(-50%, -50%);
       }
 
       .profit-caption {
@@ -1041,15 +1052,22 @@
 <div class="profit-axis"><span>1320</span><span>1260</span><span>1200</span><span>1140</span><span>1080</span></div>
 <div class="profit-tooltip">+32%</div>
 <svg viewBox="0 0 360 142" preserveAspectRatio="none" aria-hidden="true">
+<defs>
+<linearGradient id="profitLineGreen" x1="48" y1="126" x2="340" y2="28" gradientUnits="userSpaceOnUse">
+<stop offset="0%" stop-color="#9be779"></stop>
+<stop offset="48%" stop-color="#24c977"></stop>
+<stop offset="100%" stop-color="#0a9f4a"></stop>
+</linearGradient>
+</defs>
 <path d="M48 126 L340 126" fill="none" stroke="rgba(25,28,30,0.48)" stroke-width="2" stroke-linecap="round"></path>
-<path d="M48 126 C70 76, 92 70, 112 72 C142 74, 144 100, 168 96 C194 92, 194 34, 224 26 C252 18, 268 36, 288 40 C312 45, 324 40, 340 28" fill="none" stroke="#d71616" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-<circle cx="48" cy="126" r="2.6" fill="#d71616"></circle>
-<circle cx="112" cy="72" r="2.6" fill="#d71616"></circle>
-<circle cx="168" cy="96" r="2.6" fill="#d71616"></circle>
-<circle cx="224" cy="26" r="2.6" fill="#d71616"></circle>
-<circle cx="288" cy="40" r="2.6" fill="#d71616"></circle>
-<circle cx="340" cy="28" r="2.6" fill="#d71616"></circle>
+<path d="M48 126 C70 76, 92 70, 112 72 C142 74, 144 100, 168 96 C194 92, 194 34, 224 26 C252 18, 268 36, 288 40 C312 45, 324 40, 340 28" fill="none" stroke="url(#profitLineGreen)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
+<span class="profit-dot" style="left: 13.3%; top: 88.7%; --dot-color: #9be779;"></span>
+<span class="profit-dot" style="left: 31.1%; top: 50.7%; --dot-color: #76dc78;"></span>
+<span class="profit-dot" style="left: 46.7%; top: 67.6%; --dot-color: #55d678;"></span>
+<span class="profit-dot" style="left: 62.2%; top: 18.3%; --dot-color: #24c977;"></span>
+<span class="profit-dot" style="left: 80%; top: 28.2%; --dot-color: #15b965;"></span>
+<span class="profit-dot" style="left: 94.4%; top: 19.7%; --dot-color: #0a9f4a;"></span>
 <div class="profit-caption"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
 </div>
 </div>
@@ -1420,11 +1438,10 @@
 <p class="text-xl text-on-surface-variant mb-10">Free 14 hari. Semua fitur. Tidak perlu kartu kredit.</p>
 <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
 <button class="attention-shake bg-primary text-white font-bold text-lg px-12 py-4 rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">Mulai Gratis</button>
-<div class="flex flex-col items-center gap-3">
-<span class="font-bold text-lg text-on-surface">Pro Plan</span>
+<button class="border border-outline-variant text-on-surface px-8 py-3 rounded-lg bg-white/40 hover:bg-white active:scale-95 transition-all flex flex-col items-center gap-1 min-w-[230px]">
+<span class="font-bold text-lg">Pro Plan</span>
 <span class="text-sm text-on-surface-variant">Customized Enterprise</span>
-<button class="border border-outline-variant text-on-surface font-bold text-sm px-8 py-3 rounded-lg bg-white/40 hover:bg-white active:scale-95 transition-all">Hubungi Tim Sales</button>
-</div>
+</button>
 </div>
 <p class="mt-12 text-sm text-on-surface-variant">Bangun ritme eksekusi yang lebih jelas sejak hari pertama.</p>
 </div>
