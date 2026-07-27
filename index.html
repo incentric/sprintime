@@ -808,18 +808,16 @@
 
       .tools-card {
         min-height: 210px;
-        border: 1px solid rgba(195, 197, 217, 0.72);
         border-radius: 16px;
         padding: 24px;
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.76) 100%);
         box-shadow: 0 18px 44px rgba(25, 28, 30, 0.065);
-        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
       }
 
       .tools-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(0, 85, 255, 0.28);
         box-shadow: 0 24px 56px rgba(0, 85, 255, 0.12);
       }
 
@@ -843,6 +841,136 @@
 
       .tools-card li {
         line-height: 1.55;
+      }
+
+      .faq-section {
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 6% 18%, rgba(0, 85, 255, 0.09), transparent 28%),
+          linear-gradient(180deg, #ffffff 0%, #f6f8fc 100%);
+      }
+
+      .faq-section::before {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background-image: radial-gradient(circle, rgba(0, 65, 200, 0.12) 1px, transparent 1.5px);
+        background-size: 34px 34px;
+        opacity: 0.12;
+        mask-image: radial-gradient(circle at 50% 30%, black 0%, transparent 68%);
+        pointer-events: none;
+      }
+
+      .faq-section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .faq-layout {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr);
+        gap: 40px;
+        align-items: start;
+      }
+
+      .faq-intro-card {
+        border-radius: 20px;
+        padding: 28px;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 20px 54px rgba(25, 28, 30, 0.07);
+      }
+
+      .faq-badges {
+        display: grid;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .faq-badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 12px;
+        padding: 12px 14px;
+        color: #434656;
+        background: #f6f8fc;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .faq-badge .material-symbols-outlined {
+        color: #0055ff;
+        font-size: 20px;
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .faq-item {
+        position: relative;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 14px 34px rgba(25, 28, 30, 0.055);
+        overflow: hidden;
+      }
+
+      .faq-item[open] {
+        box-shadow: 0 22px 52px rgba(0, 85, 255, 0.1);
+      }
+
+      .faq-item[open]::before {
+        position: absolute;
+        top: 18px;
+        bottom: 18px;
+        left: 0;
+        width: 4px;
+        border-radius: 0 999px 999px 0;
+        content: "";
+        background: #0055ff;
+      }
+
+      .faq-item summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        cursor: pointer;
+        list-style: none;
+        padding: 20px 22px;
+        color: #191c1e;
+        font-weight: 800;
+      }
+
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-toggle {
+        display: inline-flex;
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        color: #0055ff;
+        background: #eaf1ff;
+        transition: transform 180ms ease, background-color 180ms ease;
+      }
+
+      .faq-item[open] .faq-toggle {
+        transform: rotate(45deg);
+        background: #dce8ff;
+      }
+
+      .faq-answer {
+        border-top: 1px solid rgba(195, 197, 217, 0.52);
+        padding: 18px 22px 22px;
+        color: #434656;
+        line-height: 1.75;
       }
 
       @keyframes shakePulse {
@@ -1000,12 +1128,14 @@
 
       @media (max-width: 1023px) {
         .flow-content,
-        .execution-chain {
+        .execution-chain,
+        .faq-layout {
           grid-template-columns: 1fr;
         }
 
         .flow-content,
-        .execution-chain {
+        .execution-chain,
+        .faq-layout {
           gap: 16px;
         }
 
@@ -1499,45 +1629,53 @@
 </div>
 </section>
 <!-- FAQ -->
-<section class="py-24 bg-white" id="faq">
-<div class="max-w-4xl mx-auto px-gutter">
-<div class="text-center mb-12">
+<section class="faq-section py-24" id="faq">
+<div class="max-w-container-max-width mx-auto px-gutter">
+<div class="faq-layout">
+<div class="faq-intro-card">
 <h2 class="font-headline-md text-primary uppercase text-sm tracking-widest font-bold mb-4">FAQ</h2>
-<h3 class="font-headline-md text-3xl text-on-surface">Pertanyaan yang Sering Diajukan</h3>
+<h3 class="font-headline-md text-3xl text-on-surface mb-5">Pertanyaan yang Sering Diajukan</h3>
+<p class="text-on-surface-variant leading-relaxed">Jawaban ringkas tentang cara kerja Sprintime, trial, paket, dan pengelolaan tim dalam satu akun perusahaan.</p>
+<div class="faq-badges">
+<div class="faq-badge"><span class="material-symbols-outlined">verified</span><span>Trial 14 hari tanpa kartu kredit</span></div>
+<div class="faq-badge"><span class="material-symbols-outlined">domain</span><span>Paket dihitung per organisasi</span></div>
+<div class="faq-badge"><span class="material-symbols-outlined">groups</span><span>Mendukung multi-departemen</span></div>
 </div>
-<div class="space-y-4">
-<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
-<summary class="cursor-pointer font-bold text-on-surface">Apa itu Sprintime?</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">Sprintime adalah sistem yang berbasis website. Merupakan alat untuk eksekusi bisnis yang menghubungkan strategi perusahaan sampai ke pekerjaan harian tim, berdasarkan metodologi Sprint Productivity System (SPS) — gabungan dari tiga framework yang sudah terbukti: Balanced Scorecard (BSC) untuk perencanaan strategi, OKR (Objectives &amp; Key Results) untuk menerjemahkan strategi menjadi tujuan terukur, dan Scrum untuk eksekusi mingguan berbasis sprint.</p>
+</div>
+<div class="faq-list">
+<details class="faq-item" open>
+<summary><span>Apa itu Sprintime?</span><span class="faq-toggle"><span class="material-symbols-outlined text-base">add</span></span></summary>
+<p class="faq-answer">Sprintime adalah sistem yang berbasis website. Merupakan alat untuk eksekusi bisnis yang menghubungkan strategi perusahaan sampai ke pekerjaan harian tim, berdasarkan metodologi Sprint Productivity System (SPS) — gabungan dari tiga framework yang sudah terbukti: Balanced Scorecard (BSC) untuk perencanaan strategi, OKR (Objectives &amp; Key Results) untuk menerjemahkan strategi menjadi tujuan terukur, dan Scrum untuk eksekusi mingguan berbasis sprint.</p>
 </details>
-<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
-<summary class="cursor-pointer font-bold text-on-surface">Apakah Sprintime cocok untuk perusahaan yang belum pernah pakai OKR atau BSC sebelumnya?</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">Ya. Sprintime dirancang sebagai framework sekaligus tool yang dibuat sesuai urutan dari menentukan perspektif strategi, menyusun Objective &amp; Key Result, sampai membuat Tactical Plan dan Sprint.</p>
+<details class="faq-item">
+<summary><span>Apakah Sprintime cocok untuk perusahaan yang belum pernah pakai OKR atau BSC sebelumnya?</span><span class="faq-toggle"><span class="material-symbols-outlined text-base">add</span></span></summary>
+<p class="faq-answer">Ya. Sprintime dirancang sebagai framework sekaligus tool yang dibuat sesuai urutan dari menentukan perspektif strategi, menyusun Objective &amp; Key Result, sampai membuat Tactical Plan dan Sprint.</p>
 </details>
-<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
-<summary class="cursor-pointer font-bold text-on-surface">Apakah biaya dihitung per pengguna atau per organisasi?</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">Biaya dihitung per organisasi dengan paket per 10 user untuk paket Pro Plan dan dihitung per bulan.</p>
+<details class="faq-item">
+<summary><span>Apakah biaya dihitung per pengguna atau per organisasi?</span><span class="faq-toggle"><span class="material-symbols-outlined text-base">add</span></span></summary>
+<p class="faq-answer">Biaya dihitung per organisasi dengan paket per 10 user untuk paket Pro Plan dan dihitung per bulan.</p>
 </details>
-<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
-<summary class="cursor-pointer font-bold text-on-surface">Bagaimana jika memerlukan tambahan pengguna?</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">Jika Anda sebagai admin, Anda bisa menambahkan langsung di bagian “Paket &amp; Tagihan” di menu.</p>
+<details class="faq-item">
+<summary><span>Bagaimana jika memerlukan tambahan pengguna?</span><span class="faq-toggle"><span class="material-symbols-outlined text-base">add</span></span></summary>
+<p class="faq-answer">Jika Anda sebagai admin, Anda bisa menambahkan langsung di bagian “Paket &amp; Tagihan” di menu.</p>
 </details>
-<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
-<summary class="cursor-pointer font-bold text-on-surface">Apa yang terjadi setelah masa trial 14 hari berakhir?</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">Setelah 14 hari, akun otomatis nonaktif tetapi data tetap tersimpan untuk sementara dan Anda perlu memilih paket berbayar di bagian “Paket &amp; Tagihan” untuk melanjutkan akses penuh.</p>
+<details class="faq-item">
+<summary><span>Apa yang terjadi setelah masa trial 14 hari berakhir?</span><span class="faq-toggle"><span class="material-symbols-outlined text-base">add</span></span></summary>
+<p class="faq-answer">Setelah 14 hari, akun otomatis nonaktif tetapi data tetap tersimpan untuk sementara dan Anda perlu memilih paket berbayar di bagian “Paket &amp; Tagihan” untuk melanjutkan akses penuh.</p>
 </details>
-<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
-<summary class="cursor-pointer font-bold text-on-surface">Apakah kartu kredit dibutuhkan saat mendaftar trial?</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">Tidak. Anda bisa mencoba semua fitur Sprintime selama 14 hari tanpa memasukkan kartu kredit.</p>
+<details class="faq-item">
+<summary><span>Apakah kartu kredit dibutuhkan saat mendaftar trial?</span><span class="faq-toggle"><span class="material-symbols-outlined text-base">add</span></span></summary>
+<p class="faq-answer">Tidak. Anda bisa mencoba semua fitur Sprintime selama 14 hari tanpa memasukkan kartu kredit.</p>
 </details>
-<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
-<summary class="cursor-pointer font-bold text-on-surface">Apakah kami bisa membuat beberapa tim atau divisi terpisah dalam satu akun perusahaan?</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">Sprintime mendukung multi-departemen atau per divisi dengan BSC, OKR dan sprint masing-masing dengan user atau pengguna yang bisa dibuat terpisah atau terhubung.</p>
+<details class="faq-item">
+<summary><span>Apakah kami bisa membuat beberapa tim atau divisi terpisah dalam satu akun perusahaan?</span><span class="faq-toggle"><span class="material-symbols-outlined text-base">add</span></span></summary>
+<p class="faq-answer">Sprintime mendukung multi-departemen atau per divisi dengan BSC, OKR dan sprint masing-masing dengan user atau pengguna yang bisa dibuat terpisah atau terhubung.</p>
 </details>
-<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
-<summary class="cursor-pointer font-bold text-on-surface">Apakah ada materi belajar tentang Sprint Productivity System?</summary>
-<p class="mt-4 text-on-surface-variant leading-relaxed">Anda bisa mendapatkan informasi lebih lengkap di blog, sosial media maupun YouTube kami.</p>
+<details class="faq-item">
+<summary><span>Apakah ada materi belajar tentang Sprint Productivity System?</span><span class="faq-toggle"><span class="material-symbols-outlined text-base">add</span></span></summary>
+<p class="faq-answer">Anda bisa mendapatkan informasi lebih lengkap di blog, sosial media maupun YouTube kami.</p>
 </details>
+</div>
 </div>
 </div>
 </section>
