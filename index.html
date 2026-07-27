@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="light" lang="id" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Sprintime - Sprint Productivity System</title><meta name="description" content="Sprintime membantu tim menyambungkan BSC, OKR, sprint, dan task harian dalam satu execution board."><link rel="canonical" href="https://sprintime.vercel.app/"><meta property="og:type" content="website"><meta property="og:site_name" content="Sprintime"><meta property="og:title" content="Sprintime - Sprint Productivity System"><meta property="og:description" content="Dari strategi ke eksekusi dalam satu sistem. BSC, OKR, sprint, dan task harian terhubung real-time."><meta property="og:url" content="https://sprintime.vercel.app/"><meta property="og:image" content="https://incentric.github.io/sprintime/assets/sprintime-share-preview.png"><meta property="og:image:secure_url" content="https://incentric.github.io/sprintime/assets/sprintime-share-preview.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="914"><meta property="og:image:height" content="525"><meta property="og:image:alt" content="Sprintime Company Execution Board dashboard preview"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Sprintime - Sprint Productivity System"><meta name="twitter:description" content="Dari strategi ke eksekusi dalam satu sistem. BSC, OKR, sprint, dan task harian terhubung real-time."><meta name="twitter:image" content="https://incentric.github.io/sprintime/assets/sprintime-share-preview.png"><meta name="theme-color" content="#ffffff"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+<!DOCTYPE html><html class="light" lang="id" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Sprintime - Sprint Productivity System</title><meta name="description" content="Sprintime membantu membuat strategi yang selaras, target yang terukur, eksekusi sesuai rencana, dan evaluasi berkala dalam satu sistem."><link rel="canonical" href="https://sprintime.vercel.app/"><meta property="og:type" content="website"><meta property="og:site_name" content="Sprintime"><meta property="og:title" content="Sprintime - Sprint Productivity System"><meta property="og:description" content="Dari strategi ke eksekusi cukup satu sistem. BSC + OKR + Scrum terhubung langsung ke tugas harian tim."><meta property="og:url" content="https://sprintime.vercel.app/"><meta property="og:image" content="https://incentric.github.io/sprintime/assets/sprintime-share-preview.png"><meta property="og:image:secure_url" content="https://incentric.github.io/sprintime/assets/sprintime-share-preview.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="914"><meta property="og:image:height" content="525"><meta property="og:image:alt" content="Sprintime Company Execution Board dashboard preview"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Sprintime - Sprint Productivity System"><meta name="twitter:description" content="Dari strategi ke eksekusi cukup satu sistem. BSC + OKR + Scrum terhubung langsung ke tugas harian tim."><meta name="twitter:image" content="https://incentric.github.io/sprintime/assets/sprintime-share-preview.png"><meta name="theme-color" content="#ffffff"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
         try {
             tailwind.config = {
                 darkMode: "class",
@@ -110,6 +110,24 @@
         border-radius: 16px;
         background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
         overflow: hidden;
+      }
+
+      .feature-visual.image-visual {
+        aspect-ratio: 4 / 3;
+        min-height: 0;
+        background: #f8fbff;
+      }
+
+      .feature-visual.image-visual::before,
+      .feature-visual.image-visual::after {
+        display: none;
+      }
+
+      .feature-visual.image-visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .feature-visual::before,
@@ -788,6 +806,45 @@
         z-index: 1;
       }
 
+      .tools-card {
+        min-height: 210px;
+        border: 1px solid rgba(195, 197, 217, 0.72);
+        border-radius: 16px;
+        padding: 24px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.76) 100%);
+        box-shadow: 0 18px 44px rgba(25, 28, 30, 0.065);
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      }
+
+      .tools-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(0, 85, 255, 0.28);
+        box-shadow: 0 24px 56px rgba(0, 85, 255, 0.12);
+      }
+
+      .tool-icon {
+        display: inline-flex;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        color: #0055ff;
+        background: #eaf1ff;
+        box-shadow: inset 0 0 0 1px rgba(0, 85, 255, 0.08);
+      }
+
+      .tools-card h4 {
+        align-items: center;
+        margin-bottom: 18px;
+      }
+
+      .tools-card li {
+        line-height: 1.55;
+      }
+
       @keyframes shakePulse {
         0%, 82%, 100% { transform: translateX(0) scale(1); }
         86% { transform: translateX(-3px) scale(1.02); }
@@ -973,10 +1030,10 @@
 <section class="hero-section px-gutter pt-40 pb-20 flex flex-col items-center text-center">
 <div class="w-full max-w-5xl mx-auto flex flex-col items-center">
 <h1 class="font-headline-xl text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight">
-            Dari Strategi ke Eksekusi<div class="">dalam Satu Sistem
+            Dari Strategi ke Eksekusi<div class="">cukup Satu Sistem
         </div></h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mb-10">
-            BSC + OKR + Sprint, terhubung langsung ke task harian setiap anggota tim. Sprintime bukan hanya tool — ini adalah <strong>framework kerja</strong> yang mengubah rencana besar menjadi hasil nyata.
+            Membantu membuat <strong>strategi</strong> yang tepat dan selaras, menerjemahkannya menjadi <strong>target</strong> yang terukur, memastikan <strong>eksekusi</strong> berjalan sesuai rencana, dan <strong>evaluasi</strong> berkala yang efektif.
         </p>
 <div class="flex flex-col items-center gap-4 mb-4">
 <div class="flex flex-col items-center gap-2">
@@ -1057,56 +1114,205 @@
 <!-- Satu Platform. Empat Kekuatan. (Features) -->
 <section class="features-soft py-24" id="features">
 <div class="max-w-container-max-width mx-auto px-gutter text-center mb-16">
-<h2 class="font-headline-md text-3xl md:text-4xl text-on-surface mb-4">Satu Platform. Empat Kekuatan.</h2>
+<h2 class="font-headline-md text-3xl md:text-4xl text-on-surface mb-4">Satu Platform. Empat Kekuatan</h2>
+<p class="text-on-surface-variant max-w-3xl mx-auto">
+                    Gabungan BSC + OKR + Scrum yang saling terhubung dan langsung ke tugas harian setiap anggota tim. Sprintime bukan hanya tool — ini adalah framework kerja yang mengubah rencana besar menjadi hasil nyata.
+                </p>
 </div>
 <div class="max-w-container-max-width mx-auto px-gutter">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 <!-- Strategy Planning -->
 <div class="feature-card bg-white p-8 rounded-2xl flex flex-col">
-<div class="feature-visual" aria-hidden="true">
-<div class="visual-strategy">
-<div class="strategy-node main">Business Strategy</div>
-<div class="strategy-node financial">Financial</div>
-<div class="strategy-node customer">Customer</div>
-<div class="strategy-node process">BSC Map</div>
+<div class="feature-visual image-visual">
+<img src="assets/strategy-planning.png" alt="Ilustrasi strategy planning Sprintime">
 </div>
-</div>
-<h3 class="font-bold text-xl mb-3 text-on-surface">Strategy Planning</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Susun strategi bisnis dengan framework BSC yang sudah disederhanakan. Financial, Customer, Internal Process, Learning &amp; Growth — semua dalam satu tampilan.</p>
+<h3 class="font-bold text-xl mb-3 text-on-surface">P - Plan</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Menyusun strategi bisnis dengan tujuan dan pencapaian yang terukur menggunakan Balanced Scorecard (BSC) dan Objective Key Results (OKR).</p>
 </div>
 <!-- OKR Management -->
 <div class="feature-card bg-white p-8 rounded-2xl flex flex-col">
-<div class="feature-visual" aria-hidden="true">
-<div class="visual-metrics">
-<div class="metric-row"><span>+18%</span><strong>OKR Progress</strong><div class="metric-line"></div></div>
-<div class="metric-row"><span>72%</span><strong>Key Result</strong></div>
+<div class="feature-visual image-visual">
+<img src="assets/okr-management.png" alt="Ilustrasi OKR management Sprintime">
 </div>
-</div>
-<h3 class="font-bold text-xl mb-3 text-on-surface">OKR Management</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Set Objectives &amp; Key Results yang terhubung langsung ke strategi. Tidak ada lagi OKR yang hidup sendiri di spreadsheet.</p>
+<h3 class="font-bold text-xl mb-3 text-on-surface">D - Do</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Eksekusi semua rencana dengan periode mingguan (Sprint) yang jelas prioritasnya dan tugas per orang. Bukan sekedar to-do list biasa.</p>
 </div>
 <!-- Sprint Execution -->
 <div class="feature-card bg-white p-8 rounded-2xl flex flex-col">
-<div class="feature-visual" aria-hidden="true">
-<div class="visual-calendar">
-<strong class="text-sm">Sprint minggu ini</strong>
-<div class="calendar-pill"><span class="material-symbols-outlined text-sm">event</span> Senin, 09.00 - Sprint Planning</div>
+<div class="feature-visual image-visual">
+<img src="assets/sprint-execution.png" alt="Ilustrasi sprint execution Sprintime">
 </div>
-</div>
-<h3 class="font-bold text-xl mb-3 text-on-surface">Sprint Execution</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Jalankan sprint mingguan atau dua-mingguan dengan prioritas yang jelas. Setiap sprint terhubung ke OKR — bukan sekadar to-do list biasa.</p>
+<h3 class="font-bold text-xl mb-3 text-on-surface">C - Check</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Setiap anggota tim punya task yang jelas, terlacak, dan bermakna. Anda sebagai leader bisa melihat progress real-time tanpa harus bertanya satu per satu.</p>
 </div>
 <!-- Task Tracking -->
 <div class="feature-card bg-white p-8 rounded-2xl flex flex-col">
-<div class="feature-visual" aria-hidden="true">
-<div class="visual-board">
-<div class="board-col"></div>
-<div class="board-col"></div>
-<div class="board-col"></div>
+<div class="feature-visual image-visual">
+<img src="assets/task-progress-tracking.png" alt="Ilustrasi task dan progress tracking Sprintime">
+</div>
+<h3 class="font-bold text-xl mb-3 text-on-surface">A - Act</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Evaluasi berkala untuk perbaikan secara terus-menerus dengan sistem yang efektif untuk mengungkapkan kendala dan mendapatkan insight dari semua yang sudah dilakukan.</p>
 </div>
 </div>
-<h3 class="font-bold text-xl mb-3 text-on-surface">Task &amp; Progress Tracking</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Setiap anggota tim punya task yang jelas, terlacak, dan bermakna. Anda sebagai Leader bisa lihat progress real-time tanpa harus nanya satu per satu.</p>
+</div>
+</section>
+<!-- Tackle Your Problems -->
+<section class="problem-section py-24">
+<div class="max-w-container-max-width mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-sm tracking-[0.2em] text-primary font-bold uppercase mb-4">Tackle Your Problems</h2>
+<h3 class="text-3xl md:text-4xl font-bold text-on-surface">Ubah Hambatan Menjadi Keunggulan Kompetitif</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
+<!-- Card 1 -->
+<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="p-8 bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">error</span>
+<h4 class="font-bold text-lg text-on-surface">Strategi tidak pernah benar-benar jalan</h4>
+</div>
+<p class="text-on-surface-variant italic font-body-md leading-relaxed">
+            "Setiap kuartal bikin OKR, tapi pertengahan jalan sudah lupa. Tim jalan sendiri-sendiri."
+          </p>
+</div>
+<div class="p-8 bg-white flex-1">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Sprintime menghubungkan OKR langsung ke sprint mingguan. Tim tidak bisa lupa — karena setiap minggu mereka bekerja dalam konteks tujuan besar perusahaan.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="p-8 bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">visibility_off</span>
+<h4 class="font-bold text-lg text-on-surface">Tidak tahu tim sedang ngerjain apa</h4>
+</div>
+<p class="text-on-surface-variant italic font-body-md leading-relaxed">
+            "Saya harus chat satu per satu untuk tahu progress. Tidak ada visibility sama sekali."
+          </p>
+</div>
+<div class="p-8 bg-white flex-1">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Dashboard Sprintime memberi kamu visibility real-time — siapa mengerjakan apa, progress sprint berapa persen, OKR mana yang on-track dan mana yang butuh perhatian.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="p-8 bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">layers_clear</span>
+<h4 class="font-bold text-lg text-on-surface">Sudah pakai banyak tools tapi masih berantakan</h4>
+</div>
+<p class="text-on-surface-variant italic font-body-md leading-relaxed">
+            "Kami pakai Notion untuk docs, Trello untuk tasks, spreadsheet untuk OKR. Tidak ada yang nyambung."
+          </p>
+</div>
+<div class="p-8 bg-white flex-1">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Sprintime menggantikan semuanya dengan satu sistem yang kohesif. Framework-nya sudah built-in — tidak perlu setup manual berbulan-bulan.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="p-8 bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">help_center</span>
+<h4 class="font-bold text-lg text-on-surface">Tim tidak paham kenapa mereka mengerjakan sesuatu</h4>
+</div>
+<p class="text-on-surface-variant italic font-body-md leading-relaxed">
+            "Karyawan hanya tahu task mereka, tapi tidak tahu hubungannya ke tujuan perusahaan."
+          </p>
+</div>
+<div class="p-8 bg-white flex-1">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Di Sprintime, setiap task punya konteks — terhubung ke sprint, ke OKR, ke strategi bisnis. Tim yang paham kenapa bekerja jauh lebih produktif dari yang hanya tahu apa.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="p-8 bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">priority_high</span>
+<h4 class="font-bold text-lg text-on-surface">Semua pekerjaan penting, bingung menentukan prioritas</h4>
+</div>
+<p class="text-on-surface-variant italic font-body-md leading-relaxed">
+            "Semua request kelihatan urgent. Tim jadi kerja reaktif, bukan berdasar prioritas strategi."
+          </p>
+</div>
+<div class="p-8 bg-white flex-1">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Sprintime memaksa setiap pekerjaan diturunkan dari Objective dan Key Result lebih dulu — baru masuk Tactical Plan. Kalau tidak terhubung ke tujuan besar, itu bukan prioritas.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+<div class="p-8 bg-surface-container-lowest">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error">account_balance</span>
+<h4 class="font-bold text-lg text-on-surface">Strategi dari tahun ke tahun hanya profit dan omzet</h4>
+</div>
+<p class="text-on-surface-variant italic font-body-md leading-relaxed">
+            "Setiap tahun target ya cuma naikkan omzet dan profit. Sisi customer, proses internal, sampai orang di dalam tim jadi nggak pernah masuk hitungan strategi."
+          </p>
+</div>
+<div class="p-8 bg-white flex-1">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Sprintime membangun strategi lewat 4 perspektif yang seimbang — Financial, Customer, Internal Process, dan Learning &amp; Growth. Profit tetap jadi hasil akhir, tapi dicapai lewat pelanggan, proses, dan tim yang terus berkembang.
+              </p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1115,10 +1321,10 @@
 <section class="py-24 bg-white">
 <div class="max-w-container-max-width mx-auto px-gutter">
 <div class="text-center mb-16">
-<h2 class="font-headline-md text-3xl md:text-4xl text-on-surface mb-6">Tool Tanpa Framework Hanya Menciptakan Chaos yang Lebih Rapi.</h2>
+<h2 class="font-headline-md text-3xl md:text-4xl text-on-surface mb-6">Tool tanpa Framework = Kekacauan Terencana</h2>
 <p class="text-body-lg text-primary font-bold mb-4">Inilah kenapa Sprintime berbeda.</p>
 <p class="text-on-surface-variant max-w-3xl mx-auto">
-                    Kami tidak hanya membangun tool. Kami membangun <strong>Sprint Productivity System</strong> — metodologi yang telah terbukti membantu perusahaan Indonesia menghubungkan visi mereka ke eksekusi harian.
+                    Kami tidak hanya membangun tool. Kami membangun <strong>Sprint Productivity System</strong> — metodologi yang telah terbukti membantu perusahaan menghubungkan visi ke strategi hingga menjadi eksekusi harian yang terencana. Dan semuanya ada di dalam satu sistem saja.
                 </p>
 </div>
 <p class="system-quote">"Untuk pertama kalinya, semua orang di tim Anda bekerja ke arah yang sama dan Anda bisa melihatnya secara real-time."</p>
@@ -1241,169 +1447,97 @@
 </div>
 </div>
 </section>
-<!-- Tackle Your Problems -->
-<section class="problem-section py-24">
-<div class="max-w-container-max-width mx-auto px-gutter">
-<div class="text-center mb-16">
-<h2 class="font-headline-md text-sm tracking-[0.2em] text-primary font-bold uppercase mb-4">Tackle Your Problems</h2>
-<h3 class="text-3xl md:text-4xl font-bold text-on-surface">Ubah Hambatan Menjadi Keunggulan Kompetitif</h3>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
-<!-- Card 1 -->
-<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-<div class="p-8 bg-surface-container-lowest">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-error">error</span>
-<h4 class="font-bold text-lg text-on-surface">Strategi tidak pernah benar-benar jalan</h4>
-</div>
-<p class="text-on-surface-variant italic font-body-md leading-relaxed">
-            "Setiap kuartal bikin OKR, tapi pertengahan jalan sudah lupa. Tim jalan sendiri-sendiri."
-          </p>
-</div>
-<div class="p-8 bg-white flex-1">
-<div class="flex items-start gap-4">
-<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
-</div>
-<div>
-<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
-<p class="text-sm text-on-surface-variant leading-relaxed">
-                Sprintime menghubungkan OKR langsung ke sprint mingguan. Tim tidak bisa lupa — karena setiap minggu mereka bekerja dalam konteks tujuan besar perusahaan.
-              </p>
-</div>
-</div>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-<div class="p-8 bg-surface-container-lowest">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-error">visibility_off</span>
-<h4 class="font-bold text-lg text-on-surface">Tidak tahu tim sedang ngerjain apa</h4>
-</div>
-<p class="text-on-surface-variant italic font-body-md leading-relaxed">
-            "Saya harus chat satu per satu untuk tahu progress. Tidak ada visibility sama sekali."
-          </p>
-</div>
-<div class="p-8 bg-white flex-1">
-<div class="flex items-start gap-4">
-<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
-</div>
-<div>
-<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
-<p class="text-sm text-on-surface-variant leading-relaxed">
-                Dashboard Sprintime memberi kamu visibility real-time — siapa mengerjakan apa, progress sprint berapa persen, OKR mana yang on-track dan mana yang butuh perhatian.
-              </p>
-</div>
-</div>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-<div class="p-8 bg-surface-container-lowest">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-error">layers_clear</span>
-<h4 class="font-bold text-lg text-on-surface">Sudah pakai banyak tools tapi masih berantakan</h4>
-</div>
-<p class="text-on-surface-variant italic font-body-md leading-relaxed">
-            "Kami pakai Notion untuk docs, Trello untuk tasks, spreadsheet untuk OKR. Tidak ada yang nyambung."
-          </p>
-</div>
-<div class="p-8 bg-white flex-1">
-<div class="flex items-start gap-4">
-<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
-</div>
-<div>
-<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
-<p class="text-sm text-on-surface-variant leading-relaxed">
-                Sprintime menggantikan semuanya dengan satu sistem yang kohesif. Framework-nya sudah built-in — tidak perlu setup manual berbulan-bulan.
-              </p>
-</div>
-</div>
-</div>
-</div>
-<!-- Card 4 -->
-<div class="problem-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-<div class="p-8 bg-surface-container-lowest">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-error">help_center</span>
-<h4 class="font-bold text-lg text-on-surface">Tim tidak paham kenapa mereka mengerjakan sesuatu</h4>
-</div>
-<p class="text-on-surface-variant italic font-body-md leading-relaxed">
-            "Karyawan hanya tahu task mereka, tapi tidak tahu hubungannya ke tujuan perusahaan."
-          </p>
-</div>
-<div class="p-8 bg-white flex-1">
-<div class="flex items-start gap-4">
-<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
-</div>
-<div>
-<span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Sprintime Solution</span>
-<p class="text-sm text-on-surface-variant leading-relaxed">
-                Di Sprintime, setiap task punya konteks — terhubung ke sprint, ke OKR, ke strategi bisnis. Tim yang paham kenapa bekerja jauh lebih produktif dari yang hanya tahu apa.
-              </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 <!-- Tools to Empower -->
 <section class="tools-soft py-24" id="features-detailed">
 <div class="max-w-container-max-width mx-auto px-gutter">
 <div class="text-center mb-16">
 <h2 class="font-headline-md text-primary uppercase text-sm tracking-widest font-bold mb-4">TOOLS TO EMPOWER</h2>
-<h3 class="font-headline-md text-3xl text-on-surface">Semua yang Kamu Butuhkan untuk Eksekusi Strategi</h3>
+<h3 class="font-headline-md text-3xl text-on-surface">Semua yang Anda Butuhkan untuk Eksekusi Strategi</h3>
 </div>
-<div class="tools-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-<div>
+<div class="tools-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+<div class="tools-card">
 <h4 class="font-bold text-lg mb-6 text-on-surface flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">map</span> Strategy &amp; Planning
+<span class="tool-icon"><span class="material-symbols-outlined">map</span></span><span>Strategy</span>
                     </h4>
 <ul class="space-y-3">
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> BSC Framework bawaan</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> OKR Hierarchy Visual</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Cascading Goals</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Metrics Tracking</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Menentukan strategi yang selaras disertai tujuan dan ukurannya.</li>
 </ul>
 </div>
-<div>
+<div class="tools-card">
 <h4 class="font-bold text-lg mb-6 text-on-surface flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">bolt</span> Sprint &amp; Execution
+<span class="tool-icon"><span class="material-symbols-outlined">account_tree</span></span><span>Tree</span>
                     </h4>
 <ul class="space-y-3">
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Sprint Planning Board</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Weekly Sprint Cycles</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Task Assignment</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Progress Update Real-time</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Menjabarkan pelaksanaan dengan waktu dan penugasan yang jelas.</li>
 </ul>
 </div>
-<div>
+<div class="tools-card">
 <h4 class="font-bold text-lg mb-6 text-on-surface flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">analytics</span> Reporting &amp; Visibility
+<span class="tool-icon"><span class="material-symbols-outlined">view_kanban</span></span><span>Sprint Board</span>
                     </h4>
 <ul class="space-y-3">
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Dashboard CEO/Leadership</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> OKR Progress Report</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Sprint Completion Rate</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Team Performance</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Evaluasi berkala pelaksanaan setiap tugas.</li>
 </ul>
 </div>
-<div>
+<div class="tools-card">
 <h4 class="font-bold text-lg mb-6 text-on-surface flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">groups</span> Collaboration &amp; Alignment
+<span class="tool-icon"><span class="material-symbols-outlined">checklist</span></span><span>My Task</span>
                     </h4>
 <ul class="space-y-3">
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Check-in Mingguan</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Feedback &amp; Recognition</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Sprint Review Agenda</li>
-<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Discussion &amp; Comments</li>
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> To do list yang harus dilakukan setiap orang.</li>
 </ul>
 </div>
+<div class="tools-card">
+<h4 class="font-bold text-lg mb-6 text-on-surface flex items-center gap-2">
+<span class="tool-icon"><span class="material-symbols-outlined">forum</span></span><span>Retrospektif</span>
+                    </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm">check</span> Membahas proses kerja, hambatan dan pembelajaran.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-24 bg-white" id="faq">
+<div class="max-w-4xl mx-auto px-gutter">
+<div class="text-center mb-12">
+<h2 class="font-headline-md text-primary uppercase text-sm tracking-widest font-bold mb-4">FAQ</h2>
+<h3 class="font-headline-md text-3xl text-on-surface">Pertanyaan yang Sering Diajukan</h3>
+</div>
+<div class="space-y-4">
+<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
+<summary class="cursor-pointer font-bold text-on-surface">Apa itu Sprintime?</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Sprintime adalah sistem yang berbasis website. Merupakan alat untuk eksekusi bisnis yang menghubungkan strategi perusahaan sampai ke pekerjaan harian tim, berdasarkan metodologi Sprint Productivity System (SPS) — gabungan dari tiga framework yang sudah terbukti: Balanced Scorecard (BSC) untuk perencanaan strategi, OKR (Objectives &amp; Key Results) untuk menerjemahkan strategi menjadi tujuan terukur, dan Scrum untuk eksekusi mingguan berbasis sprint.</p>
+</details>
+<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
+<summary class="cursor-pointer font-bold text-on-surface">Apakah Sprintime cocok untuk perusahaan yang belum pernah pakai OKR atau BSC sebelumnya?</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Ya. Sprintime dirancang sebagai framework sekaligus tool yang dibuat sesuai urutan dari menentukan perspektif strategi, menyusun Objective &amp; Key Result, sampai membuat Tactical Plan dan Sprint.</p>
+</details>
+<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
+<summary class="cursor-pointer font-bold text-on-surface">Apakah biaya dihitung per pengguna atau per organisasi?</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Biaya dihitung per organisasi dengan paket per 10 user untuk paket Pro Plan dan dihitung per bulan.</p>
+</details>
+<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
+<summary class="cursor-pointer font-bold text-on-surface">Bagaimana jika memerlukan tambahan pengguna?</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Jika Anda sebagai admin, Anda bisa menambahkan langsung di bagian “Paket &amp; Tagihan” di menu.</p>
+</details>
+<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
+<summary class="cursor-pointer font-bold text-on-surface">Apa yang terjadi setelah masa trial 14 hari berakhir?</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Setelah 14 hari, akun otomatis nonaktif tetapi data tetap tersimpan untuk sementara dan Anda perlu memilih paket berbayar di bagian “Paket &amp; Tagihan” untuk melanjutkan akses penuh.</p>
+</details>
+<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
+<summary class="cursor-pointer font-bold text-on-surface">Apakah kartu kredit dibutuhkan saat mendaftar trial?</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Tidak. Anda bisa mencoba semua fitur Sprintime selama 14 hari tanpa memasukkan kartu kredit.</p>
+</details>
+<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
+<summary class="cursor-pointer font-bold text-on-surface">Apakah kami bisa membuat beberapa tim atau divisi terpisah dalam satu akun perusahaan?</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Sprintime mendukung multi-departemen atau per divisi dengan BSC, OKR dan sprint masing-masing dengan user atau pengguna yang bisa dibuat terpisah atau terhubung.</p>
+</details>
+<details class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6">
+<summary class="cursor-pointer font-bold text-on-surface">Apakah ada materi belajar tentang Sprint Productivity System?</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Anda bisa mendapatkan informasi lebih lengkap di blog, sosial media maupun YouTube kami.</p>
+</details>
 </div>
 </div>
 </section>
