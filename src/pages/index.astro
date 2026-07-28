@@ -1,0 +1,16 @@
+---
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+// Keep the original landing markup intact while Astro owns routing and builds.
+const legacyPath = fileURLToPath(new URL('../../index.html', import.meta.url));
+const legacy = readFileSync(legacyPath, 'utf8');
+const body = legacy.match(/<body[^>]*>([\s\S]*)<\/body>/i)?.[1] ?? '';
+const head = legacy.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? '';
+---
+
+<!doctype html>
+<html lang="id">
+  <head set:html={head} />
+  <body class="bg-white text-on-surface font-body-md selection:bg-primary/20" set:html={body} />
+</html>

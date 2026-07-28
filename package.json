@@ -1,0 +1,23 @@
+{
+  "name": "sprintime-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/rollup-wasm-fallback.cjs",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@rollup/wasm-node": "^4.62.3",
+    "@types/node": "^24.0.0",
+    "astro": "^5.13.5",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@rollup/wasm-node": "^4.62.3"
+  }
+}
