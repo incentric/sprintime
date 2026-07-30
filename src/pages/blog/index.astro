@@ -57,7 +57,7 @@ const [featured, ...latestPosts] = posts;
       <form action="#" method="post"><label class="sr-only" for="email">Alamat email</label><input id="email" name="email" type="email" placeholder="nama@perusahaan.com" required /><button type="submit">Berlangganan</button></form>
     </section>
   </main>
-  <footer class="site-footer"><img src="/assets/logo-sprintime.png" alt="Sprintime" width="150" height="35" /><p>© {new Date().getFullYear()} Sprintime. Dari strategi ke eksekusi.</p></footer>
+  <footer class="site-footer"><img src="/assets/logo-sprintime-no-tagline.png" alt="Sprintime" width="150" height="35" /><p>© {new Date().getFullYear()} Sprintime. Dari strategi ke eksekusi.</p></footer>
   <script>
     const indicator = document.querySelector<HTMLSpanElement>('.scroll-progress span');
     const update = () => { if (indicator) indicator.style.width = `${Math.min(100, scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight) * 100)}%`; };
