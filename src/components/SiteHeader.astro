@@ -9,8 +9,8 @@ const { active = '' } = Astro.props;
   <nav class="nav-links" aria-label="Navigasi utama">
     <a href="/#features">Features</a>
     <a href="/#how-it-works">How it Works</a>
-    <a class:list={[{ active: active === 'blog' }]} href="/blog/">Blog</a>
     <a href="/#pricing">Pricing</a>
+    <a class:list={[{ active: active === 'blog' }]} href="/blog/">Blog</a>
   </nav>
   <div class="header-actions">
     <a class="nav-login" href="#">Login</a>
