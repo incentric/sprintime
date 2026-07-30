@@ -664,6 +664,72 @@
         animation: flowPulse 520ms ease;
       }
 
+      .app-preview-shell {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.28fr) minmax(0, 0.72fr);
+        gap: 20px;
+        border-radius: 24px;
+        padding: 18px;
+        background:
+          linear-gradient(180deg, rgba(246, 248, 252, 0.92) 0%, rgba(255, 255, 255, 0.96) 100%);
+        box-shadow: 0 24px 70px rgba(25, 28, 30, 0.08);
+      }
+
+      .app-preview-menu {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+        border-radius: 18px;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+      }
+
+      .app-preview-tab {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        border-radius: 14px;
+        padding: 13px 14px;
+        color: #434656;
+        font-weight: 800;
+        text-align: left;
+        transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+      }
+
+      .app-preview-tab:hover {
+        transform: translateX(3px);
+        color: #0041c8;
+        background: rgba(220, 232, 255, 0.5);
+      }
+
+      .app-preview-tab[aria-selected="true"] {
+        color: #0055ff;
+        background: #eaf1ff;
+        box-shadow: 0 14px 32px rgba(0, 85, 255, 0.12);
+      }
+
+      .app-preview-tab .material-symbols-outlined {
+        font-size: 22px;
+      }
+
+      .app-preview-stage {
+        min-width: 0;
+        border-radius: 18px;
+        overflow: hidden;
+        background: #f7f6f1;
+        box-shadow: 0 18px 46px rgba(25, 28, 30, 0.08);
+      }
+
+      .app-preview-stage img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        object-position: top left;
+      }
+
       #tab-content {
         transition: min-height 220ms ease, box-shadow 180ms ease;
       }
@@ -1124,19 +1190,37 @@
         .tools-grid li {
           justify-content: flex-start;
         }
+
+        .app-preview-shell {
+          padding: 12px;
+        }
+
+        .app-preview-menu {
+          grid-template-columns: 1fr;
+        }
+
+        .app-preview-tab {
+          padding: 12px;
+        }
       }
 
       @media (max-width: 1023px) {
         .flow-content,
         .execution-chain,
-        .faq-layout {
+        .faq-layout,
+        .app-preview-shell {
           grid-template-columns: 1fr;
         }
 
         .flow-content,
         .execution-chain,
-        .faq-layout {
+        .faq-layout,
+        .app-preview-shell {
           gap: 16px;
+        }
+
+        .app-preview-menu {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
       }
@@ -1148,6 +1232,7 @@
 <div class="hidden md:flex items-center gap-8">
 <a class="font-label-md text-[14px] font-semibold text-on-surface-variant hover:text-primary transition-colors" href="#features">Features</a>
 <a class="font-label-md text-[14px] font-semibold text-on-surface-variant hover:text-primary transition-colors" href="#how-it-works">How it Works</a>
+<a class="font-label-md text-[14px] font-semibold text-on-surface-variant hover:text-primary transition-colors" href="/blog/">Blog</a>
 <a class="font-label-md text-[14px] font-semibold text-on-surface-variant hover:text-primary transition-colors" href="#pricing">Pricing</a>
 </div>
 <div class="flex items-center gap-4">
@@ -1231,7 +1316,6 @@
 <span class="profit-dot" style="left: 31.1%; top: 50.7%; --dot-color: #76dc78;"></span>
 <span class="profit-dot" style="left: 46.7%; top: 67.6%; --dot-color: #55d678;"></span>
 <span class="profit-dot" style="left: 62.2%; top: 18.3%; --dot-color: #24c977;"></span>
-<a class="font-label-md text-[14px] font-semibold text-on-surface-variant hover:text-primary transition-colors" href="/blog/">Blog</a>
 <span class="profit-dot" style="left: 80%; top: 28.2%; --dot-color: #15b965;"></span>
 <span class="profit-dot" style="left: 94.4%; top: 19.7%; --dot-color: #0a9f4a;"></span>
 <div class="profit-caption"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
@@ -1448,72 +1532,27 @@
 </div>
 </div>
 </section>
-<!-- Tool Tanpa Framework (Productivity System) -->
+<!-- App Preview -->
 <section class="py-24 bg-white">
 <div class="max-w-container-max-width mx-auto px-gutter">
 <div class="text-center mb-16">
-<h2 class="font-headline-md text-3xl md:text-4xl text-on-surface mb-6">Tool tanpa Framework = Kekacauan Terencana</h2>
-<p class="text-body-lg text-primary font-bold mb-4">Inilah kenapa Sprintime berbeda.</p>
+<h2 class="font-headline-md text-3xl md:text-4xl text-on-surface mb-6">Lihat Isi Aplikasi Sprintime</h2>
+<p class="text-body-lg text-primary font-bold mb-4">Semua alur kerja penting ada dalam satu tempat.</p>
 <p class="text-on-surface-variant max-w-3xl mx-auto">
-                    Kami tidak hanya membangun tool. Kami membangun <strong>Sprint Productivity System</strong> — metodologi yang telah terbukti membantu perusahaan menghubungkan visi ke strategi hingga menjadi eksekusi harian yang terencana. Dan semuanya ada di dalam satu sistem saja.
+                    Dari Strategy, Tree, Sprint Board, My Task, Retrospective, sampai Company Notes — Sprintime membantu leader dan tim melihat strategi, eksekusi, pekerjaan harian, dan pembelajaran dalam satu aplikasi.
                 </p>
 </div>
-<p class="system-quote">"Untuk pertama kalinya, semua orang di tim Anda bekerja ke arah yang sama dan Anda bisa melihatnya secara real-time."</p>
-<!-- Simplified Horizontal Flow Visual -->
-<div class="max-w-6xl mx-auto mb-16 relative p-6 md:p-8 bg-surface-container-low rounded-2xl overflow-visible shadow-[0_24px_70px_rgba(25,28,30,0.07)]" id="okr-flow">
-<div class="flow-content">
-<div>
-<p class="text-xs font-bold text-primary uppercase tracking-widest mb-3">Strategy (BSC)</p>
-<div class="bsc-map">
-<button class="bsc-option bg-white p-4 rounded-xl flex items-start gap-3" type="button" data-flow-key="financial" aria-pressed="true">
-<span class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-green-600">payments</span></span>
-<span class="flex-1"><strong class="bsc-title">Financial</strong><small class="text-on-surface-variant">Revenue &amp; margin</small></span>
-</button>
-<button class="bsc-option bg-white p-4 rounded-xl flex items-start gap-3" type="button" data-flow-key="customer" aria-pressed="false">
-<span class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary">group</span></span>
-<span class="flex-1"><strong class="bsc-title">Customer</strong><small class="text-on-surface-variant">Retention &amp; NPS</small></span>
-</button>
-<button class="bsc-option bg-white p-4 rounded-xl flex items-start gap-3" type="button" data-flow-key="process" aria-pressed="false">
-<span class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-yellow-600">settings_suggest</span></span>
-<span class="flex-1"><strong class="bsc-title">Internal Process</strong><small class="text-on-surface-variant">Speed &amp; quality</small></span>
-</button>
-<button class="bsc-option bg-white p-4 rounded-xl flex items-start gap-3" type="button" data-flow-key="growth" aria-pressed="false">
-<span class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-pink-600">school</span></span>
-<span class="flex-1"><strong class="bsc-title"><span>Learning &amp;</span><span>Growth</span></strong><small class="text-on-surface-variant">Skill &amp; capability</small></span>
-</button>
+<div class="app-preview-shell max-w-6xl mx-auto mb-16" id="app-preview">
+<div class="app-preview-menu" role="tablist" aria-label="Sprintime app screenshots">
+<button class="app-preview-tab" type="button" role="tab" aria-selected="true" data-preview-src="assets/app-preview-strategy.png" data-preview-alt="Screenshot fitur Strategy di Sprintime"><span class="material-symbols-outlined">track_changes</span><span>Strategy</span></button>
+<button class="app-preview-tab" type="button" role="tab" aria-selected="false" data-preview-src="assets/app-preview-tree.png" data-preview-alt="Screenshot fitur Tree di Sprintime"><span class="material-symbols-outlined">account_tree</span><span>Tree</span></button>
+<button class="app-preview-tab" type="button" role="tab" aria-selected="false" data-preview-src="assets/app-preview-sprint-board.png" data-preview-alt="Screenshot fitur Sprint Board di Sprintime"><span class="material-symbols-outlined">view_kanban</span><span>Sprint Board</span></button>
+<button class="app-preview-tab" type="button" role="tab" aria-selected="false" data-preview-src="assets/app-preview-my-task.png" data-preview-alt="Screenshot fitur My Task di Sprintime"><span class="material-symbols-outlined">checklist</span><span>My Task</span></button>
+<button class="app-preview-tab" type="button" role="tab" aria-selected="false" data-preview-src="assets/app-preview-retrospective.png" data-preview-alt="Screenshot fitur Retrospective di Sprintime"><span class="material-symbols-outlined">rate_review</span><span>Retrospective</span></button>
+<button class="app-preview-tab" type="button" role="tab" aria-selected="false" data-preview-src="assets/app-preview-company-notes.png" data-preview-alt="Screenshot fitur Company Notes di Sprintime"><span class="material-symbols-outlined">edit_note</span><span>Company Notes</span></button>
 </div>
-</div>
-<div class="execution-chain">
-<article class="flow-card bg-white p-5 rounded-2xl flex flex-col" id="flow-objective-card" data-flow-node="okr">
-<div class="flow-card-label">
-<p class="text-xs font-bold text-primary uppercase tracking-wider">OKR Objective</p>
-<span class="flow-period">Quarterly</span>
-</div>
-<h4 class="text-xl font-bold text-on-surface mb-5" id="flow-objective">Meningkatkan MRR sebesar 20%</h4>
-<p class="text-sm text-on-surface-variant mb-5" id="flow-kr">Key Result: mencapai revenue recurring Rp250 juta per bulan.</p>
-<div class="mt-auto space-y-2">
-<div class="flex justify-between text-xs font-bold"><span class="text-on-surface-variant">Progress OKR</span><span class="text-primary" id="flow-progress-text">64%</span></div>
-<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden"><div class="bg-primary h-full transition-all duration-500" id="flow-progress-bar" style="width: 64%"></div></div>
-</div>
-</article>
-<article class="flow-card bg-white p-5 rounded-2xl flex flex-col" id="flow-sprint-card" data-flow-node="sprint">
-<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Weekly Sprint</p>
-<h4 class="text-xl font-bold text-on-surface" id="flow-sprint">Optimasi funnel trial ke paid</h4>
-<p class="text-sm text-on-surface-variant mt-3" id="flow-sprint-detail">Sprint minggu ini fokus pada eksperimen onboarding dan follow-up trial user.</p>
-<div class="mt-auto flex items-center gap-3 pt-6">
-<span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-sm">bolt</span></span>
-<span class="text-[10px] font-bold bg-green-100 text-green-600 px-2 py-1 rounded uppercase">In Progress</span>
-</div>
-</article>
-<article class="flow-card bg-white p-5 rounded-2xl flex flex-col" id="flow-task-card" data-flow-node="task">
-<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Daily Tasks</p>
-<ul class="space-y-3 mt-4" id="flow-tasks">
-<li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary text-sm">check_box</span> Audit drop-off halaman aktivasi trial</li>
-<li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-primary text-sm">check_box</span> Kirim follow-up ke 30 akun trial</li>
-<li class="flex items-start gap-3 text-sm"><span class="material-symbols-outlined text-outline text-sm">check_box_outline_blank</span> Review conversion dashboard harian</li>
-</ul>
-</article>
-</div>
+<div class="app-preview-stage">
+<img id="app-preview-image" src="assets/app-preview-strategy.png" alt="Screenshot fitur Strategy di Sprintime">
 </div>
 </div>
 </section>
@@ -1765,105 +1804,21 @@
         moveTabIndicator(document.querySelector('.tab-btn.active'), false);
     });
 
-    const flowData = {
-        financial: {
-            objective: "Meningkatkan MRR sebesar 20%",
-            kr: "Key Result: mencapai revenue recurring Rp250 juta per bulan.",
-            progress: 64,
-            sprint: "Optimasi funnel trial ke paid",
-            sprintDetail: "Sprint minggu ini fokus pada eksperimen onboarding dan follow-up trial user.",
-            tasks: [
-                ["check_box", "Audit drop-off halaman aktivasi trial"],
-                ["check_box", "Kirim follow-up ke 30 akun trial"],
-                ["check_box_outline_blank", "Review conversion dashboard harian"]
-            ]
-        },
-        customer: {
-            objective: "Meningkatkan NPS pelanggan menjadi 62",
-            kr: "Key Result: menurunkan complaint response time dari 18 jam menjadi 4 jam.",
-            progress: 48,
-            sprint: "Perbaiki pengalaman pelanggan prioritas",
-            sprintDetail: "Sprint diarahkan ke touchpoint onboarding, support, dan feedback loop pelanggan.",
-            tasks: [
-                ["check_box", "Segmentasikan 20 feedback pelanggan terbaru"],
-                ["check_box", "Buat template respon untuk 5 kasus utama"],
-                ["check_box_outline_blank", "Hubungi 10 pelanggan churn-risk"]
-            ]
-        },
-        process: {
-            objective: "Mempercepat cycle time operasional 35%",
-            kr: "Key Result: memangkas rata-rata handoff antar tim dari 3 hari menjadi 1 hari.",
-            progress: 72,
-            sprint: "Rapikan handoff lintas fungsi",
-            sprintDetail: "Sprint menghilangkan bottleneck proses yang membuat pekerjaan tertahan.",
-            tasks: [
-                ["check_box", "Mapping bottleneck approval campaign"],
-                ["check_box", "Buat SOP handoff sales ke delivery"],
-                ["check_box_outline_blank", "Uji checklist QA sebelum release"]
-            ]
-        },
-        growth: {
-            objective: "Meningkatkan kapabilitas tim eksekusi",
-            kr: "Key Result: 90% anggota tim menyelesaikan skill sprint dan review mingguan.",
-            progress: 56,
-            sprint: "Bangun ritme coaching mingguan",
-            sprintDetail: "Sprint difokuskan pada skill, ownership, dan kebiasaan review yang konsisten.",
-            tasks: [
-                ["check_box", "Jadwalkan 4 sesi coaching OKR owner"],
-                ["check_box", "Review kualitas update sprint tiap tim"],
-                ["check_box_outline_blank", "Buat learning note dari sprint review"]
-            ]
-        }
-    };
+    const previewTabs = Array.from(document.querySelectorAll('.app-preview-tab'));
+    const previewImage = document.querySelector('#app-preview-image');
 
-    const flowRoot = document.querySelector('#okr-flow');
-    const flowButtons = Array.from(document.querySelectorAll('.bsc-option'));
-    const objectiveEl = document.querySelector('#flow-objective');
-    const krEl = document.querySelector('#flow-kr');
-    const progressTextEl = document.querySelector('#flow-progress-text');
-    const progressBarEl = document.querySelector('#flow-progress-bar');
-    const sprintEl = document.querySelector('#flow-sprint');
-    const sprintDetailEl = document.querySelector('#flow-sprint-detail');
-    const tasksEl = document.querySelector('#flow-tasks');
-    const flowCards = Array.from(document.querySelectorAll('#flow-objective-card, #flow-sprint-card, #flow-task-card'));
+    previewTabs.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (!previewImage) return;
 
-    const renderFlow = (key) => {
-        const data = flowData[key];
-        if (!data) return;
+            previewTabs.forEach((tab) => {
+                tab.setAttribute('aria-selected', String(tab === button));
+            });
 
-        flowButtons.forEach((button) => {
-            const isActive = button.dataset.flowKey === key;
-            button.setAttribute('aria-pressed', String(isActive));
+            previewImage.src = button.dataset.previewSrc;
+            previewImage.alt = button.dataset.previewAlt;
         });
-
-        objectiveEl.textContent = data.objective;
-        krEl.textContent = data.kr;
-        progressTextEl.textContent = `${data.progress}%`;
-        progressBarEl.style.width = `${data.progress}%`;
-        sprintEl.textContent = data.sprint;
-        sprintDetailEl.textContent = data.sprintDetail;
-        tasksEl.innerHTML = data.tasks.map(([icon, text]) => `
-            <li class="flex items-start gap-3 text-sm">
-                <span class="material-symbols-outlined ${icon === 'check_box' ? 'text-primary' : 'text-outline'} text-sm">${icon}</span>
-                ${text}
-            </li>
-        `).join('');
-
-        flowCards.forEach((card) => {
-            card.classList.remove('flow-pulse');
-            void card.offsetWidth;
-            card.classList.add('flow-pulse');
-        });
-
-    };
-
-    flowButtons.forEach((button) => {
-        button.addEventListener('click', () => renderFlow(button.dataset.flowKey));
     });
-
-    if (flowRoot) {
-        renderFlow('financial');
-    }
 </script>
 
 
