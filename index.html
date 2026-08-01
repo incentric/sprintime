@@ -1224,6 +1224,350 @@
         }
 
       }
+
+      .pricing-shell {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(72px, 9vw, 120px) 24px;
+        background:
+          radial-gradient(circle at 8% 10%, rgba(0, 85, 255, 0.12), transparent 28%),
+          radial-gradient(circle at 92% 86%, rgba(0, 204, 249, 0.16), transparent 30%),
+          linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      }
+
+      .pricing-shell::before {
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        width: min(720px, 80vw);
+        height: 300px;
+        transform: translateX(-50%);
+        border-radius: 999px;
+        background: rgba(0, 85, 255, 0.08);
+        filter: blur(80px);
+        content: "";
+        pointer-events: none;
+      }
+
+      .pricing-container {
+        position: relative;
+        z-index: 1;
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .pricing-heading {
+        width: min(760px, 100%);
+        margin: 0 auto 52px;
+        text-align: center;
+      }
+
+      .pricing-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 16px;
+        border: 1px solid rgba(0, 65, 200, 0.16);
+        border-radius: 999px;
+        padding: 8px 13px;
+        color: #0041c8;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 8px 24px rgba(0, 65, 200, 0.08);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .pricing-heading h2 {
+        color: #191c1e;
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 1.04;
+        letter-spacing: -0.04em;
+      }
+
+      .pricing-heading > p:last-child {
+        margin-top: 18px;
+        color: #5c6070;
+        font-size: clamp(1rem, 1.6vw, 1.15rem);
+      }
+
+      .pricing-cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .pricing-card {
+        position: relative;
+        min-height: 510px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid rgba(195, 197, 217, 0.72);
+        border-radius: 24px;
+        padding: 30px;
+        color: #191c1e;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 22px 65px rgba(25, 28, 30, 0.09);
+        backdrop-filter: blur(18px);
+        transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(0, 65, 200, 0.36);
+        box-shadow: 0 30px 78px rgba(25, 28, 30, 0.14);
+      }
+
+      .pricing-card--pro {
+        transform: translateY(-12px);
+        border-color: transparent;
+        color: #ffffff;
+        background:
+          radial-gradient(circle at 86% 4%, rgba(76, 214, 255, 0.36), transparent 30%),
+          linear-gradient(150deg, #0039b3 0%, #0055ff 62%, #0041c8 100%);
+        box-shadow: 0 30px 85px rgba(0, 65, 200, 0.3);
+      }
+
+      .pricing-card--pro:hover {
+        transform: translateY(-18px);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 38px 96px rgba(0, 65, 200, 0.38);
+      }
+
+      .pricing-card--additional {
+        background:
+          linear-gradient(145deg, rgba(183, 234, 255, 0.4), rgba(255, 255, 255, 0.94) 48%),
+          #ffffff;
+      }
+
+      .pricing-card__topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 34px;
+      }
+
+      .pricing-card__label {
+        color: #0041c8;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .pricing-card--pro .pricing-card__label {
+        color: #dce1ff;
+      }
+
+      .pricing-card__badge {
+        border-radius: 999px;
+        padding: 7px 10px;
+        color: #0039b3;
+        background: #ffffff;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .pricing-card h3 {
+        margin-top: 22px;
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: clamp(1.75rem, 2.3vw, 2.35rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+      }
+
+      .pricing-price {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 22px;
+      }
+
+      .pricing-price strong {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: clamp(2.35rem, 4vw, 3.45rem);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.045em;
+      }
+
+      .pricing-price span {
+        color: #656979;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .pricing-card--pro .pricing-price span {
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .pricing-annual {
+        min-height: 42px;
+        margin-top: 12px;
+        color: #434656;
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .pricing-annual strong {
+        color: #0041c8;
+        font-weight: 800;
+      }
+
+      .pricing-card--pro .pricing-annual {
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .pricing-card--pro .pricing-annual strong {
+        color: #ffffff;
+      }
+
+      .pricing-divider {
+        width: 100%;
+        height: 1px;
+        margin: 24px 0;
+        background: rgba(195, 197, 217, 0.62);
+      }
+
+      .pricing-card--pro .pricing-divider {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .pricing-features {
+        display: grid;
+        gap: 14px;
+        margin: 0 0 28px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .pricing-features li {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-size: 15px;
+        font-weight: 650;
+      }
+
+      .pricing-features .material-symbols-outlined {
+        width: 24px;
+        height: 24px;
+        display: inline-flex;
+        flex: 0 0 24px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        color: #0041c8;
+        background: #e3e6ff;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .pricing-card--pro .pricing-features .material-symbols-outlined {
+        color: #0039b3;
+        background: #ffffff;
+      }
+
+      .pricing-action {
+        width: 100%;
+        min-height: 52px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: auto;
+        border: 1px solid rgba(0, 65, 200, 0.18);
+        border-radius: 14px;
+        padding: 13px 18px;
+        color: #0041c8;
+        background: #eef2ff;
+        font-size: 15px;
+        font-weight: 800;
+        transition: transform 180ms ease, filter 180ms ease, background 180ms ease;
+      }
+
+      .pricing-action:hover {
+        transform: translateY(-2px);
+        background: #e3e6ff;
+      }
+
+      .pricing-card--pro .pricing-action {
+        border-color: #ffffff;
+        color: #0039b3;
+        background: #ffffff;
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+      }
+
+      .pricing-card--pro .pricing-action:hover {
+        filter: brightness(0.96);
+      }
+
+      .pricing-footnote {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 28px;
+        color: #656979;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .pricing-footnote .material-symbols-outlined {
+        color: #0041c8;
+        font-size: 18px;
+      }
+
+      @media (max-width: 920px) {
+        .pricing-cards {
+          grid-template-columns: 1fr;
+          max-width: 580px;
+          margin: 0 auto;
+        }
+
+        .pricing-card,
+        .pricing-card--pro {
+          min-height: 0;
+          transform: none;
+        }
+
+        .pricing-card--pro:hover,
+        .pricing-card:hover {
+          transform: translateY(-4px);
+        }
+      }
+
+      @media (max-width: 520px) {
+        .pricing-shell {
+          padding: 68px 16px;
+        }
+
+        .pricing-heading {
+          margin-bottom: 34px;
+        }
+
+        .pricing-card {
+          border-radius: 20px;
+          padding: 24px;
+        }
+
+        .pricing-card__topline {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
     </style></head><body class="bg-white text-on-surface font-body-md selection:bg-primary/20">
 <nav class="site-nav fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4">
 <div class="flex items-center gap-2">
@@ -1720,20 +2064,62 @@
 </div>
 </section>
 </main>
-<!-- Final CTA -->
+<!-- Pricing -->
 <div class="lower-gradient">
-<section class="py-24 text-center" id="pricing">
-<div class="max-w-4xl mx-auto px-gutter">
-<h2 class="text-3xl md:text-5xl font-bold mb-6 text-on-surface">Mulai Gratis. Bayar Hanya Kalau Kamu Merasakan Manfaatnya.</h2>
-<p class="text-xl text-on-surface-variant mb-10">Free 14 hari. Semua fitur. Tidak perlu kartu kredit.</p>
-<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-<button class="attention-shake bg-primary text-white font-bold text-lg px-12 py-4 rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20">Mulai Gratis</button>
-<button class="border border-outline-variant text-on-surface px-8 py-3 rounded-lg bg-white/40 hover:bg-white active:scale-95 transition-all flex flex-col items-center gap-1 min-w-[230px]">
-<span class="font-bold text-lg">Pro Plan</span>
-<span class="text-sm text-on-surface-variant">Customized Enterprise</span>
-</button>
+<section class="pricing-shell" id="pricing">
+<div class="pricing-container">
+<div class="pricing-heading">
+<p class="pricing-kicker"><span class="material-symbols-outlined text-base">workspace_premium</span>Pilih Paketmu</p>
+<h2>Mulai gratis. Upgrade saat timmu siap melaju.</h2>
+<p>Akses lengkap selama 14 hari, lalu pilih paket yang paling pas untuk ritme kerja timmu.</p>
 </div>
-<p class="mt-12 text-sm text-on-surface-variant">Bangun ritme eksekusi yang lebih jelas sejak hari pertama.</p>
+<div class="pricing-cards">
+<article class="pricing-card">
+<div class="pricing-card__topline">
+<span class="pricing-card__label">Free Trial</span>
+</div>
+<h3>Coba semua fitur</h3>
+<div class="pricing-price"><strong>Gratis</strong></div>
+<p class="pricing-annual"><strong>Full Access</strong> selama 14 hari</p>
+<div class="pricing-divider"></div>
+<ul class="pricing-features">
+<li><span class="material-symbols-outlined" aria-hidden="true">check</span>Unlimited Workspace</li>
+<li><span class="material-symbols-outlined" aria-hidden="true">check</span>10 Member/User</li>
+<li><span class="material-symbols-outlined" aria-hidden="true">check</span>10 GB Storage</li>
+</ul>
+<a class="pricing-action attention-shake" href="#">Mulai trial gratis <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span></a>
+</article>
+<article class="pricing-card pricing-card--pro">
+<div class="pricing-card__topline">
+<span class="pricing-card__label">Pro</span>
+<span class="pricing-card__badge">Paling populer</span>
+</div>
+<h3>Untuk tim yang bertumbuh</h3>
+<div class="pricing-price"><strong>Rp 375K</strong><span>/month</span></div>
+<p class="pricing-annual"><strong>Rp 3.750K/year</strong> &middot; Free 2 months</p>
+<div class="pricing-divider"></div>
+<ul class="pricing-features">
+<li><span class="material-symbols-outlined" aria-hidden="true">check</span>Unlimited Workspace</li>
+<li><span class="material-symbols-outlined" aria-hidden="true">check</span>10 Member/User</li>
+<li><span class="material-symbols-outlined" aria-hidden="true">check</span>10 GB Storage</li>
+</ul>
+<a class="pricing-action" href="#">Pilih paket Pro <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span></a>
+</article>
+<article class="pricing-card pricing-card--additional">
+<div class="pricing-card__topline">
+<span class="pricing-card__label">Additional Member</span>
+</div>
+<h3>Perluas kapasitas tim</h3>
+<div class="pricing-price"><strong>Rp 275K</strong><span>/month</span></div>
+<p class="pricing-annual"><strong>Rp 2.750K/year</strong> &middot; Free 2 months</p>
+<div class="pricing-divider"></div>
+<ul class="pricing-features">
+<li><span class="material-symbols-outlined" aria-hidden="true">group_add</span>Additional 10 members</li>
+</ul>
+<a class="pricing-action" href="#">Tambah member <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span></a>
+</article>
+</div>
+<p class="pricing-footnote"><span class="material-symbols-outlined" aria-hidden="true">credit_card_off</span>Tidak perlu kartu kredit untuk memulai free trial.</p>
 </div>
 </section>
 <footer class="py-10">
