@@ -24,7 +24,7 @@ const [featured, ...latestPosts] = posts;
     </section>
 
     <section class="featured-post" aria-labelledby="featured-title">
-      <img src={featured.image} alt="" />
+      <img src={featured.image} alt={featured.imageAlt} />
       <div class="featured-content">
         <p class="post-meta"><span>{featured.category}</span>{featured.date} · {featured.readTime}</p>
         <h2 id="featured-title">{featured.title}</h2>
@@ -41,7 +41,7 @@ const [featured, ...latestPosts] = posts;
       <div class="post-grid">
         {latestPosts.map((post) => (
           <article class="post-card">
-            <img src={post.image} alt="" loading="lazy" />
+            <img src={post.image} alt={post.imageAlt} loading="lazy" />
             <div>
               <p class="post-meta"><span>{post.category}</span>{post.readTime}</p>
               <h3><a href={`/blog/${post.slug}/`}>{post.title}</a></h3>
